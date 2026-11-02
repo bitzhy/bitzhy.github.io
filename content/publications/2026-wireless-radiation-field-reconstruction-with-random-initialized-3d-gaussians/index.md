@@ -5,6 +5,11 @@ authors:
   - "me"
   - "Ruoxing Wang"
   - "Fan Li"
+author_notes:
+  - ""
+  - "Corresponding author"
+  - ""
+  - ""
 date: "2026-09-30T00:00:00Z"
 publication_types: ["article-journal"]
 publication:
@@ -22,9 +27,10 @@ tags:
 links:
   - type: pdf
     url: "https://dl.acm.org/doi/pdf/10.1145/3832013?download=true"
-hugoblox:
-  ids:
-    doi: "10.1145/3832013"
+  # The DOI is printed in the article, but doi.org currently returns DOI Not Found.
+  # Keep the DOI in cite.bib and link directly to the publisher until it resolves.
+  - type: doi
+    url: "https://dl.acm.org/doi/10.1145/3832013"
 ---
 
 ## Abstract
