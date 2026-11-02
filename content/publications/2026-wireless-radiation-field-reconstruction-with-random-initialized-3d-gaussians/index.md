@@ -26,11 +26,10 @@ tags:
   - "CCF-A"
 links:
   - type: pdf
-    url: "https://dl.acm.org/doi/pdf/10.1145/3832013?download=true"
-  # The DOI is printed in the article, but doi.org currently returns DOI Not Found.
-  # Keep the DOI in cite.bib and link directly to the publisher until it resolves.
-  - type: doi
-    url: "https://dl.acm.org/doi/10.1145/3832013"
+    url: "/papers/2026-wireless-radiation-field-reconstruction-with-random-initialized-3d-gaussians.pdf"
+hugoblox:
+  ids:
+    doi: "10.1145/3832013"
 ---
 
 ## Abstract
