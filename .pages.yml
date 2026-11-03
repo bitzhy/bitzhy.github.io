@@ -1,0 +1,208 @@
+# Online editor: https://app.pagescms.org/
+# Setup guide: README.md, section 6.
+# This configuration is inactive until the repository owner installs the GitHub App.
+media:
+  - name: papers
+    label: 论文 PDF
+    input: static/papers/online
+    output: /papers/online
+    extensions: [pdf]
+    rename: random
+  - name: slides
+    label: 报告幻灯片
+    input: static/slides/online
+    output: /slides/online
+    extensions: [pdf, ppt, pptx]
+    rename: random
+
+content:
+  - name: online_publications
+    label: 在线论文管理
+    type: collection
+    path: data/online_publications
+    format: json
+    subfolders: false
+    filename:
+      template: "{year}-{month}-{day}-{primary}.json"
+      field: create
+    operations:
+      create: true
+      rename: false
+      delete: true
+    view:
+      primary: title
+      fields: [title, date, draft]
+      search: [title, venue, doi]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 论文标题
+        type: string
+        required: true
+        description: 填写完整英文标题。首次保存后，修改标题不会改变页面地址。
+      - name: draft
+        label: 暂存为草稿
+        type: boolean
+        default: true
+        description: 开启时不显示在主页。核对完成后关闭并保存，构建成功后才更新主页。
+      - name: bibtex
+        label: BibTeX 引用（推荐粘贴）
+        type: text
+        description: 一次粘贴一条 article 或 inproceedings 记录。构建时自动读取作者、刊物、卷期页码等；下方非空字段可以覆盖引用中的信息。这里不会即时自动填表。
+      - name: date
+        label: 发表日期
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+        description: 建议明确填写。BibTeX 仅有年月时会暂用该月 1 日；未来日期的论文届时才显示。
+      - name: type
+        label: 论文类型
+        type: select
+        options:
+          values:
+            - name: ""
+              label: 从 BibTeX 识别（手工填写时默认为期刊）
+            - name: article-journal
+              label: 期刊论文
+            - name: paper-conference
+              label: 会议论文
+      - name: authors
+        label: 作者与署名（覆盖 BibTeX）
+        type: object
+        description: 按署名顺序添加，可拖动排序。留空时读取 BibTeX 作者；填写 Chunhui Duan 会自动关联主页作者。
+        list:
+          max: 100
+          collapsible:
+            collapsed: false
+            summary: "{index}. {name}"
+        fields:
+          - name: name
+            label: 作者姓名
+            type: string
+            required: true
+          - name: note
+            label: 作者备注
+            type: select
+            options:
+              values:
+                - name: ""
+                  label: 普通作者
+                - name: Corresponding author
+                  label: 通讯作者
+                - name: Equal contribution
+                  label: 共同第一作者
+                - name: Equal contribution; Corresponding author
+                  label: 共同第一作者、通讯作者
+      - name: venue
+        label: 期刊 / 会议全名
+        type: string
+        description: 留空时读取 BibTeX；没有提供 BibTeX 时必须填写。
+      - name: venueShort
+        label: 主页显示简称
+        type: string
+        description: 例如 IEEE TMC、ACM IMWUT (UbiComp)。
+      - name: volume
+        label: 卷号
+        type: string
+      - name: issue
+        label: 期号
+        type: string
+      - name: pages
+        label: 页码
+        type: string
+      - name: articleNumber
+        label: 文章编号
+        type: string
+      - name: location
+        label: 会议地点
+        type: string
+      - name: doi
+        label: DOI
+        type: string
+        description: 例如 10.1145/3832013；可留空并从 BibTeX 读取。
+      - name: ccfRank
+        label: CCF 等级
+        type: select
+        description: 根据核实的信息选择，不自动推断。
+        options:
+          values:
+            - name: ""
+              label: 不标注
+            - name: CCF-A
+              label: CCF-A
+            - name: CCF-B
+              label: CCF-B
+            - name: CCF-C
+              label: CCF-C
+      - name: casRank
+        label: 中科院分区
+        type: select
+        description: 根据核实的信息选择，不自动推断。
+        options:
+          values:
+            - name: ""
+              label: 不标注
+            - name: 中科院一区
+              label: 中科院一区
+            - name: 中科院二区
+              label: 中科院二区
+            - name: 中科院三区
+              label: 中科院三区
+            - name: 中科院四区
+              label: 中科院四区
+      - name: pdfUrl
+        label: 论文 PDF
+        type: file
+        options:
+          media: papers
+          extensions: [pdf]
+          rename: random
+      - name: slidesUrl
+        label: 报告幻灯片
+        type: file
+        options:
+          media: slides
+          extensions: [pdf, ppt, pptx]
+          rename: random
+      - name: codeUrl
+        label: 代码仓库链接
+        type: string
+      - name: projectUrl
+        label: 项目主页链接
+        type: string
+      - name: videoUrl
+        label: 视频链接
+        type: string
+      - name: abstract
+        label: 论文摘要
+        type: text
+      - name: citationEnglish
+        label: 自定义英文引用（选填）
+        type: text
+        description: 留空时生成引用初稿；特殊姓名和引用格式请自行核对。
+      - name: citationChinese
+        label: 自定义中文引用（选填）
+        type: text
+      - name: featured
+        label: 重点论文
+        type: boolean
+        default: false
+      - name: openAccess
+        label: 开放获取
+        type: boolean
+        default: false
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: app
+    templates:
+      create: "新增主页内容：{filename}"
+      update: "更新主页内容：{filename}"
+      delete: "删除主页内容：{filename}"
+      rename: "重命名主页内容：{oldFilename} -> {newFilename}"

@@ -5,9 +5,11 @@
   "packageManager": "pnpm@10.14.0",
   "description": "Academic CV starter template for Hugo Blox with Tailwind CSS v4",
   "scripts": {
-    "dev": "hugo server --disableFastRender",
-    "build": "hugo --minify && pnpm run pagefind",
-    "pagefind": "pagefind --site public"
+    "dev": "node scripts/online-publications/sync.mjs && hugo server --disableFastRender",
+    "build": "node scripts/online-publications/sync.mjs && hugo --minify && pnpm run pagefind",
+    "pagefind": "pagefind --site public",
+    "papers:sync": "node scripts/online-publications/sync.mjs",
+    "papers:online-test": "node --test scripts/online-publications/sync.test.mjs"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.12",
@@ -17,3 +19,4 @@
     "tailwindcss": "^4.1.12"
   }
 }
+

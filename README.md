@@ -6,6 +6,20 @@
 
 > 建议：修改前先下载或拉取最新版本；每次只更新一类内容，预览无误后再提交。文本文件统一使用 **UTF-8** 编码，以免中文乱码。
 
+## 在线论文管理（本测试仓库）
+
+此仓库是 `bitzhy/bitzhy.github.io` 测试站点，配置不会改动上游老师的仓库。
+
+管理员通过 [Pages CMS](https://app.pagescms.org/) 用有仓库权限的 GitHub 账号登录，首次授权本仓库后选择 `main` 分支，打开“在线论文管理”。拥有者直接登录，无需邮箱邀请；其他维护者可选邮箱邀请。
+
+新增论文时填写标题，可粘贴单条 BibTeX，核对日期和作者，上传 PDF 或幻灯片。“暂存为草稿”默认开启，保存草稿不会显示在主页；确认后关闭草稿并保存，后台自动提交到 GitHub，Actions 构建成功后更新主页，无需手动 push。BibTeX 在构建时读取，不会即时自动填入网页字段。
+
+源记录在 `data/online_publications/`，附件在 `static/papers/online/`、`static/slides/online/`。构建前自动生成论文页面和 BibTeX；不要手改被忽略的 `content/publications/online/`。在线新增的论文可回后台修改或撤回为草稿，地址不随标题更改。此前手工维护的论文未迁移到这个在线记录列表。
+
+本地验证：`node --test scripts/online-publications/sync.test.mjs`。本地预览和构建：`pnpm dev`、`pnpm build`。仅使用 `hugo` 命令时需先执行 `node scripts/online-publications/sync.mjs`。
+
+首次登录授权与是否已安装 GitHub App，以 Pages CMS 和 GitHub 中的实际状态为准。
+
 ## 目录
 
 - [个人学术主页维护说明](#个人学术主页维护说明)
@@ -58,7 +72,7 @@
 
 适合修改文字、日期、链接，以及上传少量附件。
 
-1. 打开本项目的 GitHub 仓库：`https://github.com/duanch/duanch.github.io`。
+1. 打开本项目的 GitHub 仓库：`https://github.com/bitzhy/bitzhy.github.io`。
 2. 找到要修改的文件，点击右上角铅笔按钮 **Edit this file**。
 3. 修改内容后，点击 **Commit changes**。
 4. 填写简短说明，例如 `更新个人简介` 或 `新增 2026 年论文`。
@@ -567,3 +581,4 @@ pnpm build
 ```
 
 如果 `pnpm build` 正常结束，生成的网站会位于 `public/`。该目录仅用于检查构建结果，不需要提交到 GitHub。
+

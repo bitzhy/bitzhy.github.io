@@ -80,3 +80,7 @@ npm-debug.log*
 
 # Local source spreadsheets
 *.xlsx
+
+# Generated Hugo bundles; editable source is data/online_publications/
+content/publications/online/
+
