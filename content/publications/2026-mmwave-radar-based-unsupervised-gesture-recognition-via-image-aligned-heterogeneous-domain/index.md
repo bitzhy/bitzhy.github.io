@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "mmWave Radar-Based Unsupervised Gesture Recognition via Image-Aligned Heterogeneous Domain Transfer"
 authors:
   - "Qihua Feng"

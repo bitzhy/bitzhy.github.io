@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Enabling RFID-Based Tracking for Multi-Objects with Visual Aids: A Calibration-Free Solution"
 authors:
   - "me"

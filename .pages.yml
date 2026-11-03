@@ -3,15 +3,15 @@
 media:
   - name: papers
     label: 论文 PDF
-    input: static/papers/online
-    output: /papers/online
+    input: static/papers
+    output: /papers
     extensions:
       - pdf
     rename: random
   - name: slides
     label: 报告幻灯片
-    input: static/slides/online
-    output: /slides/online
+    input: static/slides
+    output: /slides
     extensions:
       - pdf
       - ppt

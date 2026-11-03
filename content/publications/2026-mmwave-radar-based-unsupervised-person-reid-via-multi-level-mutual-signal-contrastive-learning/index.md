@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "mmWave Radar-Based Unsupervised Person ReID via Multi-Level Mutual Signal Contrastive Learning"
 authors:
   - "Qihua Feng"

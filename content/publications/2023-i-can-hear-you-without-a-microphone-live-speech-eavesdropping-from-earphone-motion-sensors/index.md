@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors"
 authors:
   - "Yetong Cao"

@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Non-Intrusive Item Authentication with High Robustness for RFID-Enabled Logistics"
 authors:
   - "Jiawei Xue"

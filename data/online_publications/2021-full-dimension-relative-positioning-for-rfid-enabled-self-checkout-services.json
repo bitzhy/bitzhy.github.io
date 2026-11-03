@@ -1,0 +1,152 @@
+{
+  "title": "Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services",
+  "draft": false,
+  "bibtex": "@article{duan2021full,\n  author = {Chunhui Duan and Jiajun Liu and Xuan Ding and Zhenhua Li and Yunhao Liu},\n  title = {Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services},\n  journal = {ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},\n  year = {2021},\n  volume = {5},\n  number = {1},\n  pages = {1-23},\n  doi = {10.1145/3448094}\n}\n\n",
+  "date": "2021-03-01",
+  "type": "article-journal",
+  "authors": [
+    {
+      "name": "Chunhui Duan",
+      "note": ""
+    },
+    {
+      "name": "Jiajun Liu",
+      "note": ""
+    },
+    {
+      "name": "Xuan Ding",
+      "note": ""
+    },
+    {
+      "name": "Zhenhua Li",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Yunhao Liu",
+      "note": ""
+    }
+  ],
+  "venue": "ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies",
+  "venueShort": "ACM IMWUT",
+  "volume": "5",
+  "issue": "1",
+  "pages": "1-23",
+  "articleNumber": "",
+  "location": "",
+  "doi": "10.1145/3448094",
+  "ccfRank": "CCF-A",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2021-full-dimension-relative-positioning-for-rfid-enabled-self-checkout-services.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "Self-checkout services in today's retail stores are well received as they set free the labor force of cashiers\nand shorten conventional checkout lines. However, existing self-checkout options either require customers to\nscan items one by one, which is troublesome and inefficient, or rely on deployments of massive sensors and\ncameras together with complex tracking algorithms. On the other hand, RFID-based item-level tagging in retail\noffers an extraordinary opportunity to enhance current checkout experiences. In this work, we propose Taggo, a\nlightweight and efficient self-checkout schema utilizing well-deployed RFIDs. Taggo attaches a few anchor tags\non the four upper edges of each shopping cart, so as to figure out which cart each item belongs to, through\nrelative positioning among the tagged items and anchor tags without knowing their absolute positions.\nSpecifically, a full-dimension ordering technique is devised to accurately determine the order of tags in each\ndimension, as well as to address the negative impacts from imperfect measurements in indoor surroundings.\nBesides, we design a holistic classifying solution based on probabilistic modeling to map each item to the\ncorrect cart that carries it. We have implemented Taggo with commercial RFID devices and evaluated it\nextensively in our lab environment. On average, Taggo achieves 90% ordering accuracy in real-time, eventually\nproducing 95% classifying accuracy.",
+  "citationEnglish": "C. Duan, J. Liu, X. Ding, Z. Li, and Y. Liu, “Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services,” ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT), vol. 5, no. 1, pp. 1-23, 2021.",
+  "citationChinese": "Duan C, Liu J, Ding X, et al. Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services[J]. ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT), 2021, 5(1):1-23.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2021-full-dimension-relative-positioning-for-rfid-enabled-self-checkout-services/index.md",
+    "originalUrl": "/publications/2021-full-dimension-relative-positioning-for-rfid-enabled-self-checkout-services/",
+    "frontmatter": {
+      "title": "Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services",
+      "authors": [
+        "me",
+        "Jiajun Liu",
+        "Xuan Ding",
+        "Zhenhua Li",
+        "Yunhao Liu"
+      ],
+      "author_notes": [
+        "",
+        "",
+        "",
+        "Corresponding author",
+        ""
+      ],
+      "date": "2021-03-01T00:00:00Z",
+      "publication_types": [
+        "article-journal"
+      ],
+      "publication": {
+        "name": "ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies",
+        "short_name": "ACM IMWUT",
+        "volume": "5",
+        "issue": "1",
+        "pages": "1-23"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "tags": [
+        "CCF-A"
+      ],
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2021-full-dimension-relative-positioning-for-rfid-enabled-self-checkout-services.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1145/3448094"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nSelf-checkout services in today's retail stores are well received as they set free the labor force of cashiers\nand shorten conventional checkout lines. However, existing self-checkout options either require customers to\nscan items one by one, which is troublesome and inefficient, or rely on deployments of massive sensors and\ncameras together with complex tracking algorithms. On the other hand, RFID-based item-level tagging in retail\noffers an extraordinary opportunity to enhance current checkout experiences. In this work, we propose Taggo, a\nlightweight and efficient self-checkout schema utilizing well-deployed RFIDs. Taggo attaches a few anchor tags\non the four upper edges of each shopping cart, so as to figure out which cart each item belongs to, through\nrelative positioning among the tagged items and anchor tags without knowing their absolute positions.\nSpecifically, a full-dimension ordering technique is devised to accurately determine the order of tags in each\ndimension, as well as to address the negative impacts from imperfect measurements in indoor surroundings.\nBesides, we design a holistic classifying solution based on probabilistic modeling to map each item to the\ncorrect cart that carries it. We have implemented Taggo with commercial RFID devices and evaluated it\nextensively in our lab environment. On average, Taggo achieves 90% ordering accuracy in real-time, eventually\nproducing 95% classifying accuracy.\n\n## Citation\n\nC. Duan, J. Liu, X. Ding, Z. Li, and Y. Liu, “Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services,” ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT), vol. 5, no. 1, pp. 1-23, 2021.\n\n## 中文引用（GB/T 7714）\n\nDuan C, Liu J, Ding X, et al. Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services[J]. ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT), 2021, 5(1):1-23.\n",
+    "bibtex": "@article{duan2021full,\n  author = {Chunhui Duan and Jiajun Liu and Xuan Ding and Zhenhua Li and Yunhao Liu},\n  title = {Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services},\n  journal = {ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},\n  year = {2021},\n  volume = {5},\n  number = {1},\n  pages = {1-23},\n  doi = {10.1145/3448094}\n}\n\n",
+    "baseline": {
+      "title": "Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services",
+      "draft": false,
+      "bibtex": "@article{duan2021full,\n  author = {Chunhui Duan and Jiajun Liu and Xuan Ding and Zhenhua Li and Yunhao Liu},\n  title = {Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services},\n  journal = {ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},\n  year = {2021},\n  volume = {5},\n  number = {1},\n  pages = {1-23},\n  doi = {10.1145/3448094}\n}\n\n",
+      "date": "2021-03-01",
+      "type": "article-journal",
+      "authors": [
+        {
+          "name": "Chunhui Duan",
+          "note": ""
+        },
+        {
+          "name": "Jiajun Liu",
+          "note": ""
+        },
+        {
+          "name": "Xuan Ding",
+          "note": ""
+        },
+        {
+          "name": "Zhenhua Li",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Yunhao Liu",
+          "note": ""
+        }
+      ],
+      "venue": "ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies",
+      "venueShort": "ACM IMWUT",
+      "volume": "5",
+      "issue": "1",
+      "pages": "1-23",
+      "articleNumber": "",
+      "location": "",
+      "doi": "10.1145/3448094",
+      "ccfRank": "CCF-A",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2021-full-dimension-relative-positioning-for-rfid-enabled-self-checkout-services.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "Self-checkout services in today's retail stores are well received as they set free the labor force of cashiers\nand shorten conventional checkout lines. However, existing self-checkout options either require customers to\nscan items one by one, which is troublesome and inefficient, or rely on deployments of massive sensors and\ncameras together with complex tracking algorithms. On the other hand, RFID-based item-level tagging in retail\noffers an extraordinary opportunity to enhance current checkout experiences. In this work, we propose Taggo, a\nlightweight and efficient self-checkout schema utilizing well-deployed RFIDs. Taggo attaches a few anchor tags\non the four upper edges of each shopping cart, so as to figure out which cart each item belongs to, through\nrelative positioning among the tagged items and anchor tags without knowing their absolute positions.\nSpecifically, a full-dimension ordering technique is devised to accurately determine the order of tags in each\ndimension, as well as to address the negative impacts from imperfect measurements in indoor surroundings.\nBesides, we design a holistic classifying solution based on probabilistic modeling to map each item to the\ncorrect cart that carries it. We have implemented Taggo with commercial RFID devices and evaluated it\nextensively in our lab environment. On average, Taggo achieves 90% ordering accuracy in real-time, eventually\nproducing 95% classifying accuracy.",
+      "citationEnglish": "C. Duan, J. Liu, X. Ding, Z. Li, and Y. Liu, “Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services,” ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT), vol. 5, no. 1, pp. 1-23, 2021.",
+      "citationChinese": "Duan C, Liu J, Ding X, et al. Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services[J]. ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT), 2021, 5(1):1-23.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

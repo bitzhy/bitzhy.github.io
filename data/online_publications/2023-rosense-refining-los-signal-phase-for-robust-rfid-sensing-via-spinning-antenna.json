@@ -1,0 +1,129 @@
+{
+  "title": "RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna",
+  "draft": false,
+  "bibtex": "@article{zhu2023rosense,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding},\n  title = {RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna},\n  journal = {ACM SIGMETRICS Performance Evaluation Review},\n  year = {2023},\n  volume = {50},\n  number = {4},\n  pages = {53-55},\n  doi = {10.1145/3595244.3595263}\n}\n\n",
+  "date": "2023-04-01",
+  "type": "article-journal",
+  "authors": [
+    {
+      "name": "Yinan Zhu",
+      "note": ""
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Xuan Ding",
+      "note": ""
+    }
+  ],
+  "venue": "ACM SIGMETRICS Performance Evaluation Review",
+  "venueShort": "ACM SIGMETRICS PER",
+  "volume": "50",
+  "issue": "4",
+  "pages": "53-55",
+  "articleNumber": "",
+  "location": "",
+  "doi": "10.1145/3595244.3595263",
+  "ccfRank": "",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2023-rosense-refining-los-signal-phase-for-robust-rfid-sensing-via-spinning-antenna.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "RFID sensing leveraging backscatter signal features (e.g., phase shift) from tags has gained increasing\npopularity in numerous applications, but also suffers from negative impacts of environmental multipaths. Past\nworks to address it rely on extra customized devices, labor-intensive offine training or frequency channel\nhopping, all of which are nonubiquitous or ineffective for real-life adoption. This paper presents RoSense, a\nuniversal method to alleviate multipath reflections' impacts by spinning the reader antenna, thus enabling\nmore robust RFID sensing. Besides, RoSense requires no RF devices or offline training, and operates in a\nnonintrusive manner. The key insight of RoSense is to exploit two properties of line-of-sight (LOS) signal\nwhen spinning the antenna, i.e., the linearity of phase changes and stability of received signal strength to\nattenuate the non-linear and non-monotonic effect of multipath signals and refine the phase shift of LOS\nsignal. We have implemented a prototype of RoSense with COTS devices and studied two cases for evaluation:\nmaterial identification and object localization. Experimental results show that RoSense can improve the\nmaterial identification accuracy by 16.22% and reduce the mean localization error by 39.93%, greatly\noutperforming the state-of-the-art solutions.",
+  "citationEnglish": "Y. Zhu, C. Duan, and X. Ding, “RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna,” ACM SIGMETRICS Performance Evaluation Review (PER), vol. 50, no.4, pp. 53-55, 2023.",
+  "citationChinese": "Zhu Y, Duan C, Ding X. RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna[J]. ACM SIGMETRICS Performance Evaluation Review (PER), 2023, 50(4): 53-55.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2023-rosense-refining-los-signal-phase-for-robust-rfid-sensing-via-spinning-antenna/index.md",
+    "originalUrl": "/publications/2023-rosense-refining-los-signal-phase-for-robust-rfid-sensing-via-spinning-antenna/",
+    "frontmatter": {
+      "title": "RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna",
+      "authors": [
+        "Yinan Zhu",
+        "me",
+        "Xuan Ding"
+      ],
+      "author_notes": [
+        "",
+        "Corresponding author",
+        ""
+      ],
+      "date": "2023-04-01T00:00:00Z",
+      "publication_types": [
+        "article-journal"
+      ],
+      "publication": {
+        "name": "ACM SIGMETRICS Performance Evaluation Review",
+        "short_name": "ACM SIGMETRICS PER",
+        "volume": "50",
+        "issue": "4",
+        "pages": "53-55"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2023-rosense-refining-los-signal-phase-for-robust-rfid-sensing-via-spinning-antenna.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1145/3595244.3595263"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nRFID sensing leveraging backscatter signal features (e.g., phase shift) from tags has gained increasing\npopularity in numerous applications, but also suffers from negative impacts of environmental multipaths. Past\nworks to address it rely on extra customized devices, labor-intensive offine training or frequency channel\nhopping, all of which are nonubiquitous or ineffective for real-life adoption. This paper presents RoSense, a\nuniversal method to alleviate multipath reflections' impacts by spinning the reader antenna, thus enabling\nmore robust RFID sensing. Besides, RoSense requires no RF devices or offline training, and operates in a\nnonintrusive manner. The key insight of RoSense is to exploit two properties of line-of-sight (LOS) signal\nwhen spinning the antenna, i.e., the linearity of phase changes and stability of received signal strength to\nattenuate the non-linear and non-monotonic effect of multipath signals and refine the phase shift of LOS\nsignal. We have implemented a prototype of RoSense with COTS devices and studied two cases for evaluation:\nmaterial identification and object localization. Experimental results show that RoSense can improve the\nmaterial identification accuracy by 16.22% and reduce the mean localization error by 39.93%, greatly\noutperforming the state-of-the-art solutions.\n\n## Citation\n\nY. Zhu, C. Duan, and X. Ding, “RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna,” ACM SIGMETRICS Performance Evaluation Review (PER), vol. 50, no.4, pp. 53-55, 2023.\n\n## 中文引用（GB/T 7714）\n\nZhu Y, Duan C, Ding X. RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna[J]. ACM SIGMETRICS Performance Evaluation Review (PER), 2023, 50(4): 53-55.\n",
+    "bibtex": "@article{zhu2023rosense,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding},\n  title = {RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna},\n  journal = {ACM SIGMETRICS Performance Evaluation Review},\n  year = {2023},\n  volume = {50},\n  number = {4},\n  pages = {53-55},\n  doi = {10.1145/3595244.3595263}\n}\n\n",
+    "baseline": {
+      "title": "RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna",
+      "draft": false,
+      "bibtex": "@article{zhu2023rosense,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding},\n  title = {RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna},\n  journal = {ACM SIGMETRICS Performance Evaluation Review},\n  year = {2023},\n  volume = {50},\n  number = {4},\n  pages = {53-55},\n  doi = {10.1145/3595244.3595263}\n}\n\n",
+      "date": "2023-04-01",
+      "type": "article-journal",
+      "authors": [
+        {
+          "name": "Yinan Zhu",
+          "note": ""
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Xuan Ding",
+          "note": ""
+        }
+      ],
+      "venue": "ACM SIGMETRICS Performance Evaluation Review",
+      "venueShort": "ACM SIGMETRICS PER",
+      "volume": "50",
+      "issue": "4",
+      "pages": "53-55",
+      "articleNumber": "",
+      "location": "",
+      "doi": "10.1145/3595244.3595263",
+      "ccfRank": "",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2023-rosense-refining-los-signal-phase-for-robust-rfid-sensing-via-spinning-antenna.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "RFID sensing leveraging backscatter signal features (e.g., phase shift) from tags has gained increasing\npopularity in numerous applications, but also suffers from negative impacts of environmental multipaths. Past\nworks to address it rely on extra customized devices, labor-intensive offine training or frequency channel\nhopping, all of which are nonubiquitous or ineffective for real-life adoption. This paper presents RoSense, a\nuniversal method to alleviate multipath reflections' impacts by spinning the reader antenna, thus enabling\nmore robust RFID sensing. Besides, RoSense requires no RF devices or offline training, and operates in a\nnonintrusive manner. The key insight of RoSense is to exploit two properties of line-of-sight (LOS) signal\nwhen spinning the antenna, i.e., the linearity of phase changes and stability of received signal strength to\nattenuate the non-linear and non-monotonic effect of multipath signals and refine the phase shift of LOS\nsignal. We have implemented a prototype of RoSense with COTS devices and studied two cases for evaluation:\nmaterial identification and object localization. Experimental results show that RoSense can improve the\nmaterial identification accuracy by 16.22% and reduce the mean localization error by 39.93%, greatly\noutperforming the state-of-the-art solutions.",
+      "citationEnglish": "Y. Zhu, C. Duan, and X. Ding, “RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna,” ACM SIGMETRICS Performance Evaluation Review (PER), vol. 50, no.4, pp. 53-55, 2023.",
+      "citationChinese": "Zhu Y, Duan C, Ding X. RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna[J]. ACM SIGMETRICS Performance Evaluation Review (PER), 2023, 50(4): 53-55.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

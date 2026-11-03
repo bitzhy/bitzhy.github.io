@@ -1,0 +1,162 @@
+{
+  "title": "TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids",
+  "draft": false,
+  "bibtex": "@article{yin2023tagfocus,\n  author = {Junjie Yin and Zheng Yang and Sicong Liao and Chunhui Duan and Xuan Ding and Li Zhang},\n  title = {TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids},\n  journal = {ACM Transactions on Sensor Networks},\n  year = {2023},\n  volume = {19},\n  number = {1},\n  pages = {1-22},\n  doi = {10.1145/3526193}\n}\n\n",
+  "date": "2023-02-01",
+  "type": "article-journal",
+  "authors": [
+    {
+      "name": "Junjie Yin",
+      "note": ""
+    },
+    {
+      "name": "Zheng Yang",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Sicong Liao",
+      "note": ""
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": ""
+    },
+    {
+      "name": "Xuan Ding",
+      "note": ""
+    },
+    {
+      "name": "Li Zhang",
+      "note": ""
+    }
+  ],
+  "venue": "ACM Transactions on Sensor Networks",
+  "venueShort": "ACM TOSN",
+  "volume": "19",
+  "issue": "1",
+  "pages": "1-22",
+  "articleNumber": "",
+  "location": "",
+  "doi": "10.1145/3526193",
+  "ccfRank": "CCF-B",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2023-tagfocus-towards-fine-grained-multi-object-identification-in-rfid-based-systems-with-visua.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "Obtaining fine-grained spatial information is of practical importance in Radio Frequency Identification\n(RFID)-based systems for enabling multi-object identification. However, as high-precision positioning remains\nimpractical in commercial-off-the-shelf (COTS)-RFID systems, researchers propose to combine computer vision\n(CV) with RFID and turn the positioning problem into a matching problem. Promising though it seems, current\nmethods fuse CV and RFID through converting traces of tagged objects extracted from videos by CV into phase\nsequences for matching, which is a dimension-reduced procedure causing loss of spatial resolution.\nConsequently, they fail in harsh conditions like small tag intervals and low reading rates. To address the\nlimitation, we propose TagFocus to achieve fine-grained multi-object identification with visual aids in RFID\nsystems. The key observation is that traces generated through different methods shall be compatible if they\nare of one identical object. Accordingly, a Transformer-based sequence-to-sequence (seq2seq) model is trained\nto generate a simulated trace for each candidate tag-object pair. And the trace of the right pair shall best\nmatch the observed trace directly extracted by CV. A prototype of TagFocus is implemented and extensively\nassessed in lab environments. Experimental results show that our system maintains a matching accuracy of over\n91% in harsh conditions, outperforming state-of-the-art schemes by 27%.",
+  "citationEnglish": "J. Yin, Z. Yang, S. Liao, C. Duan, X. Ding, and L. Zhang, “TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids,” ACM Transactions on Sensor Networks (TOSN), vol. 19, no. 1, pp. 1-22, 2023.",
+  "citationChinese": "Yin J, Yang Z, Liao S, et al. TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids[J]. ACM Transactions on Sensor Networks (TOSN), 2023, 19(1): 1-22.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2023-tagfocus-towards-fine-grained-multi-object-identification-in-rfid-based-systems-with-visua/index.md",
+    "originalUrl": "/publications/2023-tagfocus-towards-fine-grained-multi-object-identification-in-rfid-based-systems-with-visua/",
+    "frontmatter": {
+      "title": "TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids",
+      "authors": [
+        "Junjie Yin",
+        "Zheng Yang",
+        "Sicong Liao",
+        "me",
+        "Xuan Ding",
+        "Li Zhang"
+      ],
+      "author_notes": [
+        "",
+        "Corresponding author",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "date": "2023-02-01T00:00:00Z",
+      "publication_types": [
+        "article-journal"
+      ],
+      "publication": {
+        "name": "ACM Transactions on Sensor Networks",
+        "short_name": "ACM TOSN",
+        "volume": "19",
+        "issue": "1",
+        "pages": "1-22"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "tags": [
+        "CCF-B"
+      ],
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2023-tagfocus-towards-fine-grained-multi-object-identification-in-rfid-based-systems-with-visua.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1145/3526193"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nObtaining fine-grained spatial information is of practical importance in Radio Frequency Identification\n(RFID)-based systems for enabling multi-object identification. However, as high-precision positioning remains\nimpractical in commercial-off-the-shelf (COTS)-RFID systems, researchers propose to combine computer vision\n(CV) with RFID and turn the positioning problem into a matching problem. Promising though it seems, current\nmethods fuse CV and RFID through converting traces of tagged objects extracted from videos by CV into phase\nsequences for matching, which is a dimension-reduced procedure causing loss of spatial resolution.\nConsequently, they fail in harsh conditions like small tag intervals and low reading rates. To address the\nlimitation, we propose TagFocus to achieve fine-grained multi-object identification with visual aids in RFID\nsystems. The key observation is that traces generated through different methods shall be compatible if they\nare of one identical object. Accordingly, a Transformer-based sequence-to-sequence (seq2seq) model is trained\nto generate a simulated trace for each candidate tag-object pair. And the trace of the right pair shall best\nmatch the observed trace directly extracted by CV. A prototype of TagFocus is implemented and extensively\nassessed in lab environments. Experimental results show that our system maintains a matching accuracy of over\n91% in harsh conditions, outperforming state-of-the-art schemes by 27%.\n\n## Citation\n\nJ. Yin, Z. Yang, S. Liao, C. Duan, X. Ding, and L. Zhang, “TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids,” ACM Transactions on Sensor Networks (TOSN), vol. 19, no. 1, pp. 1-22, 2023.\n\n## 中文引用（GB/T 7714）\n\nYin J, Yang Z, Liao S, et al. TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids[J]. ACM Transactions on Sensor Networks (TOSN), 2023, 19(1): 1-22.\n",
+    "bibtex": "@article{yin2023tagfocus,\n  author = {Junjie Yin and Zheng Yang and Sicong Liao and Chunhui Duan and Xuan Ding and Li Zhang},\n  title = {TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids},\n  journal = {ACM Transactions on Sensor Networks},\n  year = {2023},\n  volume = {19},\n  number = {1},\n  pages = {1-22},\n  doi = {10.1145/3526193}\n}\n\n",
+    "baseline": {
+      "title": "TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids",
+      "draft": false,
+      "bibtex": "@article{yin2023tagfocus,\n  author = {Junjie Yin and Zheng Yang and Sicong Liao and Chunhui Duan and Xuan Ding and Li Zhang},\n  title = {TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids},\n  journal = {ACM Transactions on Sensor Networks},\n  year = {2023},\n  volume = {19},\n  number = {1},\n  pages = {1-22},\n  doi = {10.1145/3526193}\n}\n\n",
+      "date": "2023-02-01",
+      "type": "article-journal",
+      "authors": [
+        {
+          "name": "Junjie Yin",
+          "note": ""
+        },
+        {
+          "name": "Zheng Yang",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Sicong Liao",
+          "note": ""
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": ""
+        },
+        {
+          "name": "Xuan Ding",
+          "note": ""
+        },
+        {
+          "name": "Li Zhang",
+          "note": ""
+        }
+      ],
+      "venue": "ACM Transactions on Sensor Networks",
+      "venueShort": "ACM TOSN",
+      "volume": "19",
+      "issue": "1",
+      "pages": "1-22",
+      "articleNumber": "",
+      "location": "",
+      "doi": "10.1145/3526193",
+      "ccfRank": "CCF-B",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2023-tagfocus-towards-fine-grained-multi-object-identification-in-rfid-based-systems-with-visua.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "Obtaining fine-grained spatial information is of practical importance in Radio Frequency Identification\n(RFID)-based systems for enabling multi-object identification. However, as high-precision positioning remains\nimpractical in commercial-off-the-shelf (COTS)-RFID systems, researchers propose to combine computer vision\n(CV) with RFID and turn the positioning problem into a matching problem. Promising though it seems, current\nmethods fuse CV and RFID through converting traces of tagged objects extracted from videos by CV into phase\nsequences for matching, which is a dimension-reduced procedure causing loss of spatial resolution.\nConsequently, they fail in harsh conditions like small tag intervals and low reading rates. To address the\nlimitation, we propose TagFocus to achieve fine-grained multi-object identification with visual aids in RFID\nsystems. The key observation is that traces generated through different methods shall be compatible if they\nare of one identical object. Accordingly, a Transformer-based sequence-to-sequence (seq2seq) model is trained\nto generate a simulated trace for each candidate tag-object pair. And the trace of the right pair shall best\nmatch the observed trace directly extracted by CV. A prototype of TagFocus is implemented and extensively\nassessed in lab environments. Experimental results show that our system maintains a matching accuracy of over\n91% in harsh conditions, outperforming state-of-the-art schemes by 27%.",
+      "citationEnglish": "J. Yin, Z. Yang, S. Liao, C. Duan, X. Ding, and L. Zhang, “TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids,” ACM Transactions on Sensor Networks (TOSN), vol. 19, no. 1, pp. 1-22, 2023.",
+      "citationChinese": "Yin J, Yang Z, Liao S, et al. TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids[J]. ACM Transactions on Sensor Networks (TOSN), 2023, 19(1): 1-22.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

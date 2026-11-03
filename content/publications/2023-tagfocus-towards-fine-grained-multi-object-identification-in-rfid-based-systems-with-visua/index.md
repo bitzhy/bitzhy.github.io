@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "TagFocus: Towards Fine-Grained Multi-Object Identification in RFID-based Systems with Visual Aids"
 authors:
   - "Junjie Yin"

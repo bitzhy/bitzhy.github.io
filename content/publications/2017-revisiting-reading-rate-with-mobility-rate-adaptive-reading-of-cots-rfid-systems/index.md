@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Revisiting Reading Rate with Mobility: Rate-Adaptive Reading of COTS RFID Systems"
 authors:
   - "Qiongzheng Lin"

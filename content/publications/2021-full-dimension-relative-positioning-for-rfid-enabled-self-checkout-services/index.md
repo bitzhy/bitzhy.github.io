@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Full-Dimension Relative Positioning for RFID-Enabled Self-Checkout Services"
 authors:
   - "me"

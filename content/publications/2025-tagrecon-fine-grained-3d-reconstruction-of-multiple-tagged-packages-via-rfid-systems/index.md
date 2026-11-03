@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "TagRecon: Fine-Grained 3D Reconstruction of Multiple Tagged Packages via RFID Systems"
 authors:
   - "Ziang Wang"

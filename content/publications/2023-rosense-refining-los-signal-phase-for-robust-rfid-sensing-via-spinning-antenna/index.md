@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "RoSense: Refining LOS Signal Phase for Robust RFID Sensing via Spinning Antenna"
 authors:
   - "Yinan Zhu"

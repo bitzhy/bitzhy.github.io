@@ -1,0 +1,203 @@
+{
+  "title": "EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing",
+  "draft": false,
+  "bibtex": "@article{feng2024evit,\n  author = {Qihua Feng and Peiya Li and Zhixun Lu and Chaozhuo Li and Zefan Wang and Zhiquan Liu and Chunhui Duan and Feiran Huang and Jian Weng and Philip S Yu},\n  title = {EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing},\n  journal = {IEEE Transactions on Circuits and Systems for Video Technology},\n  year = {2024},\n  volume = {34},\n  number = {8},\n  pages = {7467-7483},\n  doi = {10.1109/TCSVT.2024.3370668}\n}\n\n",
+  "date": "2024-08-01",
+  "type": "article-journal",
+  "authors": [
+    {
+      "name": "Qihua Feng",
+      "note": ""
+    },
+    {
+      "name": "Peiya Li",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Zhixun Lu",
+      "note": ""
+    },
+    {
+      "name": "Chaozhuo Li",
+      "note": ""
+    },
+    {
+      "name": "Zefan Wang",
+      "note": ""
+    },
+    {
+      "name": "Zhiquan Liu",
+      "note": ""
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": ""
+    },
+    {
+      "name": "Feiran Huang",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Jian Weng",
+      "note": ""
+    },
+    {
+      "name": "Philip S Yu",
+      "note": ""
+    }
+  ],
+  "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+  "venueShort": "IEEE TCSVT",
+  "volume": "34",
+  "issue": "8",
+  "pages": "7467-7483",
+  "articleNumber": "",
+  "location": "",
+  "doi": "10.1109/TCSVT.2024.3370668",
+  "ccfRank": "CCF-B",
+  "casRank": "中科院一区",
+  "tags": [],
+  "pdfUrl": "/papers/2024-evit-privacy-preserving-image-retrieval-via-encrypted-vision-transformer-in-cloud-computin.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "Image retrieval systems help users to browse and search among extensive images in real time. With the rise of\ncloud computing, retrieval tasks are usually outsourced to cloud servers. However, the cloud scenario brings a\ndaunting challenge of privacy protection as cloud servers cannot be fully trusted. To this end,\nimage-encryption-based privacy-preserving image retrieval (PPIR) schemes have been developed, which first\nextract features from cipher-images, and then build retrieval models based on these features. Yet, most\nexisting PPIR approaches extract shallow features and design trivial unsupervised retrieval models, resulting\nin insufficient expressiveness for the cipher-images. In this paper, we propose a novel paradigm named\nEncrypted Vision Transformer (EViT), which advances the discriminative representations capability of\ncipher-images. First, to capture comprehensive ruled information, we extract multi-level local length sequence\nand global Huffman-Code frequency features from the cipher-images which are encrypted by permutation\nencryption, sign encryption, and stream cipher during the JPEG compression process. Second, we design the\nmodified self-supervised Vision Transformer with Huffman-embedding and propose two robust data augmentations\non cipher-images to improve representation power of the retrieval model. Moreover, our proposal can be easily\nadapted to unsupervised or supervised settings. Extensive experiments reveal that EViT achieves both excellent\nencryption and retrieval performance, outperforming current schemes in terms of retrieval accuracy by large\nmargins while protecting image privacy effectively. Code is publicly available at\nhttps://github.com/onlinehuazai/EViT.",
+  "citationEnglish": "Q. Feng, P. Li, Z. Lu, C. Li, Z. Wang, Z. Liu, C. Duan, F. Huang, J. Weng, and P. Yu, “EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing,” IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), vol. 34, no. 8, pp. 7467-7483, 2024.",
+  "citationChinese": "Feng Q, Li P, Lu Z, et al. EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing[J]. IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2024, 34(8): 7467-7483.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2024-evit-privacy-preserving-image-retrieval-via-encrypted-vision-transformer-in-cloud-computin/index.md",
+    "originalUrl": "/publications/2024-evit-privacy-preserving-image-retrieval-via-encrypted-vision-transformer-in-cloud-computin/",
+    "frontmatter": {
+      "title": "EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing",
+      "authors": [
+        "Qihua Feng",
+        "Peiya Li",
+        "Zhixun Lu",
+        "Chaozhuo Li",
+        "Zefan Wang",
+        "Zhiquan Liu",
+        "me",
+        "Feiran Huang",
+        "Jian Weng",
+        "Philip S Yu"
+      ],
+      "author_notes": [
+        "",
+        "Corresponding author",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Corresponding author",
+        "",
+        ""
+      ],
+      "date": "2024-08-01T00:00:00Z",
+      "publication_types": [
+        "article-journal"
+      ],
+      "publication": {
+        "name": "IEEE Transactions on Circuits and Systems for Video Technology",
+        "short_name": "IEEE TCSVT",
+        "volume": "34",
+        "issue": "8",
+        "pages": "7467-7483"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "tags": [
+        "CCF-B",
+        "中科院一区"
+      ],
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2024-evit-privacy-preserving-image-retrieval-via-encrypted-vision-transformer-in-cloud-computin.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1109/TCSVT.2024.3370668"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nImage retrieval systems help users to browse and search among extensive images in real time. With the rise of\ncloud computing, retrieval tasks are usually outsourced to cloud servers. However, the cloud scenario brings a\ndaunting challenge of privacy protection as cloud servers cannot be fully trusted. To this end,\nimage-encryption-based privacy-preserving image retrieval (PPIR) schemes have been developed, which first\nextract features from cipher-images, and then build retrieval models based on these features. Yet, most\nexisting PPIR approaches extract shallow features and design trivial unsupervised retrieval models, resulting\nin insufficient expressiveness for the cipher-images. In this paper, we propose a novel paradigm named\nEncrypted Vision Transformer (EViT), which advances the discriminative representations capability of\ncipher-images. First, to capture comprehensive ruled information, we extract multi-level local length sequence\nand global Huffman-Code frequency features from the cipher-images which are encrypted by permutation\nencryption, sign encryption, and stream cipher during the JPEG compression process. Second, we design the\nmodified self-supervised Vision Transformer with Huffman-embedding and propose two robust data augmentations\non cipher-images to improve representation power of the retrieval model. Moreover, our proposal can be easily\nadapted to unsupervised or supervised settings. Extensive experiments reveal that EViT achieves both excellent\nencryption and retrieval performance, outperforming current schemes in terms of retrieval accuracy by large\nmargins while protecting image privacy effectively. Code is publicly available at\nhttps://github.com/onlinehuazai/EViT.\n\n## Citation\n\nQ. Feng, P. Li, Z. Lu, C. Li, Z. Wang, Z. Liu, C. Duan, F. Huang, J. Weng, and P. Yu, “EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing,” IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), vol. 34, no. 8, pp. 7467-7483, 2024.\n\n## 中文引用（GB/T 7714）\n\nFeng Q, Li P, Lu Z, et al. EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing[J]. IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2024, 34(8): 7467-7483.\n",
+    "bibtex": "@article{feng2024evit,\n  author = {Qihua Feng and Peiya Li and Zhixun Lu and Chaozhuo Li and Zefan Wang and Zhiquan Liu and Chunhui Duan and Feiran Huang and Jian Weng and Philip S Yu},\n  title = {EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing},\n  journal = {IEEE Transactions on Circuits and Systems for Video Technology},\n  year = {2024},\n  volume = {34},\n  number = {8},\n  pages = {7467-7483},\n  doi = {10.1109/TCSVT.2024.3370668}\n}\n\n",
+    "baseline": {
+      "title": "EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing",
+      "draft": false,
+      "bibtex": "@article{feng2024evit,\n  author = {Qihua Feng and Peiya Li and Zhixun Lu and Chaozhuo Li and Zefan Wang and Zhiquan Liu and Chunhui Duan and Feiran Huang and Jian Weng and Philip S Yu},\n  title = {EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing},\n  journal = {IEEE Transactions on Circuits and Systems for Video Technology},\n  year = {2024},\n  volume = {34},\n  number = {8},\n  pages = {7467-7483},\n  doi = {10.1109/TCSVT.2024.3370668}\n}\n\n",
+      "date": "2024-08-01",
+      "type": "article-journal",
+      "authors": [
+        {
+          "name": "Qihua Feng",
+          "note": ""
+        },
+        {
+          "name": "Peiya Li",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Zhixun Lu",
+          "note": ""
+        },
+        {
+          "name": "Chaozhuo Li",
+          "note": ""
+        },
+        {
+          "name": "Zefan Wang",
+          "note": ""
+        },
+        {
+          "name": "Zhiquan Liu",
+          "note": ""
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": ""
+        },
+        {
+          "name": "Feiran Huang",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Jian Weng",
+          "note": ""
+        },
+        {
+          "name": "Philip S Yu",
+          "note": ""
+        }
+      ],
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "venueShort": "IEEE TCSVT",
+      "volume": "34",
+      "issue": "8",
+      "pages": "7467-7483",
+      "articleNumber": "",
+      "location": "",
+      "doi": "10.1109/TCSVT.2024.3370668",
+      "ccfRank": "CCF-B",
+      "casRank": "中科院一区",
+      "tags": [],
+      "pdfUrl": "/papers/2024-evit-privacy-preserving-image-retrieval-via-encrypted-vision-transformer-in-cloud-computin.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "Image retrieval systems help users to browse and search among extensive images in real time. With the rise of\ncloud computing, retrieval tasks are usually outsourced to cloud servers. However, the cloud scenario brings a\ndaunting challenge of privacy protection as cloud servers cannot be fully trusted. To this end,\nimage-encryption-based privacy-preserving image retrieval (PPIR) schemes have been developed, which first\nextract features from cipher-images, and then build retrieval models based on these features. Yet, most\nexisting PPIR approaches extract shallow features and design trivial unsupervised retrieval models, resulting\nin insufficient expressiveness for the cipher-images. In this paper, we propose a novel paradigm named\nEncrypted Vision Transformer (EViT), which advances the discriminative representations capability of\ncipher-images. First, to capture comprehensive ruled information, we extract multi-level local length sequence\nand global Huffman-Code frequency features from the cipher-images which are encrypted by permutation\nencryption, sign encryption, and stream cipher during the JPEG compression process. Second, we design the\nmodified self-supervised Vision Transformer with Huffman-embedding and propose two robust data augmentations\non cipher-images to improve representation power of the retrieval model. Moreover, our proposal can be easily\nadapted to unsupervised or supervised settings. Extensive experiments reveal that EViT achieves both excellent\nencryption and retrieval performance, outperforming current schemes in terms of retrieval accuracy by large\nmargins while protecting image privacy effectively. Code is publicly available at\nhttps://github.com/onlinehuazai/EViT.",
+      "citationEnglish": "Q. Feng, P. Li, Z. Lu, C. Li, Z. Wang, Z. Liu, C. Duan, F. Huang, J. Weng, and P. Yu, “EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing,” IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), vol. 34, no. 8, pp. 7467-7483, 2024.",
+      "citationChinese": "Feng Q, Li P, Lu Z, et al. EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing[J]. IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2024, 34(8): 7467-7483.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

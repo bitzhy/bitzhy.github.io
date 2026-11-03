@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Tagspin: High Accuracy Spatial Calibration of RFID Antennas via Spinning Tags"
 authors:
   - "me"

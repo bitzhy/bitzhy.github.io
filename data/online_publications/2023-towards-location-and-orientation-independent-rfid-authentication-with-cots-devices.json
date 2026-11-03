@@ -1,0 +1,128 @@
+{
+  "title": "Towards Location- and Orientation-Independent RFID Authentication with COTS Devices",
+  "draft": false,
+  "bibtex": "@inproceedings{zhu2023towards,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding},\n  title = {Towards Location- and Orientation-Independent RFID Authentication with COTS Devices},\n  booktitle = {IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events},\n  year = {2023},\n  pages = {363-366},\n  doi = {10.1109/PerComWorkshops56833.2023.10150248}\n}\n\n",
+  "date": "2023-03-13",
+  "type": "paper-conference",
+  "authors": [
+    {
+      "name": "Yinan Zhu",
+      "note": ""
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Xuan Ding",
+      "note": ""
+    }
+  ],
+  "venue": "IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events",
+  "venueShort": "IEEE PerCom Workshops",
+  "volume": "",
+  "issue": "",
+  "pages": "363-366",
+  "articleNumber": "",
+  "location": "Atlanta, USA",
+  "doi": "10.1109/PerComWorkshops56833.2023.10150248",
+  "ccfRank": "",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2023-towards-location-and-orientation-independent-rfid-authentication-with-cots-devices.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "To authenticate tags against counterfeiting, RF fin-gerprinting technique is widely exploited. However, the\nstatus of tagged item is always changed by movement, rotation and other operations. When the item's location\nor orientation changes, the capability of past methods would be severely affected and their supported\nauthentication ranges are fairly small. To overcome this challenge, we propose the first-of-its-kind method\nFreeAuth to achieve certain location- and orientation-independent RFID authentication without any customized\ndevices, by attaching a tag-pair and hopping the frequency channels and transmission powers. The key insight\nof FreeAuth lies in an implicit fin-gerprint matching scheme where the distance-frequency-power and\norientation-frequency-power relationships are leveraged to circumvent these two negative factors. We implement\na prototype of FreeAuth with COTS devices and the experiments demonstrate that FreeAuth is able to achieve\naround 0.8m and 0.6m ranges along 2D axes, in which the authentication accuracy is over 80%. The average\neffective authentication range of FreeAuth can outperform the state-of-the-art method by 11.67 x.",
+  "citationEnglish": "Y.Zhu, C. Duan, and X. Ding, “Towards Location- and Orientation-Independent RFID Authentication with COTS Devices,” in Proceedings of the IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops), 2023, pp. 363-366.",
+  "citationChinese": "Zhu Y, Duan C, Ding X. Towards Location- and Orientation-Independent RFID Authentication with COTS Devices[C]//Proceedings of the IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops). 2023: 363-366.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2023-towards-location-and-orientation-independent-rfid-authentication-with-cots-devices/index.md",
+    "originalUrl": "/publications/2023-towards-location-and-orientation-independent-rfid-authentication-with-cots-devices/",
+    "frontmatter": {
+      "title": "Towards Location- and Orientation-Independent RFID Authentication with COTS Devices",
+      "authors": [
+        "Yinan Zhu",
+        "me",
+        "Xuan Ding"
+      ],
+      "author_notes": [
+        "",
+        "Corresponding author",
+        ""
+      ],
+      "date": "2023-03-13T00:00:00Z",
+      "publication_types": [
+        "paper-conference"
+      ],
+      "publication": {
+        "name": "IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events",
+        "short_name": "IEEE PerCom Workshops",
+        "pages": "363-366",
+        "location": "Atlanta, USA"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2023-towards-location-and-orientation-independent-rfid-authentication-with-cots-devices.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1109/PerComWorkshops56833.2023.10150248"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nTo authenticate tags against counterfeiting, RF fin-gerprinting technique is widely exploited. However, the\nstatus of tagged item is always changed by movement, rotation and other operations. When the item's location\nor orientation changes, the capability of past methods would be severely affected and their supported\nauthentication ranges are fairly small. To overcome this challenge, we propose the first-of-its-kind method\nFreeAuth to achieve certain location- and orientation-independent RFID authentication without any customized\ndevices, by attaching a tag-pair and hopping the frequency channels and transmission powers. The key insight\nof FreeAuth lies in an implicit fin-gerprint matching scheme where the distance-frequency-power and\norientation-frequency-power relationships are leveraged to circumvent these two negative factors. We implement\na prototype of FreeAuth with COTS devices and the experiments demonstrate that FreeAuth is able to achieve\naround 0.8m and 0.6m ranges along 2D axes, in which the authentication accuracy is over 80%. The average\neffective authentication range of FreeAuth can outperform the state-of-the-art method by 11.67 x.\n\n## Citation\n\nY.Zhu, C. Duan, and X. Ding, “Towards Location- and Orientation-Independent RFID Authentication with COTS Devices,” in Proceedings of the IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops), 2023, pp. 363-366.\n\n## 中文引用（GB/T 7714）\n\nZhu Y, Duan C, Ding X. Towards Location- and Orientation-Independent RFID Authentication with COTS Devices[C]//Proceedings of the IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops). 2023: 363-366.\n",
+    "bibtex": "@inproceedings{zhu2023towards,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding},\n  title = {Towards Location- and Orientation-Independent RFID Authentication with COTS Devices},\n  booktitle = {IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events},\n  year = {2023},\n  pages = {363-366},\n  doi = {10.1109/PerComWorkshops56833.2023.10150248}\n}\n\n",
+    "baseline": {
+      "title": "Towards Location- and Orientation-Independent RFID Authentication with COTS Devices",
+      "draft": false,
+      "bibtex": "@inproceedings{zhu2023towards,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding},\n  title = {Towards Location- and Orientation-Independent RFID Authentication with COTS Devices},\n  booktitle = {IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events},\n  year = {2023},\n  pages = {363-366},\n  doi = {10.1109/PerComWorkshops56833.2023.10150248}\n}\n\n",
+      "date": "2023-03-13",
+      "type": "paper-conference",
+      "authors": [
+        {
+          "name": "Yinan Zhu",
+          "note": ""
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Xuan Ding",
+          "note": ""
+        }
+      ],
+      "venue": "IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events",
+      "venueShort": "IEEE PerCom Workshops",
+      "volume": "",
+      "issue": "",
+      "pages": "363-366",
+      "articleNumber": "",
+      "location": "Atlanta, USA",
+      "doi": "10.1109/PerComWorkshops56833.2023.10150248",
+      "ccfRank": "",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2023-towards-location-and-orientation-independent-rfid-authentication-with-cots-devices.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "To authenticate tags against counterfeiting, RF fin-gerprinting technique is widely exploited. However, the\nstatus of tagged item is always changed by movement, rotation and other operations. When the item's location\nor orientation changes, the capability of past methods would be severely affected and their supported\nauthentication ranges are fairly small. To overcome this challenge, we propose the first-of-its-kind method\nFreeAuth to achieve certain location- and orientation-independent RFID authentication without any customized\ndevices, by attaching a tag-pair and hopping the frequency channels and transmission powers. The key insight\nof FreeAuth lies in an implicit fin-gerprint matching scheme where the distance-frequency-power and\norientation-frequency-power relationships are leveraged to circumvent these two negative factors. We implement\na prototype of FreeAuth with COTS devices and the experiments demonstrate that FreeAuth is able to achieve\naround 0.8m and 0.6m ranges along 2D axes, in which the authentication accuracy is over 80%. The average\neffective authentication range of FreeAuth can outperform the state-of-the-art method by 11.67 x.",
+      "citationEnglish": "Y.Zhu, C. Duan, and X. Ding, “Towards Location- and Orientation-Independent RFID Authentication with COTS Devices,” in Proceedings of the IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops), 2023, pp. 363-366.",
+      "citationChinese": "Zhu Y, Duan C, Ding X. Towards Location- and Orientation-Independent RFID Authentication with COTS Devices[C]//Proceedings of the IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops). 2023: 363-366.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

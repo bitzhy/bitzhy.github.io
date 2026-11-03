@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "HearASL: Your Smartphone Can Hear American Sign Language"
 authors:
   - "Yusen Wang"

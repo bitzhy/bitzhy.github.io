@@ -1,0 +1,141 @@
+{
+  "title": "Revisiting Reading Rate with Mobility: Rate-Adaptive Reading of COTS RFID Systems",
+  "draft": false,
+  "bibtex": "@inproceedings{lin2017revisiting,\n  author = {Qiongzheng Lin and Lei Yang and Chunhui Duan and Yunhao Liu},\n  title = {Revisiting Reading Rate with Mobility: Rate-Adaptive Reading of COTS RFID Systems},\n  booktitle = {ACM International Conference on emerging Networking EXperiments and Technologies},\n  year = {2017},\n  pages = {199-211},\n  doi = {10.1145/3143361.3143387}\n}\n\n",
+  "date": "2017-12-12",
+  "type": "paper-conference",
+  "authors": [
+    {
+      "name": "Qiongzheng Lin",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Lei Yang",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": ""
+    },
+    {
+      "name": "Yunhao Liu",
+      "note": ""
+    }
+  ],
+  "venue": "ACM International Conference on emerging Networking EXperiments and Technologies",
+  "venueShort": "ACM CoNEXT",
+  "volume": "",
+  "issue": "",
+  "pages": "199-211",
+  "articleNumber": "",
+  "location": "Seoul/Incheon, South Korea",
+  "doi": "10.1145/3143361.3143387",
+  "ccfRank": "CCF-B",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2017-revisiting-reading-rate-with-mobility-rate-adaptive-reading-of-cots-rfid-systems.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "Radio-frequency identification (RFID) systems, as major enablers of automatic identification, are currently\nsupplemented with various interesting sensing functions, e.g., motion tracking. All these sensing applications\nforcedly require much higher reading rate (i.e., sampling rate) such that any fast movement of tagged objects\ncan be accurately captured in a timely manner through tag readings. However, COTS RFID systems suffer from an\nextremely low individual reading rate when multiple tags are present, due to their intense channel contention\nin the link layer. In this work, we present a holistic system, called Tagwatch, a rate-adaptive reading system\nfor COTS RFID devices. This work revisits the reading rate from a distinctive perspective: mobility. We\nobserve that the reading demands of mobile tags are considerably more urgent than those of stationary tags\nbecause the states of the latter nearly remain unchanged; meanwhile, only a few tags (e.g., < 20%) are\nactually in motion despite the existence of a massive amount of tags in practice. Thus, Tagwatch adaptively\nimproves the reading rates for mobile tags by cutting down the readings of stationary tags. Our main\ncontribution is a two-phase reading design, wherein the mobile tags are discriminated in the Phase I and\nexclusively read in the Phase II. We built a prototype of Tagwatch with COTS RFID readers and tags. Results\nfrom our microbenchmark analysis demonstrate that the new design outperforms the reading rate by 3.2x when 5%\nof tags are moving.",
+  "citationEnglish": "Q. Lin, L. Yang, H. Jia, C. Duan, and Y. Liu, “Revisiting Reading Rate with Mobility: Rate-Adaptive Reading in COTS RFID Systems,” in Proceedings of the ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT), 2017, pp. 199-211.",
+  "citationChinese": "Lin Q, Yang L, Jia H, et al. Revisiting Reading Rate with Mobility: Rate-Adaptive Reading in COTS RFID Systems[C]//Proceedings of the ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT). 2017: 199-211.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2017-revisiting-reading-rate-with-mobility-rate-adaptive-reading-of-cots-rfid-systems/index.md",
+    "originalUrl": "/publications/2017-revisiting-reading-rate-with-mobility-rate-adaptive-reading-of-cots-rfid-systems/",
+    "frontmatter": {
+      "title": "Revisiting Reading Rate with Mobility: Rate-Adaptive Reading of COTS RFID Systems",
+      "authors": [
+        "Qiongzheng Lin",
+        "Lei Yang",
+        "me",
+        "Yunhao Liu"
+      ],
+      "author_notes": [
+        "Corresponding author",
+        "Corresponding author",
+        "",
+        ""
+      ],
+      "date": "2017-12-12T00:00:00Z",
+      "publication_types": [
+        "paper-conference"
+      ],
+      "publication": {
+        "name": "ACM International Conference on emerging Networking EXperiments and Technologies",
+        "short_name": "ACM CoNEXT",
+        "pages": "199-211",
+        "location": "Seoul/Incheon, South Korea"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "tags": [
+        "CCF-B"
+      ],
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2017-revisiting-reading-rate-with-mobility-rate-adaptive-reading-of-cots-rfid-systems.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1145/3143361.3143387"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nRadio-frequency identification (RFID) systems, as major enablers of automatic identification, are currently\nsupplemented with various interesting sensing functions, e.g., motion tracking. All these sensing applications\nforcedly require much higher reading rate (i.e., sampling rate) such that any fast movement of tagged objects\ncan be accurately captured in a timely manner through tag readings. However, COTS RFID systems suffer from an\nextremely low individual reading rate when multiple tags are present, due to their intense channel contention\nin the link layer. In this work, we present a holistic system, called Tagwatch, a rate-adaptive reading system\nfor COTS RFID devices. This work revisits the reading rate from a distinctive perspective: mobility. We\nobserve that the reading demands of mobile tags are considerably more urgent than those of stationary tags\nbecause the states of the latter nearly remain unchanged; meanwhile, only a few tags (e.g., < 20%) are\nactually in motion despite the existence of a massive amount of tags in practice. Thus, Tagwatch adaptively\nimproves the reading rates for mobile tags by cutting down the readings of stationary tags. Our main\ncontribution is a two-phase reading design, wherein the mobile tags are discriminated in the Phase I and\nexclusively read in the Phase II. We built a prototype of Tagwatch with COTS RFID readers and tags. Results\nfrom our microbenchmark analysis demonstrate that the new design outperforms the reading rate by 3.2x when 5%\nof tags are moving.\n\n## Citation\n\nQ. Lin, L. Yang, H. Jia, C. Duan, and Y. Liu, “Revisiting Reading Rate with Mobility: Rate-Adaptive Reading in COTS RFID Systems,” in Proceedings of the ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT), 2017, pp. 199-211.\n\n## 中文引用（GB/T 7714）\n\nLin Q, Yang L, Jia H, et al. Revisiting Reading Rate with Mobility: Rate-Adaptive Reading in COTS RFID Systems[C]//Proceedings of the ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT). 2017: 199-211.\n",
+    "bibtex": "@inproceedings{lin2017revisiting,\n  author = {Qiongzheng Lin and Lei Yang and Chunhui Duan and Yunhao Liu},\n  title = {Revisiting Reading Rate with Mobility: Rate-Adaptive Reading of COTS RFID Systems},\n  booktitle = {ACM International Conference on emerging Networking EXperiments and Technologies},\n  year = {2017},\n  pages = {199-211},\n  doi = {10.1145/3143361.3143387}\n}\n\n",
+    "baseline": {
+      "title": "Revisiting Reading Rate with Mobility: Rate-Adaptive Reading of COTS RFID Systems",
+      "draft": false,
+      "bibtex": "@inproceedings{lin2017revisiting,\n  author = {Qiongzheng Lin and Lei Yang and Chunhui Duan and Yunhao Liu},\n  title = {Revisiting Reading Rate with Mobility: Rate-Adaptive Reading of COTS RFID Systems},\n  booktitle = {ACM International Conference on emerging Networking EXperiments and Technologies},\n  year = {2017},\n  pages = {199-211},\n  doi = {10.1145/3143361.3143387}\n}\n\n",
+      "date": "2017-12-12",
+      "type": "paper-conference",
+      "authors": [
+        {
+          "name": "Qiongzheng Lin",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Lei Yang",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": ""
+        },
+        {
+          "name": "Yunhao Liu",
+          "note": ""
+        }
+      ],
+      "venue": "ACM International Conference on emerging Networking EXperiments and Technologies",
+      "venueShort": "ACM CoNEXT",
+      "volume": "",
+      "issue": "",
+      "pages": "199-211",
+      "articleNumber": "",
+      "location": "Seoul/Incheon, South Korea",
+      "doi": "10.1145/3143361.3143387",
+      "ccfRank": "CCF-B",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2017-revisiting-reading-rate-with-mobility-rate-adaptive-reading-of-cots-rfid-systems.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "Radio-frequency identification (RFID) systems, as major enablers of automatic identification, are currently\nsupplemented with various interesting sensing functions, e.g., motion tracking. All these sensing applications\nforcedly require much higher reading rate (i.e., sampling rate) such that any fast movement of tagged objects\ncan be accurately captured in a timely manner through tag readings. However, COTS RFID systems suffer from an\nextremely low individual reading rate when multiple tags are present, due to their intense channel contention\nin the link layer. In this work, we present a holistic system, called Tagwatch, a rate-adaptive reading system\nfor COTS RFID devices. This work revisits the reading rate from a distinctive perspective: mobility. We\nobserve that the reading demands of mobile tags are considerably more urgent than those of stationary tags\nbecause the states of the latter nearly remain unchanged; meanwhile, only a few tags (e.g., < 20%) are\nactually in motion despite the existence of a massive amount of tags in practice. Thus, Tagwatch adaptively\nimproves the reading rates for mobile tags by cutting down the readings of stationary tags. Our main\ncontribution is a two-phase reading design, wherein the mobile tags are discriminated in the Phase I and\nexclusively read in the Phase II. We built a prototype of Tagwatch with COTS RFID readers and tags. Results\nfrom our microbenchmark analysis demonstrate that the new design outperforms the reading rate by 3.2x when 5%\nof tags are moving.",
+      "citationEnglish": "Q. Lin, L. Yang, H. Jia, C. Duan, and Y. Liu, “Revisiting Reading Rate with Mobility: Rate-Adaptive Reading in COTS RFID Systems,” in Proceedings of the ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT), 2017, pp. 199-211.",
+      "citationChinese": "Lin Q, Yang L, Jia H, et al. Revisiting Reading Rate with Mobility: Rate-Adaptive Reading in COTS RFID Systems[C]//Proceedings of the ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT). 2017: 199-211.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

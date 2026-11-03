@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { syncPublications } from './sync.mjs';
 import { normalizePaper, generateMarkdown, generateBibtex, importBibtex } from '../publication-manager/publication.mjs';
+import { isMigratedBackup } from './migration.mjs';
 
 const bibtex = '@article{online2026, title={An Online {3D} Study}, author={Smith, Alex and Duan, Chunhui}, journal={Journal of Online Tests}, year={2026}, month=oct, pages={1--12}, doi={10.1234/online.test}}';
 const sourceDirectory = 'data/online_publications';
@@ -12,7 +13,9 @@ const outputDirectory = 'content/publications/online';
 const markerName = '.generated-by-online-publications.json';
 const paper = overrides => ({ draft: false, title: 'An Online Study', authors: [{ name: 'Alex Smith', note: '' }, { name: 'Chunhui Duan', note: 'Corresponding author' }], date: '2026-10-30', type: 'article-journal', venue: 'Journal of Online Tests', venueShort: 'Online Tests', doi: '10.1234/online.test', tags: ['CCF-A', '中科院一区'], ...overrides });
 async function fixture(t) {
-  const root = await mkdtemp(path.join(os.tmpdir(), 'online-publications-test-'));
+  const testDirectory = process.env.PUBLICATION_TEST_TMPDIR ? path.resolve(process.env.PUBLICATION_TEST_TMPDIR) : os.tmpdir();
+  await mkdir(testDirectory, { recursive: true });
+  const root = await mkdtemp(path.join(testDirectory, 'online-publications-test-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   await mkdir(path.join(root, sourceDirectory), { recursive: true });
   return root;
@@ -35,6 +38,7 @@ test('BibTeX-first sources and manual overrides share the existing generator out
   await writeSource(root, 'stable-paper', submission);
   const result = await syncPublications({ root });
   assert.equal(result.published, 1);
+  assert.ok(result.warnings.every(warning => !warning.includes('已暂用该月 1 日')));
   const expected = normalizePaper({ ...importBibtex(bibtex).paper, date: submission.date, venueShort: submission.venueShort, slug: 'stable-paper' });
   assert.equal(await readGenerated(root, 'stable-paper', 'cite.bib'), generateBibtex(expected));
   const markdown = await readGenerated(root, 'stable-paper');
@@ -45,6 +49,9 @@ test('BibTeX-first sources and manual overrides share the existing generator out
   await syncPublications({ root });
   assert.match(await readGenerated(root, 'stable-paper'), /title: "An Explicit Edited Title"/);
   assert.match(await readGenerated(root, 'stable-paper', 'cite.bib'), /volume = \{12\}/);
+  await writeSource(root, 'stable-paper', { ...submission, date: '' });
+  const inferred = await syncPublications({ root });
+  assert.ok(inferred.warnings.some(warning => warning.includes('已暂用该月 1 日')));
 });
 
 test('incomplete drafts and records with no explicit publish choice are skipped safely', async t => {
@@ -193,4 +200,131 @@ test('an unmarked or mismatched output directory is never replaced or recursivel
   await writeFile(path.join(root, outputDirectory, markerName), JSON.stringify({ generator: 'some-other-tool', version: 1, sources: [] }));
   await assert.rejects(syncPublications({ root }), /标记无效/);
   assert.equal(await readFile(keep, 'utf8'), 'user-owned content');
+});
+
+async function migratedFixture(t, overrides = {}) {
+  const root = await fixture(t);
+  const slug = '2026-migrated-paper';
+  const attribution = 'Abstract from the [ACM publication](https://dl.acm.org/doi/10.1234/online.test), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).';
+  const baseline = paper({ slug, bibtex: `${bibtex}\r\n`, volume: '0', issue: '0', pages: '1-12', articleNumber: '185', abstract: 'Original abstract with {3D} data.', citationEnglish: 'Exact original English citation.', citationChinese: '原始中文引用。', openAccess: true });
+  const originalFrontmatter = { title: baseline.title, authors: ['Alex Smith', 'me'], author_notes: ['', 'Corresponding author'], date: `${baseline.date}T00:00:00Z`, publication_types: ['article-journal'], publication: { name: baseline.venue, short_name: baseline.venueShort, volume: '0', issue: '0', pages: '1-12', article_number: '185', custom_publisher_key: 'retain me' }, tags: baseline.tags, peer_reviewed: true, featured: false, open_access: true, hugoblox: { ids: { doi: baseline.doi, arbitrary_id: 'keep-id' }, extra: { keep: true } }, arbitrary_metadata: { nested: ['one', 'two'] } };
+  const body = `\r\n## Abstract\r\n\r\n${baseline.abstract}\r\n\r\n${attribution}\r\n\r\n## Citation\r\n\r\n${baseline.citationEnglish}\r\n\r\n## 中文引用（GB/T 7714）\r\n\r\n${baseline.citationChinese}\r\n`;
+  const migration = { version: 1, originalPath: `content/publications/${slug}/index.md`, originalUrl: `/publications/${slug}/`, frontmatter: originalFrontmatter, body, bibtex: baseline.bibtex, baseline, attribution };
+  const archive = `${JSON.stringify({ ...originalFrontmatter, cms_migrated: true, build: { render: 'never', list: 'never', publishResources: false } }, null, 2)}\n${body}`;
+  await mkdir(path.join(root, 'content/publications', slug), { recursive: true });
+  await writeFile(path.join(root, migration.originalPath), archive);
+  await writeFile(path.join(root, 'content/publications', slug, 'cite.bib'), migration.bibtex);
+  const submission = { ...baseline, migration, ...overrides };
+  await writeSource(root, slug, submission);
+  return { root, slug, submission, migration, archive };
+}
+
+function parseGeneratedJson(markdown, body) {
+  return JSON.parse(markdown.slice(0, markdown.length - body.length).trim());
+}
+
+test('migrated papers preserve raw body, raw BibTeX, unknown metadata, zero strings and aligned notes', async t => {
+  const { root, slug, migration, archive } = await migratedFixture(t);
+  assert.equal((await syncPublications({ root })).published, 1);
+  const markdown = await readGenerated(root, slug);
+  assert.ok(markdown.endsWith(migration.body));
+  assert.equal(await readGenerated(root, slug, 'cite.bib'), migration.bibtex);
+  const front = parseGeneratedJson(markdown, migration.body);
+  assert.equal(front.publication.volume, '0');
+  assert.equal(front.publication.issue, '0');
+  assert.equal(front.publication.article_number, '185');
+  assert.equal(front.publication.custom_publisher_key, 'retain me');
+  assert.deepEqual(front.author_notes, ['', 'Corresponding author']);
+  assert.deepEqual(front.arbitrary_metadata, migration.frontmatter.arbitrary_metadata);
+  assert.equal(front.hugoblox.ids.arbitrary_id, 'keep-id');
+  assert.equal(front.url, `/publications/${slug}/`);
+  assert.equal(front.cms_migrated, undefined);
+  assert.equal(await readFile(path.join(root, migration.originalPath), 'utf8'), archive);
+});
+
+test('migrated edits update metadata, references and bibliography while preserving abstract attribution', async t => {
+  const { root, slug, submission, migration } = await migratedFixture(t);
+  await syncPublications({ root });
+  await writeSource(root, slug, { ...submission, title: 'A revised migrated title', abstract: 'Replacement scientific abstract.', volume: '', authors: [{ name: 'Chunhui Duan', note: 'Corresponding author' }, { name: 'Alex Smith', note: 'Corresponding author' }] });
+  await syncPublications({ root });
+  const markdown = await readGenerated(root, slug);
+  assert.match(markdown, /"title": "A revised migrated title"/);
+  assert.match(markdown, /Replacement scientific abstract\./);
+  assert.equal(markdown.split(migration.attribution).length - 1, 1);
+  assert.doesNotMatch(markdown, /Exact original English citation|原始中文引用/);
+  assert.match(markdown, /“A revised migrated title,”/);
+  const bibliography = await readGenerated(root, slug, 'cite.bib');
+  assert.match(bibliography, /title = \{A revised migrated title\}/);
+  assert.match(bibliography, /abstract = \{Replacement scientific abstract\.\}/);
+  assert.doesNotMatch(bibliography, /licensed|creativecommons|volume =/);
+  assert.ok(markdown.includes('"author_notes": [\n    "Corresponding author",\n    "Corresponding author"'));
+  assert.match(markdown, /"url": "\/publications\/2026-migrated-paper\/"/);
+  assert.equal(submission.migration.body, migration.body);
+});
+
+test('migrated explicit custom citation edits win, cosmetic edits retain raw bibliography', async t => {
+  const { root, slug, submission, migration } = await migratedFixture(t);
+  await writeSource(root, slug, { ...submission, venueShort: 'Changed abbreviation', ccfRank: 'CCF-C', citationEnglish: 'My carefully edited citation.' });
+  await syncPublications({ root });
+  const markdown = await readGenerated(root, slug);
+  assert.match(markdown, /My carefully edited citation/);
+  assert.match(markdown, /原始中文引用/);
+  assert.equal(await readGenerated(root, slug, 'cite.bib'), migration.bibtex);
+  // Pages CMS removes empty scalar/array controls on serialization. Real
+  // migrated sources keep only unrelated topic tags, so omission must clear
+  // the removed CCF selection while retaining the still-selected CAS rank.
+  const sanitized = { ...submission, casRank: '中科院一区' };
+  delete sanitized.tags;
+  delete sanitized.ccfRank;
+  await writeSource(root, slug, sanitized);
+  await syncPublications({ root });
+  const cleared = await readGenerated(root, slug);
+  assert.doesNotMatch(cleared, /"CCF-/);
+  assert.match(cleared, /"中科院一区"/);
+});
+
+test('only fully hidden marked backups bypass conflicts and path-forged migrations are rejected', async t => {
+  const { root, slug, submission, migration } = await migratedFixture(t);
+  const archivePath = path.join(root, migration.originalPath);
+  const incomplete = { ...migration.frontmatter, cms_migrated: true, build: { render: 'never', list: 'never', publishResources: true } };
+  await writeFile(archivePath, `${JSON.stringify(incomplete)}\n${migration.body}`);
+  await assert.rejects(syncPublications({ root }), /原始论文备份/);
+  await writeSource(root, slug, { ...submission, migration: undefined });
+  await assert.rejects(syncPublications({ root }), /重复/);
+  const markedYaml = '---\ncms_migrated: true\nbuild:\n  render: never\n  list: never\n  publishResources: false\n---\n';
+  assert.equal(isMigratedBackup(markedYaml), true);
+  assert.equal(isMigratedBackup(markedYaml.replace('publishResources: false', 'publishResources: true')), false);
+  assert.equal(isMigratedBackup(markedYaml.replace('cms_migrated: true', 'cms_migrated: false')), false);
+  for (const alteration of [{ originalPath: '../other/index.md' }, { originalPath: 'content/publications/another/index.md' }, { originalUrl: '/elsewhere/' }, { version: 2 }]) {
+    await writeSource(root, slug, { ...submission, migration: { ...migration, ...alteration } });
+    await assert.rejects(syncPublications({ root }), /迁移信息无效/);
+  }
+  assert.equal(await readFile(archivePath, 'utf8'), `${JSON.stringify(incomplete)}\n${migration.body}`);
+});
+
+test('identical titles with distinct valid DOIs coexist, missing or duplicate DOI remains ambiguous', async t => {
+  const root = await fixture(t);
+  await writeSource(root, 'rosense-journal', paper({ title: 'RoSense: Same title', doi: '10.1234/journal' }));
+  await writeSource(root, 'rosense-review', paper({ title: 'RoSense: Same title', doi: '10.1234/review' }));
+  assert.equal((await syncPublications({ root })).published, 2);
+  for (const doi of ['', '10.1234/journal']) {
+    await writeSource(root, 'rosense-third', paper({ title: 'RoSense: Same title', doi }));
+    await assert.rejects(syncPublications({ root }), /重复/);
+  }
+});
+
+test('drafting and deleting migrated sources removes generated pages without reviving archived originals', async t => {
+  const { root, slug, submission, migration, archive } = await migratedFixture(t);
+  await syncPublications({ root });
+  await writeSource(root, slug, { ...submission, draft: true });
+  assert.equal((await syncPublications({ root })).published, 0);
+  await absent(path.join(root, outputDirectory, slug, 'index.md'));
+  assert.equal(isMigratedBackup(await readFile(path.join(root, migration.originalPath), 'utf8')), true);
+  await writeSource(root, slug, submission);
+  await syncPublications({ root });
+  await rm(path.join(root, sourceDirectory, `${slug}.json`));
+  assert.equal((await syncPublications({ root })).published, 0);
+  await absent(path.join(root, outputDirectory, slug, 'index.md'));
+  assert.equal(await readFile(path.join(root, migration.originalPath), 'utf8'), archive);
+  assert.equal(await readFile(path.join(root, 'content/publications', slug, 'cite.bib'), 'utf8'), migration.bibtex);
 });

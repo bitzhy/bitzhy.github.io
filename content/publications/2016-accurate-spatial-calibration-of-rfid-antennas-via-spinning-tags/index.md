@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Accurate spatial calibration of RFID antennas via spinning tags"
 authors:
   - "me"

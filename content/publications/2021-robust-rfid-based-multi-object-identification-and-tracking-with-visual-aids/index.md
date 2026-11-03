@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Robust RFID-Based Multi-Object Identification and Tracking with Visual Aids"
 authors:
   - "Junjie Yin"

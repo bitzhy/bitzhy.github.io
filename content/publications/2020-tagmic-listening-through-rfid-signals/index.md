@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "TagMic: Listening Through RFID Signals"
 authors:
   - "Yin Li"

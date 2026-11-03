@@ -1,0 +1,151 @@
+{
+  "title": "Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets",
+  "draft": false,
+  "bibtex": "@inproceedings{lu2021privacy,\n  author = {Guanghong Lu and Chunhui Duan and Guohao Zhou and Xuan Ding and Yunhao Liu},\n  title = {Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets},\n  booktitle = {IEEE International Conference on Computer Communications},\n  year = {2021},\n  pages = {1-10},\n  doi = {10.1109/INFOCOM42981.2021.9488710}\n}\n\n",
+  "date": "2021-05-10",
+  "type": "paper-conference",
+  "authors": [
+    {
+      "name": "Guanghong Lu",
+      "note": ""
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Guohao Zhou",
+      "note": ""
+    },
+    {
+      "name": "Xuan Ding",
+      "note": ""
+    },
+    {
+      "name": "Yunhao Liu",
+      "note": ""
+    }
+  ],
+  "venue": "IEEE International Conference on Computer Communications",
+  "venueShort": "IEEE INFOCOM",
+  "volume": "",
+  "issue": "",
+  "pages": "1-10",
+  "articleNumber": "",
+  "location": "Virtual Conference",
+  "doi": "10.1109/INFOCOM42981.2021.9488710",
+  "ccfRank": "CCF-A",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2021-privacy-preserving-outlier-detection-with-high-efficiency-over-distributed-datasets.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "The ability to detect outliers is crucial in data mining, with widespread usage in many fields, including\nfraud detection, malicious behavior monitoring, health diagnosis, etc. With the tremendous volume of data\nbecoming more distributed than ever, global outlier detection for a group of distributed datasets is\nparticularly desirable. In this work, we propose PIF (Privacy-preserving Isolation Forest), which can detect\noutliers for multiple distributed data providers with high efficiency and accuracy while giving certain\nsecurity guarantees. To achieve the goal, PIF makes an innovative improvement to the traditional iForest\nalgorithm, enabling it in distributed environments. With a series of carefully-designed algorithms, each\nparticipating party collaborates to build an ensemble of isolation trees efficiently without disclosing\nsensitive information of data. Besides, to deal with complicated real-world scenarios where different kinds of\npartitioned data are involved, we propose a comprehensive schema that can work for both horizontally and\nvertically partitioned data models. We have implemented our method and evaluated it with extensive\nexperiments. It is demonstrated that PIF can achieve comparable AUC to existing iForest on average and\nmaintains a linear time complexity without privacy violation.",
+  "citationEnglish": "G. Lu, C. Duan, G. Zhou, X. Ding, and Y. Liu, “Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets,” in Proceedings of the IEEE International Conference on Computer Communications (INFOCOM), 2021, pp. 1-10.",
+  "citationChinese": "Lu G, Duan C, Zhou G, et al. Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets[C]//Proceedings of the IEEE International Conference on Computer Communications (INFOCOM). 2021:1-10.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2021-privacy-preserving-outlier-detection-with-high-efficiency-over-distributed-datasets/index.md",
+    "originalUrl": "/publications/2021-privacy-preserving-outlier-detection-with-high-efficiency-over-distributed-datasets/",
+    "frontmatter": {
+      "title": "Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets",
+      "authors": [
+        "Guanghong Lu",
+        "me",
+        "Guohao Zhou",
+        "Xuan Ding",
+        "Yunhao Liu"
+      ],
+      "author_notes": [
+        "",
+        "Corresponding author",
+        "",
+        "",
+        ""
+      ],
+      "date": "2021-05-10T00:00:00Z",
+      "publication_types": [
+        "paper-conference"
+      ],
+      "publication": {
+        "name": "IEEE International Conference on Computer Communications",
+        "short_name": "IEEE INFOCOM",
+        "pages": "1-10",
+        "location": "Virtual Conference"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "tags": [
+        "CCF-A"
+      ],
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2021-privacy-preserving-outlier-detection-with-high-efficiency-over-distributed-datasets.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1109/INFOCOM42981.2021.9488710"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nThe ability to detect outliers is crucial in data mining, with widespread usage in many fields, including\nfraud detection, malicious behavior monitoring, health diagnosis, etc. With the tremendous volume of data\nbecoming more distributed than ever, global outlier detection for a group of distributed datasets is\nparticularly desirable. In this work, we propose PIF (Privacy-preserving Isolation Forest), which can detect\noutliers for multiple distributed data providers with high efficiency and accuracy while giving certain\nsecurity guarantees. To achieve the goal, PIF makes an innovative improvement to the traditional iForest\nalgorithm, enabling it in distributed environments. With a series of carefully-designed algorithms, each\nparticipating party collaborates to build an ensemble of isolation trees efficiently without disclosing\nsensitive information of data. Besides, to deal with complicated real-world scenarios where different kinds of\npartitioned data are involved, we propose a comprehensive schema that can work for both horizontally and\nvertically partitioned data models. We have implemented our method and evaluated it with extensive\nexperiments. It is demonstrated that PIF can achieve comparable AUC to existing iForest on average and\nmaintains a linear time complexity without privacy violation.\n\n## Citation\n\nG. Lu, C. Duan, G. Zhou, X. Ding, and Y. Liu, “Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets,” in Proceedings of the IEEE International Conference on Computer Communications (INFOCOM), 2021, pp. 1-10.\n\n## 中文引用（GB/T 7714）\n\nLu G, Duan C, Zhou G, et al. Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets[C]//Proceedings of the IEEE International Conference on Computer Communications (INFOCOM). 2021:1-10.\n",
+    "bibtex": "@inproceedings{lu2021privacy,\n  author = {Guanghong Lu and Chunhui Duan and Guohao Zhou and Xuan Ding and Yunhao Liu},\n  title = {Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets},\n  booktitle = {IEEE International Conference on Computer Communications},\n  year = {2021},\n  pages = {1-10},\n  doi = {10.1109/INFOCOM42981.2021.9488710}\n}\n\n",
+    "baseline": {
+      "title": "Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets",
+      "draft": false,
+      "bibtex": "@inproceedings{lu2021privacy,\n  author = {Guanghong Lu and Chunhui Duan and Guohao Zhou and Xuan Ding and Yunhao Liu},\n  title = {Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets},\n  booktitle = {IEEE International Conference on Computer Communications},\n  year = {2021},\n  pages = {1-10},\n  doi = {10.1109/INFOCOM42981.2021.9488710}\n}\n\n",
+      "date": "2021-05-10",
+      "type": "paper-conference",
+      "authors": [
+        {
+          "name": "Guanghong Lu",
+          "note": ""
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Guohao Zhou",
+          "note": ""
+        },
+        {
+          "name": "Xuan Ding",
+          "note": ""
+        },
+        {
+          "name": "Yunhao Liu",
+          "note": ""
+        }
+      ],
+      "venue": "IEEE International Conference on Computer Communications",
+      "venueShort": "IEEE INFOCOM",
+      "volume": "",
+      "issue": "",
+      "pages": "1-10",
+      "articleNumber": "",
+      "location": "Virtual Conference",
+      "doi": "10.1109/INFOCOM42981.2021.9488710",
+      "ccfRank": "CCF-A",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2021-privacy-preserving-outlier-detection-with-high-efficiency-over-distributed-datasets.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "The ability to detect outliers is crucial in data mining, with widespread usage in many fields, including\nfraud detection, malicious behavior monitoring, health diagnosis, etc. With the tremendous volume of data\nbecoming more distributed than ever, global outlier detection for a group of distributed datasets is\nparticularly desirable. In this work, we propose PIF (Privacy-preserving Isolation Forest), which can detect\noutliers for multiple distributed data providers with high efficiency and accuracy while giving certain\nsecurity guarantees. To achieve the goal, PIF makes an innovative improvement to the traditional iForest\nalgorithm, enabling it in distributed environments. With a series of carefully-designed algorithms, each\nparticipating party collaborates to build an ensemble of isolation trees efficiently without disclosing\nsensitive information of data. Besides, to deal with complicated real-world scenarios where different kinds of\npartitioned data are involved, we propose a comprehensive schema that can work for both horizontally and\nvertically partitioned data models. We have implemented our method and evaluated it with extensive\nexperiments. It is demonstrated that PIF can achieve comparable AUC to existing iForest on average and\nmaintains a linear time complexity without privacy violation.",
+      "citationEnglish": "G. Lu, C. Duan, G. Zhou, X. Ding, and Y. Liu, “Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets,” in Proceedings of the IEEE International Conference on Computer Communications (INFOCOM), 2021, pp. 1-10.",
+      "citationChinese": "Lu G, Duan C, Zhou G, et al. Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets[C]//Proceedings of the IEEE International Conference on Computer Communications (INFOCOM). 2021:1-10.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

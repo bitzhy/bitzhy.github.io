@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Accurate and Fast Detection of Tag Antenna Damage for RFID Sensing: Poster Abstract"
 authors:
   - "Yinan Zhu"

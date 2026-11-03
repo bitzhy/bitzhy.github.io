@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "EViT: Privacy-Preserving Image Retrieval via Encrypted Vision Transformer in Cloud Computing"
 authors:
   - "Qihua Feng"

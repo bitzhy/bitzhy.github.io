@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "ReaderPrint: A Universal Method for RFID Readers Authentication Based on Impedance Mismatch"
 authors:
   - "Yinan Zhu"

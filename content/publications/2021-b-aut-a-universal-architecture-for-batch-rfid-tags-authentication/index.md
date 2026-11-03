@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "B-AUT: A Universal Architecture for Batch RFID Tags Authentication"
 authors:
   - "Yinan Zhu"

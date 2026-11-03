@@ -16,7 +16,11 @@
 
 新增论文时填写标题，可粘贴单条 BibTeX，核对日期和作者，上传 PDF 或幻灯片。“暂存为草稿”默认开启，保存草稿不会显示在主页；确认后关闭草稿并保存，后台自动提交到 GitHub，Actions 构建成功后更新主页，无需手动 push。BibTeX 在构建时读取，不会即时自动填入网页字段。
 
-源记录在 `data/online_publications/`，附件在 `static/papers/online/`、`static/slides/online/`。构建前自动生成论文页面和 BibTeX；不要手改被忽略的 `content/publications/online/`。在线新增的论文可回后台修改或撤回为草稿，地址不随标题更改。此前手工维护的论文未迁移到这个在线记录列表。
+原有 29 篇论文已全部迁入“在线论文管理”，以后新增、修改、设为草稿或删除均在后台完成。论文地址、作者顺序和通讯作者备注、发表日期、原始中英文引用与 BibTeX 均保留，已有 PDF 和幻灯片继续使用原路径。修改题目、作者、日期等书目信息时会同步更新引用；自行编辑的引用优先使用填写内容。
+
+源记录在 `data/online_publications/`，附件在 `static/papers/`、`static/slides/`，支持选择已有附件或上传新文件。构建前自动生成论文页面和 BibTeX；不要手改被忽略的 `content/publications/online/`。原来的 `content/publications/<目录>/index.md` 仅作为备份保留，带有 `cms_migrated: true` 和 `build` 禁止输出设置；不要移除这些标记，否则会产生重复论文。草稿和已删除的记录不会从旧备份重新出现。
+
+迁移记录中的 `migration` 保存原始元数据、正文、BibTeX 和字段基线，后台保存会保留它；不要手工删除。未改书目信息时原始 BibTeX 保持不变；修改后按新字段重新生成。WRF-RAIN 的 ACM 来源与 CC BY 说明独立保留，修改摘要也不会丢失。
 
 本地验证：`node --test scripts/online-publications/sync.test.mjs`。本地预览和构建：`pnpm dev`、`pnpm build`。仅使用 `hugo` 命令时需先执行 `node scripts/online-publications/sync.mjs`。
 
@@ -377,6 +381,8 @@ links:
 
 ## 7. 修改或删除已有论文
 
+本测试仓库的 29 篇已有论文已由在线后台管理，请在后台修改或删除。下面的文件操作说明仅适用于尚未接入后台的论文；带 `cms_migrated: true` 的旧页面是备份，编辑它不会更新当前页面。
+
 修改论文时，进入对应的 `content/publications/论文目录名/index.md`，直接修改相关字段；如果引用信息也发生变化，应同步修改 `cite.bib`。
 
 替换 PDF 时，用新文件覆盖 `static/papers/` 中的同名文件即可。由于文件名和链接不变，不需要修改 `index.md`。
@@ -583,4 +589,5 @@ pnpm build
 ```
 
 如果 `pnpm build` 正常结束，生成的网站会位于 `public/`。该目录仅用于检查构建结果，不需要提交到 GitHub。
+
 

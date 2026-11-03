@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Robust Spinning Sensing with Dual-RFID-Tags in Noisy Settings"
 authors:
   - "me"

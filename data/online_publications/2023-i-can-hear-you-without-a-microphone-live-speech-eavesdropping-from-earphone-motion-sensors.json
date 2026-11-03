@@ -1,0 +1,161 @@
+{
+  "title": "I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors",
+  "draft": false,
+  "bibtex": "@inproceedings{cao2023hear,\n  author = {Yetong Cao and Fan Li and Huijie Chen and Xiaochen Liu and Chunhui Duan and Yu Wang},\n  title = {I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors},\n  booktitle = {IEEE International Conference on Computer Communications},\n  year = {2023},\n  pages = {1-10},\n  doi = {10.1109/INFOCOM53939.2023.10228943}\n}\n\n",
+  "date": "2023-05-17",
+  "type": "paper-conference",
+  "authors": [
+    {
+      "name": "Yetong Cao",
+      "note": ""
+    },
+    {
+      "name": "Fan Li",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Huijie Chen",
+      "note": ""
+    },
+    {
+      "name": "Xiaochen Liu",
+      "note": ""
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": ""
+    },
+    {
+      "name": "Yu Wang",
+      "note": ""
+    }
+  ],
+  "venue": "IEEE International Conference on Computer Communications",
+  "venueShort": "IEEE INFOCOM",
+  "volume": "",
+  "issue": "",
+  "pages": "1-10",
+  "articleNumber": "",
+  "location": "New York area, USA",
+  "doi": "10.1109/INFOCOM53939.2023.10228943",
+  "ccfRank": "CCF-A",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2023-i-can-hear-you-without-a-microphone-live-speech-eavesdropping-from-earphone-motion-sensors.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "Recent literature advances motion sensors mounted on smartphones and AR/VR headsets to speech eavesdropping\ndue to their sensitivity to subtle vibrations. The popularity of motion sensors in earphones has fueled a rise\nin their sampling rate, which enables various enhanced features. This paper investigates a new threat of\neavesdropping via motion sensors of earphones by developing EarSpy, which builds on our observation that the\nearphone’s accelerometer can capture bone conduction vibrations (BCVs) and ear canal dynamic motions (ECDMs)\nassociated with speaking; they enable EarSpy to derive unique information about the wearer’s speech.\nLeveraging a study on the motion sensor measurements captured from earphones, EarSpy gains abilities to\ndisentangle the wearer’s live speech from interference caused by body motions and vibrations generated when\nthe earphone’s speaker plays audio. To enable user-independent attacks, EarSpy involves novel efforts,\nincluding a trajectory instability reduction method to calibrate the waveform of ECDMs and a data augmentation\nmethod to enrich the diversity of BCVs. Moreover, EarSpy explores effective representations from BCVs and\nECDMs, and develops a convolutional neural model with Connectionist Temporal Classification (CTC) to realize\naccurate speech recognition. Extensive experiments involving 14 participants demonstrate that EarSpy reaches a\npromising recognition for the wearer’s speech.",
+  "citationEnglish": "Y. Cao, F. Li, H. Chen, X. Liu, C. Duan, and Y. Wang, “I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors, ” in Proceedings of the IEEE International Conference on Computer Communications (INFOCOM), 2023, pp. 1-10.",
+  "citationChinese": "Cao Y, Li F, Chen H, et al. I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors[C]//Proceedings of the IEEE International Conference on Computer Communications (INFOCOM). 2023: 1-10.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2023-i-can-hear-you-without-a-microphone-live-speech-eavesdropping-from-earphone-motion-sensors/index.md",
+    "originalUrl": "/publications/2023-i-can-hear-you-without-a-microphone-live-speech-eavesdropping-from-earphone-motion-sensors/",
+    "frontmatter": {
+      "title": "I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors",
+      "authors": [
+        "Yetong Cao",
+        "Fan Li",
+        "Huijie Chen",
+        "Xiaochen Liu",
+        "me",
+        "Yu Wang"
+      ],
+      "author_notes": [
+        "",
+        "Corresponding author",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "date": "2023-05-17T00:00:00Z",
+      "publication_types": [
+        "paper-conference"
+      ],
+      "publication": {
+        "name": "IEEE International Conference on Computer Communications",
+        "short_name": "IEEE INFOCOM",
+        "pages": "1-10",
+        "location": "New York area, USA"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "tags": [
+        "CCF-A"
+      ],
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2023-i-can-hear-you-without-a-microphone-live-speech-eavesdropping-from-earphone-motion-sensors.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1109/INFOCOM53939.2023.10228943"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nRecent literature advances motion sensors mounted on smartphones and AR/VR headsets to speech eavesdropping\ndue to their sensitivity to subtle vibrations. The popularity of motion sensors in earphones has fueled a rise\nin their sampling rate, which enables various enhanced features. This paper investigates a new threat of\neavesdropping via motion sensors of earphones by developing EarSpy, which builds on our observation that the\nearphone’s accelerometer can capture bone conduction vibrations (BCVs) and ear canal dynamic motions (ECDMs)\nassociated with speaking; they enable EarSpy to derive unique information about the wearer’s speech.\nLeveraging a study on the motion sensor measurements captured from earphones, EarSpy gains abilities to\ndisentangle the wearer’s live speech from interference caused by body motions and vibrations generated when\nthe earphone’s speaker plays audio. To enable user-independent attacks, EarSpy involves novel efforts,\nincluding a trajectory instability reduction method to calibrate the waveform of ECDMs and a data augmentation\nmethod to enrich the diversity of BCVs. Moreover, EarSpy explores effective representations from BCVs and\nECDMs, and develops a convolutional neural model with Connectionist Temporal Classification (CTC) to realize\naccurate speech recognition. Extensive experiments involving 14 participants demonstrate that EarSpy reaches a\npromising recognition for the wearer’s speech.\n\n## Citation\n\nY. Cao, F. Li, H. Chen, X. Liu, C. Duan, and Y. Wang, “I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors, ” in Proceedings of the IEEE International Conference on Computer Communications (INFOCOM), 2023, pp. 1-10.\n\n## 中文引用（GB/T 7714）\n\nCao Y, Li F, Chen H, et al. I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors[C]//Proceedings of the IEEE International Conference on Computer Communications (INFOCOM). 2023: 1-10.\n",
+    "bibtex": "@inproceedings{cao2023hear,\n  author = {Yetong Cao and Fan Li and Huijie Chen and Xiaochen Liu and Chunhui Duan and Yu Wang},\n  title = {I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors},\n  booktitle = {IEEE International Conference on Computer Communications},\n  year = {2023},\n  pages = {1-10},\n  doi = {10.1109/INFOCOM53939.2023.10228943}\n}\n\n",
+    "baseline": {
+      "title": "I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors",
+      "draft": false,
+      "bibtex": "@inproceedings{cao2023hear,\n  author = {Yetong Cao and Fan Li and Huijie Chen and Xiaochen Liu and Chunhui Duan and Yu Wang},\n  title = {I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors},\n  booktitle = {IEEE International Conference on Computer Communications},\n  year = {2023},\n  pages = {1-10},\n  doi = {10.1109/INFOCOM53939.2023.10228943}\n}\n\n",
+      "date": "2023-05-17",
+      "type": "paper-conference",
+      "authors": [
+        {
+          "name": "Yetong Cao",
+          "note": ""
+        },
+        {
+          "name": "Fan Li",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Huijie Chen",
+          "note": ""
+        },
+        {
+          "name": "Xiaochen Liu",
+          "note": ""
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": ""
+        },
+        {
+          "name": "Yu Wang",
+          "note": ""
+        }
+      ],
+      "venue": "IEEE International Conference on Computer Communications",
+      "venueShort": "IEEE INFOCOM",
+      "volume": "",
+      "issue": "",
+      "pages": "1-10",
+      "articleNumber": "",
+      "location": "New York area, USA",
+      "doi": "10.1109/INFOCOM53939.2023.10228943",
+      "ccfRank": "CCF-A",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2023-i-can-hear-you-without-a-microphone-live-speech-eavesdropping-from-earphone-motion-sensors.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "Recent literature advances motion sensors mounted on smartphones and AR/VR headsets to speech eavesdropping\ndue to their sensitivity to subtle vibrations. The popularity of motion sensors in earphones has fueled a rise\nin their sampling rate, which enables various enhanced features. This paper investigates a new threat of\neavesdropping via motion sensors of earphones by developing EarSpy, which builds on our observation that the\nearphone’s accelerometer can capture bone conduction vibrations (BCVs) and ear canal dynamic motions (ECDMs)\nassociated with speaking; they enable EarSpy to derive unique information about the wearer’s speech.\nLeveraging a study on the motion sensor measurements captured from earphones, EarSpy gains abilities to\ndisentangle the wearer’s live speech from interference caused by body motions and vibrations generated when\nthe earphone’s speaker plays audio. To enable user-independent attacks, EarSpy involves novel efforts,\nincluding a trajectory instability reduction method to calibrate the waveform of ECDMs and a data augmentation\nmethod to enrich the diversity of BCVs. Moreover, EarSpy explores effective representations from BCVs and\nECDMs, and develops a convolutional neural model with Connectionist Temporal Classification (CTC) to realize\naccurate speech recognition. Extensive experiments involving 14 participants demonstrate that EarSpy reaches a\npromising recognition for the wearer’s speech.",
+      "citationEnglish": "Y. Cao, F. Li, H. Chen, X. Liu, C. Duan, and Y. Wang, “I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors, ” in Proceedings of the IEEE International Conference on Computer Communications (INFOCOM), 2023, pp. 1-10.",
+      "citationChinese": "Cao Y, Li F, Chen H, et al. I Can Hear You Without a Microphone: Live Speech Eavesdropping From Earphone Motion Sensors[C]//Proceedings of the IEEE International Conference on Computer Communications (INFOCOM). 2023: 1-10.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

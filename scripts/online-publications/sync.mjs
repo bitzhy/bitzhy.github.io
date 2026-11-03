@@ -3,6 +3,7 @@ import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readOwner, importBibtex, normalizePaper, generateMarkdown, generateBibtex, listPublications } from '../publication-manager/publication.mjs';
+import { validateMigration, isMigratedBackup, renderMigratedPublication } from './migration.mjs';
 
 const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const sourceRelative = 'data/online_publications';
@@ -82,19 +83,21 @@ async function validateMedia(root, url, type) {
 }
 
 function mergeSubmission(input, stem, owner) {
+  const migration = input.migration == null ? null : validateMigration(input.migration, stem, owner);
   let imported = {};
   const warnings = [];
   if (input.bibtex != null && typeof input.bibtex !== 'string') fail('BibTeX 必须是文字。');
   if (input.bibtex?.trim()) {
     const result = importBibtex(input.bibtex, owner);
     imported = result.paper;
-    warnings.push(...result.warnings);
+    const explicitDate = typeof input.date === 'string' && input.date.trim();
+    warnings.push(...result.warnings.filter(warning => !explicitDate || warning !== 'BibTeX 没有完整发表日期，已暂用该月 1 日，请核对。'));
   }
   const merged = { ...imported };
   for (const [key, value] of Object.entries(input)) {
     // Empty CMS controls mean "use the imported citation". Explicit booleans
     // remain meaningful, and nonempty arrays replace imported ordered authors.
-    if (value == null || typeof value === 'string' && !value.trim() || Array.isArray(value) && !value.length) continue;
+    if (!migration && (value == null || typeof value === 'string' && !value.trim() || Array.isArray(value) && !value.length)) continue;
     merged[key] = value;
   }
   merged.type ||= imported.type || 'article-journal';
@@ -115,7 +118,7 @@ function mergeSubmission(input, stem, owner) {
   }
   if (paper.tags.filter(tag => tag.startsWith('CCF-')).length > 1) fail('每篇论文只能选择一个 CCF 等级。');
   if (paper.tags.filter(tag => tag.startsWith('中科院')).length > 1) fail('每篇论文只能选择一个中科院分区。');
-  return { paper, warnings };
+  return { paper, warnings, migration };
 }
 
 async function readSubmissions(root, owner) {
@@ -140,6 +143,12 @@ async function readSubmissions(root, owner) {
       if (!input || typeof input !== 'object' || Array.isArray(input)) fail('论文信息应为 JSON 对象。');
       if (input.draft !== false) { skippedDrafts++; continue; }
       const result = mergeSubmission(input, stem, owner);
+      if (result.migration) {
+        const archive = await safePath(root, result.migration.originalPath);
+        let archived;
+        try { archived = await readFile(archive, 'utf8'); } catch { fail('找不到受保护的原始论文备份。'); }
+        if (!isMigratedBackup(archived)) fail('原始论文备份必须标记迁移，并禁止页面、列表与资源输出。');
+      }
       await validateMedia(root, result.paper.pdfUrl, 'PDF');
       await validateMedia(root, result.paper.slidesUrl, '幻灯片');
       const paperWarnings = [...result.warnings];
@@ -148,22 +157,26 @@ async function readSubmissions(root, owner) {
       if (result.paper.date > today) paperWarnings.push('发表日期在未来，Hugo 默认会暂时隐藏这篇论文。');
       if (!result.paper.citationEnglish || !result.paper.citationChinese) paperWarnings.push('自动引用为初稿，请核对作者缩写、卷期页码及引用格式。');
       warnings.push(...paperWarnings.map(warning => `${entry.name}：${warning}`));
-      records.push({ source: entry.name, paper: result.paper });
+      records.push({ source: entry.name, paper: result.paper, migration: result.migration });
     } catch (error) { fail(`${entry.name}：${error.message}`); }
   }
   return { records, skippedDrafts, warnings };
 }
 
 function checkDuplicates(records, existing) {
-  const titles = new Map(existing.map(paper => [fold(paper.title), paper.title]));
-  const dois = new Map(existing.filter(paper => paper.doi).map(paper => [paper.doi.toLowerCase(), paper.title]));
-  const slugs = new Map(existing.map(paper => [paper.slug, paper.title]));
+  const titles = new Map();
+  const addTitle = paper => { const key = fold(paper.title); titles.set(key, [...titles.get(key) || [], paper]); };
+  existing.forEach(addTitle);
+  const dois = new Map(existing.filter(paper => paper.doi).map(paper => [paper.doi.toLowerCase(), paper]));
+  const slugs = new Map(existing.map(paper => [paper.slug, paper]));
   for (const { source, paper } of records) {
-    const duplicate = slugs.get(paper.slug) || titles.get(fold(paper.title)) || paper.doi && dois.get(paper.doi.toLowerCase());
-    if (duplicate) fail(`${source}：目录名、标题或 DOI 与已有论文重复（${duplicate}），未更新生成文件。`);
-    titles.set(fold(paper.title), paper.title);
-    if (paper.doi) dois.set(paper.doi.toLowerCase(), paper.title);
-    slugs.set(paper.slug, paper.title);
+    const validDoi = value => /^10\.\d{4,9}\/\S+$/i.test(value || '');
+    const titleConflict = (titles.get(fold(paper.title)) || []).find(other => !validDoi(paper.doi) || !validDoi(other.doi) || paper.doi.toLowerCase() === other.doi.toLowerCase());
+    const duplicate = slugs.get(paper.slug) || titleConflict || paper.doi && dois.get(paper.doi.toLowerCase());
+    if (duplicate) fail(`${source}：目录名、标题或 DOI 与已有论文重复（${duplicate.title || duplicate.slug}），未更新生成文件。`);
+    addTitle(paper);
+    if (paper.doi) dois.set(paper.doi.toLowerCase(), paper);
+    slugs.set(paper.slug, paper);
   }
 }
 
@@ -184,13 +197,17 @@ async function replaceGenerated(root, records, owner, previous, warnings) {
       staged = true;
       const marker = { generator, version: 1, sourceDirectory: sourceRelative, sources: records.map(record => record.source) };
       await writeFile(path.join(stage, markerName), `${JSON.stringify(marker, null, 2)}\n`, { flag: 'wx' });
-      await writeFile(path.join(stage, '_index.md'), '---\ntitle: "Online publications"\nbuild:\n  render: never\n  list: never\n---\n', { flag: 'wx' });
-      for (const { paper } of records) {
+      // Keep this a plain folder: an _index.md would create a nested Hugo
+      // section, hiding these pages from the Publications list and sidebar.
+      for (const { paper, migration } of records) {
         const bundle = path.join(stage, paper.slug);
         await mkdir(bundle);
-        const markdown = generateMarkdown(paper, owner).replace(/^---\n/, `---\nurl: ${JSON.stringify(`/publications/${paper.slug}/`)}\ndraft: false\n`);
-        await writeFile(path.join(bundle, 'index.md'), markdown, { flag: 'wx' });
-        await writeFile(path.join(bundle, 'cite.bib'), generateBibtex(paper), { flag: 'wx' });
+        const rendered = migration ? renderMigratedPublication(paper, migration, owner) : {
+          indexMarkdown: generateMarkdown(paper, owner).replace(/^---\n/, `---\nurl: ${JSON.stringify(`/publications/${paper.slug}/`)}\ndraft: false\n`),
+          bibtex: generateBibtex(paper),
+        };
+        await writeFile(path.join(bundle, 'index.md'), rendered.indexMarkdown, { flag: 'wx' });
+        await writeFile(path.join(bundle, 'cite.bib'), rendered.bibtex, { flag: 'wx' });
       }
     }
     const current = await ownership(root, destination);
@@ -217,7 +234,11 @@ export async function syncPublications({ root = defaultRoot } = {}) {
   const destination = await safePath(root, outputRelative);
   const previous = await ownership(root, destination);
   const { records, skippedDrafts, warnings } = await readSubmissions(root, owner);
-  const existing = await listPublications(root);
+  const existing = [];
+  for (const paper of await listPublications(root)) {
+    const source = await safePath(root, `content/publications/${paper.slug}/index.md`);
+    if (!isMigratedBackup(await readFile(source, 'utf8'))) existing.push(paper);
+  }
   checkDuplicates(records, existing);
   await replaceGenerated(root, records, owner, previous, warnings);
   const sources = new Set(records.map(record => record.source));

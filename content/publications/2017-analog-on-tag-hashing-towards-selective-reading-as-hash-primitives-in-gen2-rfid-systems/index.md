@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Analog On-Tag Hashing: Towards Selective Reading as Hash Primitives in Gen2 RFID Systems"
 authors:
   - "Lei Yang"

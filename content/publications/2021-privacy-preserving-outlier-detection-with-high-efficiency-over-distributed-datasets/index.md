@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Privacy-Preserving Outlier Detection with High Efficiency over Distributed Datasets"
 authors:
   - "Guanghong Lu"

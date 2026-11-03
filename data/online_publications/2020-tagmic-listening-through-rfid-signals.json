@@ -1,0 +1,141 @@
+{
+  "title": "TagMic: Listening Through RFID Signals",
+  "draft": false,
+  "bibtex": "@inproceedings{li2020tagmic,\n  author = {Yin Li and Chunhui Duan and Xuan Ding and Cihang Liu},\n  title = {TagMic: Listening Through RFID Signals},\n  booktitle = {IEEE International Conference on Distributed Computing Systems},\n  year = {2020},\n  pages = {1187-1188},\n  doi = {10.1109/ICDCS47774.2020.00136}\n}\n\n",
+  "date": "2020-11-29",
+  "type": "paper-conference",
+  "authors": [
+    {
+      "name": "Yin Li",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": ""
+    },
+    {
+      "name": "Xuan Ding",
+      "note": ""
+    },
+    {
+      "name": "Cihang Liu",
+      "note": ""
+    }
+  ],
+  "venue": "IEEE International Conference on Distributed Computing Systems",
+  "venueShort": "IEEE ICDCS",
+  "volume": "",
+  "issue": "",
+  "pages": "1187-1188",
+  "articleNumber": "",
+  "location": "Online",
+  "doi": "10.1109/ICDCS47774.2020.00136",
+  "ccfRank": "CCF-B",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2020-tagmic-listening-through-rfid-signals.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "RFID is an increasingly ubiquitous technology widely adopted in both the industry and our daily life nowadays.\nBut when it comes to eavesdropping, people usually pay attention to devices like cameras and mobile phones,\ninstead of small-volume and battery-free RFID tags. This work shows the possibility of using prevalence RFIDs\nto capture and recognize the acoustic signals. To be specific, we attach an RFID tag on an object, which is\nlocated in the vicinity of the sound source. Our key innovation lies in the translation between the vibrations\ninduced when the sound wave hits the object surface and the fluctuations in the tag's RF signals. Although the\ninherent sampling rate of commercial RFID devices is deficient, and the vibrations are very subtle, we still\nextract characteristic features from imperfect measurements by taking advantage of state-of-the-art machine\nlearning and signal processing algorithms. We have implemented our system with commercial RFID and loudspeaker\nequipment and evaluated it intensively in our lab environment. Experimental results show that the average\nsuccess rate in detecting single tone sounds can reach as high as 93.10%. We believe our work would raise the\nattention of RFID in the concern of surveillance and security.",
+  "citationEnglish": "Y. Li, C. Duan, X. Ding, and C. Liu, “TagMic: Listening Through RFID Signals,” in Proceedings of the IEEE International Conference on Distributed Computing Systems (ICDCS), 2020, pp. 1187-1188.",
+  "citationChinese": "Li Y, Duan C, Ding X, et al. TagMic: Listening Through RFID Signals[C]//Proceedings of the IEEE International Conference on Distributed Computing Systems (ICDCS). 2020:1187-1188.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2020-tagmic-listening-through-rfid-signals/index.md",
+    "originalUrl": "/publications/2020-tagmic-listening-through-rfid-signals/",
+    "frontmatter": {
+      "title": "TagMic: Listening Through RFID Signals",
+      "authors": [
+        "Yin Li",
+        "me",
+        "Xuan Ding",
+        "Cihang Liu"
+      ],
+      "author_notes": [
+        "Corresponding author",
+        "",
+        "",
+        ""
+      ],
+      "date": "2020-11-29T00:00:00Z",
+      "publication_types": [
+        "paper-conference"
+      ],
+      "publication": {
+        "name": "IEEE International Conference on Distributed Computing Systems",
+        "short_name": "IEEE ICDCS",
+        "pages": "1187-1188",
+        "location": "Online"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "tags": [
+        "CCF-B"
+      ],
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2020-tagmic-listening-through-rfid-signals.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1109/ICDCS47774.2020.00136"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nRFID is an increasingly ubiquitous technology widely adopted in both the industry and our daily life nowadays.\nBut when it comes to eavesdropping, people usually pay attention to devices like cameras and mobile phones,\ninstead of small-volume and battery-free RFID tags. This work shows the possibility of using prevalence RFIDs\nto capture and recognize the acoustic signals. To be specific, we attach an RFID tag on an object, which is\nlocated in the vicinity of the sound source. Our key innovation lies in the translation between the vibrations\ninduced when the sound wave hits the object surface and the fluctuations in the tag's RF signals. Although the\ninherent sampling rate of commercial RFID devices is deficient, and the vibrations are very subtle, we still\nextract characteristic features from imperfect measurements by taking advantage of state-of-the-art machine\nlearning and signal processing algorithms. We have implemented our system with commercial RFID and loudspeaker\nequipment and evaluated it intensively in our lab environment. Experimental results show that the average\nsuccess rate in detecting single tone sounds can reach as high as 93.10%. We believe our work would raise the\nattention of RFID in the concern of surveillance and security.\n\n## Citation\n\nY. Li, C. Duan, X. Ding, and C. Liu, “TagMic: Listening Through RFID Signals,” in Proceedings of the IEEE International Conference on Distributed Computing Systems (ICDCS), 2020, pp. 1187-1188.\n\n## 中文引用（GB/T 7714）\n\nLi Y, Duan C, Ding X, et al. TagMic: Listening Through RFID Signals[C]//Proceedings of the IEEE International Conference on Distributed Computing Systems (ICDCS). 2020:1187-1188.\n",
+    "bibtex": "@inproceedings{li2020tagmic,\n  author = {Yin Li and Chunhui Duan and Xuan Ding and Cihang Liu},\n  title = {TagMic: Listening Through RFID Signals},\n  booktitle = {IEEE International Conference on Distributed Computing Systems},\n  year = {2020},\n  pages = {1187-1188},\n  doi = {10.1109/ICDCS47774.2020.00136}\n}\n\n",
+    "baseline": {
+      "title": "TagMic: Listening Through RFID Signals",
+      "draft": false,
+      "bibtex": "@inproceedings{li2020tagmic,\n  author = {Yin Li and Chunhui Duan and Xuan Ding and Cihang Liu},\n  title = {TagMic: Listening Through RFID Signals},\n  booktitle = {IEEE International Conference on Distributed Computing Systems},\n  year = {2020},\n  pages = {1187-1188},\n  doi = {10.1109/ICDCS47774.2020.00136}\n}\n\n",
+      "date": "2020-11-29",
+      "type": "paper-conference",
+      "authors": [
+        {
+          "name": "Yin Li",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": ""
+        },
+        {
+          "name": "Xuan Ding",
+          "note": ""
+        },
+        {
+          "name": "Cihang Liu",
+          "note": ""
+        }
+      ],
+      "venue": "IEEE International Conference on Distributed Computing Systems",
+      "venueShort": "IEEE ICDCS",
+      "volume": "",
+      "issue": "",
+      "pages": "1187-1188",
+      "articleNumber": "",
+      "location": "Online",
+      "doi": "10.1109/ICDCS47774.2020.00136",
+      "ccfRank": "CCF-B",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2020-tagmic-listening-through-rfid-signals.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "RFID is an increasingly ubiquitous technology widely adopted in both the industry and our daily life nowadays.\nBut when it comes to eavesdropping, people usually pay attention to devices like cameras and mobile phones,\ninstead of small-volume and battery-free RFID tags. This work shows the possibility of using prevalence RFIDs\nto capture and recognize the acoustic signals. To be specific, we attach an RFID tag on an object, which is\nlocated in the vicinity of the sound source. Our key innovation lies in the translation between the vibrations\ninduced when the sound wave hits the object surface and the fluctuations in the tag's RF signals. Although the\ninherent sampling rate of commercial RFID devices is deficient, and the vibrations are very subtle, we still\nextract characteristic features from imperfect measurements by taking advantage of state-of-the-art machine\nlearning and signal processing algorithms. We have implemented our system with commercial RFID and loudspeaker\nequipment and evaluated it intensively in our lab environment. Experimental results show that the average\nsuccess rate in detecting single tone sounds can reach as high as 93.10%. We believe our work would raise the\nattention of RFID in the concern of surveillance and security.",
+      "citationEnglish": "Y. Li, C. Duan, X. Ding, and C. Liu, “TagMic: Listening Through RFID Signals,” in Proceedings of the IEEE International Conference on Distributed Computing Systems (ICDCS), 2020, pp. 1187-1188.",
+      "citationChinese": "Li Y, Duan C, Ding X, et al. TagMic: Listening Through RFID Signals[C]//Proceedings of the IEEE International Conference on Distributed Computing Systems (ICDCS). 2020:1187-1188.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

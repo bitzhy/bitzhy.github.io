@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Wireless Radiation Field Reconstruction with Random Initialized 3D Gaussians"
 authors:
   - "Zezhou Yao"

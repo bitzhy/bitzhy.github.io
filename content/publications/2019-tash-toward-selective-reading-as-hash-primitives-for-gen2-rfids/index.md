@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Tash: Toward selective reading as hash primitives for Gen2 RFIDs"
 authors:
   - "Qiongzheng Lin"

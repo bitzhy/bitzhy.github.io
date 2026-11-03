@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Towards Location- and Orientation-Independent RFID Authentication with COTS Devices"
 authors:
   - "Yinan Zhu"

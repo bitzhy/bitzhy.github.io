@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Fusing RFID and computer vision for fine-grained object tracking"
 authors:
   - "me"

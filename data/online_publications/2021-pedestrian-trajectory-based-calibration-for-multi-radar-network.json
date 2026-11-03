@@ -1,0 +1,158 @@
+{
+  "title": "Pedestrian Trajectory based Calibration for Multi-Radar Network",
+  "draft": false,
+  "bibtex": "@inproceedings{li2021pedestrian,\n  author = {Shuai Li and Junchen Guo and Rui Xi and Chunhui Duan and Zhengang Zhai and Yuan He},\n  title = {Pedestrian Trajectory based Calibration for Multi-Radar Network},\n  booktitle = {IEEE International Conference on Computer Communications Workshops},\n  year = {2021},\n  pages = {1-2},\n  doi = {10.1109/INFOCOMWKSHPS51825.2021.9484562}\n}\n\n",
+  "date": "2021-05-09",
+  "type": "paper-conference",
+  "authors": [
+    {
+      "name": "Shuai Li",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Junchen Guo",
+      "note": ""
+    },
+    {
+      "name": "Rui Xi",
+      "note": ""
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": ""
+    },
+    {
+      "name": "Zhengang Zhai",
+      "note": ""
+    },
+    {
+      "name": "Yuan He",
+      "note": ""
+    }
+  ],
+  "venue": "IEEE International Conference on Computer Communications Workshops",
+  "venueShort": "IEEE INFOCOM WKSHPS",
+  "volume": "",
+  "issue": "",
+  "pages": "1-2",
+  "articleNumber": "",
+  "location": "Virtual Conference",
+  "doi": "10.1109/INFOCOMWKSHPS51825.2021.9484562",
+  "ccfRank": "",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2021-pedestrian-trajectory-based-calibration-for-multi-radar-network.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "In recent years, using radio frequency (RF) signal for pedestrian localization and tracking has aroused great\ninterest of researchers due to its property of privacy protection. With the high spatial resolution,\nmillimeter wave (mmWave) becomes one of the most promising RF technologies in human sensing tasks. Existing\nmmWave-based localization and tracking approaches can achieve decimeter-level accuracy. However, it's still\nextremely challenging to locate and track multiple pedestrians in a complex indoor environment due to target\nocclusion and multipath effect. To overcome these challenges, it is an opportunity to leverage multiple mmWave\nradars to form a multi-radar network that monitors pedestrians from different perspectives. In this poster, we\naddress one of the fundamental challenges of building one multi-radar network: How to calibrate the\nperspectives of different mmWave radars before fusing their data. To reduce the overhead and improve the\nefficiency, we propose a multi-radar calibration method that determines the position relationship of different\nrad…789 tokens truncated…y CV. A\nprototype of TagFocus is implemented and extensively assessed in lab environments. Experimental results show\nthat our system maintains a matching accuracy of over 89% in harsh conditions, outperforming state-of-the-art\nschemes by 25%.",
+  "citationEnglish": "S. Li, J. Guo, R. Xi, C. Duan, Z. Zhai, and Y. He, “Pedestrian Trajectory based Calibration for Multi-Radar Network,” in Proceedings of the IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS), 2021, pp. 1-2.",
+  "citationChinese": "Li S, Guo J, Xi R, et al. Pedestrian Trajectory based Calibration for Multi-Radar Network[C]//Proceedings of the IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS). 2021: 1-2.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2021-pedestrian-trajectory-based-calibration-for-multi-radar-network/index.md",
+    "originalUrl": "/publications/2021-pedestrian-trajectory-based-calibration-for-multi-radar-network/",
+    "frontmatter": {
+      "title": "Pedestrian Trajectory based Calibration for Multi-Radar Network",
+      "authors": [
+        "Shuai Li",
+        "Junchen Guo",
+        "Rui Xi",
+        "me",
+        "Zhengang Zhai",
+        "Yuan He"
+      ],
+      "author_notes": [
+        "Corresponding author",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "date": "2021-05-09T00:00:00Z",
+      "publication_types": [
+        "paper-conference"
+      ],
+      "publication": {
+        "name": "IEEE International Conference on Computer Communications Workshops",
+        "short_name": "IEEE INFOCOM WKSHPS",
+        "pages": "1-2",
+        "location": "Virtual Conference"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2021-pedestrian-trajectory-based-calibration-for-multi-radar-network.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1109/INFOCOMWKSHPS51825.2021.9484562"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nIn recent years, using radio frequency (RF) signal for pedestrian localization and tracking has aroused great\ninterest of researchers due to its property of privacy protection. With the high spatial resolution,\nmillimeter wave (mmWave) becomes one of the most promising RF technologies in human sensing tasks. Existing\nmmWave-based localization and tracking approaches can achieve decimeter-level accuracy. However, it's still\nextremely challenging to locate and track multiple pedestrians in a complex indoor environment due to target\nocclusion and multipath effect. To overcome these challenges, it is an opportunity to leverage multiple mmWave\nradars to form a multi-radar network that monitors pedestrians from different perspectives. In this poster, we\naddress one of the fundamental challenges of building one multi-radar network: How to calibrate the\nperspectives of different mmWave radars before fusing their data. To reduce the overhead and improve the\nefficiency, we propose a multi-radar calibration method that determines the position relationship of different\nrad…789 tokens truncated…y CV. A\nprototype of TagFocus is implemented and extensively assessed in lab environments. Experimental results show\nthat our system maintains a matching accuracy of over 89% in harsh conditions, outperforming state-of-the-art\nschemes by 25%.\n\n## Citation\n\nS. Li, J. Guo, R. Xi, C. Duan, Z. Zhai, and Y. He, “Pedestrian Trajectory based Calibration for Multi-Radar Network,” in Proceedings of the IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS), 2021, pp. 1-2.\n\n## 中文引用（GB/T 7714）\n\nLi S, Guo J, Xi R, et al. Pedestrian Trajectory based Calibration for Multi-Radar Network[C]//Proceedings of the IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS). 2021: 1-2.\n",
+    "bibtex": "@inproceedings{li2021pedestrian,\n  author = {Shuai Li and Junchen Guo and Rui Xi and Chunhui Duan and Zhengang Zhai and Yuan He},\n  title = {Pedestrian Trajectory based Calibration for Multi-Radar Network},\n  booktitle = {IEEE International Conference on Computer Communications Workshops},\n  year = {2021},\n  pages = {1-2},\n  doi = {10.1109/INFOCOMWKSHPS51825.2021.9484562}\n}\n\n",
+    "baseline": {
+      "title": "Pedestrian Trajectory based Calibration for Multi-Radar Network",
+      "draft": false,
+      "bibtex": "@inproceedings{li2021pedestrian,\n  author = {Shuai Li and Junchen Guo and Rui Xi and Chunhui Duan and Zhengang Zhai and Yuan He},\n  title = {Pedestrian Trajectory based Calibration for Multi-Radar Network},\n  booktitle = {IEEE International Conference on Computer Communications Workshops},\n  year = {2021},\n  pages = {1-2},\n  doi = {10.1109/INFOCOMWKSHPS51825.2021.9484562}\n}\n\n",
+      "date": "2021-05-09",
+      "type": "paper-conference",
+      "authors": [
+        {
+          "name": "Shuai Li",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Junchen Guo",
+          "note": ""
+        },
+        {
+          "name": "Rui Xi",
+          "note": ""
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": ""
+        },
+        {
+          "name": "Zhengang Zhai",
+          "note": ""
+        },
+        {
+          "name": "Yuan He",
+          "note": ""
+        }
+      ],
+      "venue": "IEEE International Conference on Computer Communications Workshops",
+      "venueShort": "IEEE INFOCOM WKSHPS",
+      "volume": "",
+      "issue": "",
+      "pages": "1-2",
+      "articleNumber": "",
+      "location": "Virtual Conference",
+      "doi": "10.1109/INFOCOMWKSHPS51825.2021.9484562",
+      "ccfRank": "",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2021-pedestrian-trajectory-based-calibration-for-multi-radar-network.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "In recent years, using radio frequency (RF) signal for pedestrian localization and tracking has aroused great\ninterest of researchers due to its property of privacy protection. With the high spatial resolution,\nmillimeter wave (mmWave) becomes one of the most promising RF technologies in human sensing tasks. Existing\nmmWave-based localization and tracking approaches can achieve decimeter-level accuracy. However, it's still\nextremely challenging to locate and track multiple pedestrians in a complex indoor environment due to target\nocclusion and multipath effect. To overcome these challenges, it is an opportunity to leverage multiple mmWave\nradars to form a multi-radar network that monitors pedestrians from different perspectives. In this poster, we\naddress one of the fundamental challenges of building one multi-radar network: How to calibrate the\nperspectives of different mmWave radars before fusing their data. To reduce the overhead and improve the\nefficiency, we propose a multi-radar calibration method that determines the position relationship of different\nrad…789 tokens truncated…y CV. A\nprototype of TagFocus is implemented and extensively assessed in lab environments. Experimental results show\nthat our system maintains a matching accuracy of over 89% in harsh conditions, outperforming state-of-the-art\nschemes by 25%.",
+      "citationEnglish": "S. Li, J. Guo, R. Xi, C. Duan, Z. Zhai, and Y. He, “Pedestrian Trajectory based Calibration for Multi-Radar Network,” in Proceedings of the IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS), 2021, pp. 1-2.",
+      "citationChinese": "Li S, Guo J, Xi R, et al. Pedestrian Trajectory based Calibration for Multi-Radar Network[C]//Proceedings of the IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS). 2021: 1-2.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}

@@ -1,4 +1,9 @@
 ---
+cms_migrated: true
+build:
+  render: never
+  list: never
+  publishResources: false
 title: "Pedestrian Trajectory based Calibration for Multi-Radar Network"
 authors:
   - "Shuai Li"

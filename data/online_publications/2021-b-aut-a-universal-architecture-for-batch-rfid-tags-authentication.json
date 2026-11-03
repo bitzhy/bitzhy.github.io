@@ -1,0 +1,141 @@
+{
+  "title": "B-AUT: A Universal Architecture for Batch RFID Tags Authentication",
+  "draft": false,
+  "bibtex": "@inproceedings{zhu2021universal,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding and Zheng Yang},\n  title = {B-AUT: A Universal Architecture for Batch RFID Tags Authentication},\n  booktitle = {IEEE International Conference on Parallel and Distributed Systems},\n  year = {2021},\n  pages = {755-762},\n  doi = {10.1109/ICPADS53394.2021.00100}\n}\n\n",
+  "date": "2021-12-14",
+  "type": "paper-conference",
+  "authors": [
+    {
+      "name": "Yinan Zhu",
+      "note": ""
+    },
+    {
+      "name": "Chunhui Duan",
+      "note": "Corresponding author"
+    },
+    {
+      "name": "Xuan Ding",
+      "note": ""
+    },
+    {
+      "name": "Zheng Yang",
+      "note": ""
+    }
+  ],
+  "venue": "IEEE International Conference on Parallel and Distributed Systems",
+  "venueShort": "IEEE ICPADS",
+  "volume": "",
+  "issue": "",
+  "pages": "755-762",
+  "articleNumber": "",
+  "location": "Beijing, China",
+  "doi": "10.1109/ICPADS53394.2021.00100",
+  "ccfRank": "CCF-C",
+  "casRank": "",
+  "tags": [],
+  "pdfUrl": "/papers/2021-b-aut-a-universal-architecture-for-batch-rfid-tags-authentication.pdf",
+  "slidesUrl": "",
+  "codeUrl": "",
+  "projectUrl": "",
+  "videoUrl": "",
+  "abstract": "RFID tags authentication is always a critical but challenging problem because only checking the EPC is\nvulnerable to counterfeiting attacks. Past works explore the unique backscat-ter signal features induced by\ntags' manufacturing imperfection as fingerprints, but fail to support simultaneous authentication for a batch\nof tags in practice, which is vital for large-scale RFID applications (e.g., warehouse inventory). In this\npaper, we present a universal architecture, namely B-AUT, to simultaneously authenticate multiple tags even\nwith the same EPC and pinpoint them, which is fully compatible with Gen2 standard and applicable to almost all\ntags' hardware fingerprints proposed in existing works. The workflow of B-AUT is threefold based on our novel\nalgorithms. First, the extracted fuzzy fingerprint and EPC are jointly exploited to cluster raw data. Second,\nwe extract the tags' fine-grained fingerprints for genuineness validation and obtain the invalid clusters.\nThird, we harness localization methods to match the invalid cluster to dubious tags and further conduct\nsmall-scale re-validation to pinpoint the counterfeit tags. We have implemented a prototype of B-AUT and\nevaluated it in extreme cases. Experiment results demonstrate that B-AUT can maintain nearly the same\nauthentication accuracy as that of separate authentication and reduce the time overhead by 43.3%. Moreover,\nthe pinpointing accuracy can reach as high as 92.8%, regardless of tags' total quantities or tag models.",
+  "citationEnglish": "Y. Zhu, C. Duan, X. Ding, and Z. Yang, “B-AUT: A Universal Architecture for Batch RFID Tags Authentication,” in Proceedings of the IEEE International Conference on Parallel and Distributed Systems (ICPADS), 2021, pp. 755-762.",
+  "citationChinese": "Zhu Y, Duan C, Ding X, et al. B-AUT: A Universal Architecture for Batch RFID Tags Authentication[C]//Proceedings of the IEEE International Conference on Parallel and Distributed Systems (ICPADS). 2021:755-762.",
+  "featured": false,
+  "openAccess": false,
+  "migration": {
+    "version": 1,
+    "originalPath": "content/publications/2021-b-aut-a-universal-architecture-for-batch-rfid-tags-authentication/index.md",
+    "originalUrl": "/publications/2021-b-aut-a-universal-architecture-for-batch-rfid-tags-authentication/",
+    "frontmatter": {
+      "title": "B-AUT: A Universal Architecture for Batch RFID Tags Authentication",
+      "authors": [
+        "Yinan Zhu",
+        "me",
+        "Xuan Ding",
+        "Zheng Yang"
+      ],
+      "author_notes": [
+        "",
+        "Corresponding author",
+        "",
+        ""
+      ],
+      "date": "2021-12-14T00:00:00Z",
+      "publication_types": [
+        "paper-conference"
+      ],
+      "publication": {
+        "name": "IEEE International Conference on Parallel and Distributed Systems",
+        "short_name": "IEEE ICPADS",
+        "pages": "755-762",
+        "location": "Beijing, China"
+      },
+      "peer_reviewed": true,
+      "featured": false,
+      "tags": [
+        "CCF-C"
+      ],
+      "links": [
+        {
+          "type": "pdf",
+          "url": "/papers/2021-b-aut-a-universal-architecture-for-batch-rfid-tags-authentication.pdf"
+        }
+      ],
+      "hugoblox": {
+        "ids": {
+          "doi": "10.1109/ICPADS53394.2021.00100"
+        }
+      }
+    },
+    "body": "\n## Abstract\n\nRFID tags authentication is always a critical but challenging problem because only checking the EPC is\nvulnerable to counterfeiting attacks. Past works explore the unique backscat-ter signal features induced by\ntags' manufacturing imperfection as fingerprints, but fail to support simultaneous authentication for a batch\nof tags in practice, which is vital for large-scale RFID applications (e.g., warehouse inventory). In this\npaper, we present a universal architecture, namely B-AUT, to simultaneously authenticate multiple tags even\nwith the same EPC and pinpoint them, which is fully compatible with Gen2 standard and applicable to almost all\ntags' hardware fingerprints proposed in existing works. The workflow of B-AUT is threefold based on our novel\nalgorithms. First, the extracted fuzzy fingerprint and EPC are jointly exploited to cluster raw data. Second,\nwe extract the tags' fine-grained fingerprints for genuineness validation and obtain the invalid clusters.\nThird, we harness localization methods to match the invalid cluster to dubious tags and further conduct\nsmall-scale re-validation to pinpoint the counterfeit tags. We have implemented a prototype of B-AUT and\nevaluated it in extreme cases. Experiment results demonstrate that B-AUT can maintain nearly the same\nauthentication accuracy as that of separate authentication and reduce the time overhead by 43.3%. Moreover,\nthe pinpointing accuracy can reach as high as 92.8%, regardless of tags' total quantities or tag models.\n\n## Citation\n\nY. Zhu, C. Duan, X. Ding, and Z. Yang, “B-AUT: A Universal Architecture for Batch RFID Tags Authentication,” in Proceedings of the IEEE International Conference on Parallel and Distributed Systems (ICPADS), 2021, pp. 755-762.\n\n## 中文引用（GB/T 7714）\n\nZhu Y, Duan C, Ding X, et al. B-AUT: A Universal Architecture for Batch RFID Tags Authentication[C]//Proceedings of the IEEE International Conference on Parallel and Distributed Systems (ICPADS). 2021:755-762.\n",
+    "bibtex": "@inproceedings{zhu2021universal,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding and Zheng Yang},\n  title = {B-AUT: A Universal Architecture for Batch RFID Tags Authentication},\n  booktitle = {IEEE International Conference on Parallel and Distributed Systems},\n  year = {2021},\n  pages = {755-762},\n  doi = {10.1109/ICPADS53394.2021.00100}\n}\n\n",
+    "baseline": {
+      "title": "B-AUT: A Universal Architecture for Batch RFID Tags Authentication",
+      "draft": false,
+      "bibtex": "@inproceedings{zhu2021universal,\n  author = {Yinan Zhu and Chunhui Duan and Xuan Ding and Zheng Yang},\n  title = {B-AUT: A Universal Architecture for Batch RFID Tags Authentication},\n  booktitle = {IEEE International Conference on Parallel and Distributed Systems},\n  year = {2021},\n  pages = {755-762},\n  doi = {10.1109/ICPADS53394.2021.00100}\n}\n\n",
+      "date": "2021-12-14",
+      "type": "paper-conference",
+      "authors": [
+        {
+          "name": "Yinan Zhu",
+          "note": ""
+        },
+        {
+          "name": "Chunhui Duan",
+          "note": "Corresponding author"
+        },
+        {
+          "name": "Xuan Ding",
+          "note": ""
+        },
+        {
+          "name": "Zheng Yang",
+          "note": ""
+        }
+      ],
+      "venue": "IEEE International Conference on Parallel and Distributed Systems",
+      "venueShort": "IEEE ICPADS",
+      "volume": "",
+      "issue": "",
+      "pages": "755-762",
+      "articleNumber": "",
+      "location": "Beijing, China",
+      "doi": "10.1109/ICPADS53394.2021.00100",
+      "ccfRank": "CCF-C",
+      "casRank": "",
+      "tags": [],
+      "pdfUrl": "/papers/2021-b-aut-a-universal-architecture-for-batch-rfid-tags-authentication.pdf",
+      "slidesUrl": "",
+      "codeUrl": "",
+      "projectUrl": "",
+      "videoUrl": "",
+      "abstract": "RFID tags authentication is always a critical but challenging problem because only checking the EPC is\nvulnerable to counterfeiting attacks. Past works explore the unique backscat-ter signal features induced by\ntags' manufacturing imperfection as fingerprints, but fail to support simultaneous authentication for a batch\nof tags in practice, which is vital for large-scale RFID applications (e.g., warehouse inventory). In this\npaper, we present a universal architecture, namely B-AUT, to simultaneously authenticate multiple tags even\nwith the same EPC and pinpoint them, which is fully compatible with Gen2 standard and applicable to almost all\ntags' hardware fingerprints proposed in existing works. The workflow of B-AUT is threefold based on our novel\nalgorithms. First, the extracted fuzzy fingerprint and EPC are jointly exploited to cluster raw data. Second,\nwe extract the tags' fine-grained fingerprints for genuineness validation and obtain the invalid clusters.\nThird, we harness localization methods to match the invalid cluster to dubious tags and further conduct\nsmall-scale re-validation to pinpoint the counterfeit tags. We have implemented a prototype of B-AUT and\nevaluated it in extreme cases. Experiment results demonstrate that B-AUT can maintain nearly the same\nauthentication accuracy as that of separate authentication and reduce the time overhead by 43.3%. Moreover,\nthe pinpointing accuracy can reach as high as 92.8%, regardless of tags' total quantities or tag models.",
+      "citationEnglish": "Y. Zhu, C. Duan, X. Ding, and Z. Yang, “B-AUT: A Universal Architecture for Batch RFID Tags Authentication,” in Proceedings of the IEEE International Conference on Parallel and Distributed Systems (ICPADS), 2021, pp. 755-762.",
+      "citationChinese": "Zhu Y, Duan C, Ding X, et al. B-AUT: A Universal Architecture for Batch RFID Tags Authentication[C]//Proceedings of the IEEE International Conference on Parallel and Distributed Systems (ICPADS). 2021:755-762.",
+      "featured": false,
+      "openAccess": false
+    },
+    "attribution": ""
+  }
+}
