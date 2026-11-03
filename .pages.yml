@@ -1,20 +1,32 @@
-# Online editor: https://app.pagescms.org/
-# Setup guide: README.md, section 6.
-# This configuration is inactive until the repository owner installs the GitHub App.
+# Online content editor: https://app.pagescms.org/
+# Editable schema; see README.md for repository authorization and publishing.
 media:
   - name: papers
     label: 论文 PDF
     input: static/papers/online
     output: /papers/online
-    extensions: [pdf]
+    extensions:
+      - pdf
     rename: random
   - name: slides
     label: 报告幻灯片
     input: static/slides/online
     output: /slides/online
-    extensions: [pdf, ppt, pptx]
+    extensions:
+      - pdf
+      - ppt
+      - pptx
     rename: random
-
+  - name: profile_images
+    label: 个人头像
+    input: assets/media/authors
+    output: /media/authors
+    extensions:
+      - png
+      - jpg
+      - jpeg
+      - webp
+    rename: random
 content:
   - name: online_publications
     label: 在线论文管理
@@ -31,9 +43,17 @@ content:
       delete: true
     view:
       primary: title
-      fields: [title, date, draft]
-      search: [title, venue, doi]
-      sort: [date, title]
+      fields:
+        - title
+        - date
+        - draft
+      search:
+        - title
+        - venue
+        - doi
+      sort:
+        - date
+        - title
       default:
         sort: date
         order: desc
@@ -159,14 +179,18 @@ content:
         type: file
         options:
           media: papers
-          extensions: [pdf]
+          extensions:
+            - pdf
           rename: random
       - name: slidesUrl
         label: 报告幻灯片
         type: file
         options:
           media: slides
-          extensions: [pdf, ppt, pptx]
+          extensions:
+            - pdf
+            - ppt
+            - pptx
           rename: random
       - name: codeUrl
         label: 代码仓库链接
@@ -195,14 +219,986 @@ content:
         label: 开放获取
         type: boolean
         default: false
-
+  - name: profile_group
+    label: 个人资料
+    type: group
+    items:
+      - name: profile_basic
+        label: 个人信息与头像
+        type: file
+        path: data/authors/me.yaml
+        format: yaml
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: name
+            label: 姓名
+            type: object
+            fields:
+              - name: display
+                label: 主页显示姓名
+                type: string
+                description: 例如 Chunhui Duan。论文中的 me 会关联到这个姓名。
+                required: true
+              - name: given
+                label: 名（英文）
+                type: string
+                description: 用于生成引用和识别论文作者。
+                required: true
+              - name: family
+                label: 姓（英文）
+                type: string
+                description: 用于生成引用和识别论文作者。
+                required: true
+              - name: alternate
+                label: 中文姓名
+                type: string
+              - name: pronunciation
+                label: 姓名发音（选填）
+                type: string
+              - name: pronouns
+                label: 人称代词（选填）
+                type: string
+          - name: role
+            label: 职称 / 身份
+            type: string
+            description: 例如 Associate Professor。
+          - name: avatar
+            label: 个人头像
+            type: image
+            default: assets/media/authors/me.png
+            description: 选择或上传 JPG、PNG、WebP 图片；留空时继续使用原来的默认头像。
+            options:
+              media: profile_images
+              extensions:
+                - jpg
+                - jpeg
+                - png
+                - webp
+              rename: random
+          - name: postnominals
+            label: 姓名后缀 / 学位标记
+            type: string
+            list: true
+            description: 例如 PhD、THU；按希望显示的顺序排列。
+          - name: bio
+            label: 个人简介
+            type: text
+            description: 支持 Markdown 链接，例如 [学校名称](https://example.com)。现有 <br><br> 换行会保留；也可用空行分段。
+      - name: profile_contacts
+        label: 单位与联系方式
+        type: file
+        path: data/authors/me.yaml
+        format: yaml
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: affiliations
+            label: 所属单位
+            type: object
+            fields:
+              - name: name
+                label: 单位名称
+                type: string
+                required: true
+              - name: url
+                label: 单位网站
+                type: string
+                description: 填写完整 https:// 地址，可留空。
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+          - name: links
+            label: 联系与学术主页链接
+            type: object
+            fields:
+              - name: label
+                label: 链接名称
+                type: string
+                description: 例如 E-mail Me、Google Scholar，可留空。
+              - name: url
+                label: 链接地址
+                type: string
+                description: 网页链接使用 https://；邮箱使用 mailto:姓名@单位域名。
+                required: true
+              - name: icon
+                label: 图标名称
+                type: string
+                description: 常用：邮箱 at-symbol；Google Scholar academicons/google-scholar；GitHub brands/github。
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label} {url}"
+            description: 按希望在主页显示的顺序排列。
+          - name: ids
+            label: 学术平台账号
+            type: object
+            fields:
+              - name: google_scholar
+                label: Google Scholar 用户 ID
+                type: string
+                description: 填写 Scholar 链接中 user= 后面的值，并与上方 Google Scholar 链接保持一致。
+      - name: profile_interests
+        label: 研究方向
+        type: file
+        path: data/authors/me.yaml
+        format: yaml
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: interests
+            label: 研究方向
+            type: string
+            list: true
+            description: 每项填写一个方向；可调整顺序，主页按照此顺序显示。
+      - name: profile_education
+        label: 教育经历
+        type: file
+        path: data/authors/me.yaml
+        format: yaml
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: education
+            label: 教育经历
+            type: object
+            fields:
+              - name: degree
+                label: 学位 / 专业
+                type: string
+                required: true
+              - name: institution
+                label: 学校 / 学院
+                type: string
+                required: true
+              - name: start
+                label: 开始年月
+                type: string
+                description: 格式为 YYYY-MM，例如 2013-08。
+                pattern:
+                  regex: ^[0-9]{4}-(?:0[1-9]|1[0-2])$
+                  message: 请输入 YYYY-MM，例如 2013-08。
+                required: true
+              - name: end
+                label: 结束年月
+                type: string
+                description: 格式为 YYYY-MM；留空表示至今。
+                pattern:
+                  regex: ^(?:[0-9]{4}-(?:0[1-9]|1[0-2]))?$
+                  message: 请输入 YYYY-MM，或留空表示至今。
+              - name: summary
+                label: 补充说明
+                type: text
+                description: 支持 Markdown 链接，可留空。
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{degree} · {institution}"
+            description: 按时间倒序排列，最近的经历放在最前面。
+      - name: profile_experience
+        label: 工作与学术经历
+        type: file
+        path: data/authors/me.yaml
+        format: yaml
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: experience
+            label: 工作与学术经历
+            type: object
+            fields:
+              - name: role
+                label: 职务 / 身份
+                type: string
+                required: true
+              - name: org
+                label: 单位 / 机构
+                type: string
+                required: true
+              - name: start
+                label: 开始年月
+                type: string
+                description: 格式为 YYYY-MM，例如 2013-08。
+                pattern:
+                  regex: ^[0-9]{4}-(?:0[1-9]|1[0-2])$
+                  message: 请输入 YYYY-MM，例如 2013-08。
+                required: true
+              - name: end
+                label: 结束年月
+                type: string
+                description: 格式为 YYYY-MM；留空表示至今。
+                pattern:
+                  regex: ^(?:[0-9]{4}-(?:0[1-9]|1[0-2]))?$
+                  message: 请输入 YYYY-MM，或留空表示至今。
+              - name: summary
+                label: 补充说明
+                type: text
+                description: 支持 Markdown 链接，可留空。
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{role} · {org}"
+            description: 可以添加任职、博士后、科研助理及学术服务经历。结束年月留空时显示至今。
+      - name: profile_awards
+        label: 基金与奖励
+        type: file
+        path: data/authors/me.yaml
+        format: yaml
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: awards
+            label: 基金与奖励
+            type: object
+            fields:
+              - name: category
+                label: 类型
+                type: select
+                required: true
+                options:
+                  values:
+                    - name: Fund
+                      label: 科研基金 / 项目
+                    - name: Award
+                      label: 奖励 / 荣誉
+              - name: title
+                label: 完整名称
+                type: string
+                required: true
+              - name: title_en
+                label: 基金英文名称（选填）
+                type: string
+                description: 基金优先显示此名称；奖励仍显示上面的完整名称。
+              - name: title_zh
+                label: 基金中文名称（选填）
+                type: string
+                description: 填写后与基金英文名称分行显示。
+              - name: awarder
+                label: 资助 / 颁奖单位
+                type: string
+                description: 没有时可留空。
+              - name: date
+                label: 页面显示日期
+                type: string
+                description: 保留文字格式，例如 Jan 2026 – Dec 2028、2025；不需要改成完整日期。
+              - name: sort_date
+                label: 排序日期（选填）
+                type: date
+                default: ""
+                options:
+                  format: yyyy-MM-dd
+                description: 项目可填结束日期，奖励可填获奖日期。仅用于排序；页面仍显示上面的日期文字。
+              - name: summary
+                label: 角色、经费或获奖说明
+                type: text
+                description: 例如 **Principal Investigator**<br>RMB 200K；奖励可填写名次或学生姓名。
+              - name: icon
+                label: 图标名称（选填）
+                type: string
+                description: 当前紧凑列表未使用图标，可保持留空。
+              - name: url
+                label: 项目 / 奖励详情链接（选填）
+                type: string
+                description: 可填写完整 https:// 地址。
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{category}: {title}"
+            description: 类型决定条目显示在 Funds 或 Awards；删除整项会从主页撤下该条目。
+  - name: site_group
+    label: 网站设置
+    type: group
+    items:
+      - name: site_navigation
+        label: 导航菜单
+        type: file
+        path: config/_default/menus.yaml
+        format: yaml
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: main
+            label: 顶部导航链接
+            type: object
+            fields:
+              - name: name
+                label: 显示文字
+                type: string
+                required: true
+              - name: identifier
+                label: 内部标识
+                type: string
+                required: true
+                description: 保留已有值。新增导航时使用不同的小写英文标识。
+              - name: url
+                label: 跳转地址
+                type: string
+                required: true
+                description: 首页板块使用 /#about、/#experience、/#papers、/#funds；外部链接填写完整 https:// 地址。
+              - name: weight
+                label: 显示顺序
+                type: number
+                description: 数字越小越靠前。导航显示顺序以此值为准。
+            list:
+              collapsible:
+                collapsed: false
+                summary: "{name} → {url}"
+      - name: site_appearance
+        label: 网站名称与外观
+        type: file
+        path: config/_default/params.yaml
+        format: yaml
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: hugoblox
+            label: 网站设置
+            type: object
+            fields:
+              - name: schema
+                label: 主题配置版本
+                type: string
+                hidden: true
+                readonly: true
+                default: "2.0"
+              - name: identity
+                label: 网站身份
+                type: object
+                fields:
+                  - name: name
+                    label: 网站名称
+                    type: string
+                    description: 站点身份名称；个人资料中的姓名请在“个人资料”中修改。
+                  - name: type
+                    label: 身份类型
+                    type: string
+                    hidden: true
+                    readonly: true
+                    default: person
+              - name: locale
+                label: 日期显示
+                type: object
+                fields:
+                  - name: date_format
+                    label: 日期显示格式
+                    type: select
+                    options:
+                      values:
+                        - name: Jan 2, 2006
+                          label: 英文：Nov 4, 2026
+                        - name: 2006-01-02
+                          label: 数字：2026-11-04
+                        - name: 2006年1月2日
+                          label: 中文：2026年11月4日
+              - name: theme
+                label: 主题和颜色
+                type: object
+                fields:
+                  - name: mode
+                    label: 明暗模式
+                    type: select
+                    options:
+                      values:
+                        - name: system
+                          label: 跟随设备
+                        - name: light
+                          label: 浅色
+                        - name: dark
+                          label: 深色
+                  - name: pack
+                    label: 主题风格
+                    type: select
+                    options:
+                      values:
+                        - cupcake
+                        - default
+                        - minimal
+                        - marine
+                        - matcha
+                        - coffee
+                        - contrast
+                        - dracula
+                        - retro
+                        - solar
+                        - synthwave
+                  - name: colors
+                    label: 自定义颜色
+                    type: object
+                    fields:
+                      - name: primary
+                        label: 主色
+                        type: string
+                        pattern:
+                          regex: ^(#[0-9a-fA-F]{6})?$
+                          message: "留空或填写六位十六进制颜色，例如 #3159A6。"
+                        description: "留空使用主题默认色；填写 #3159A6 这样的颜色值。"
+                      - name: secondary
+                        label: 辅助色
+                        type: string
+                        pattern:
+                          regex: ^(#[0-9a-fA-F]{6})?$
+                          message: "留空或填写六位十六进制颜色，例如 #3159A6。"
+                        description: "留空使用主题默认色；填写 #3159A6 这样的颜色值。"
+                      - name: neutral
+                        label: 文字与中性色
+                        type: string
+                        pattern:
+                          regex: ^(#[0-9a-fA-F]{6})?$
+                          message: "留空或填写六位十六进制颜色，例如 #3159A6。"
+                        description: "留空使用主题默认色；填写 #3159A6 这样的颜色值。"
+              - name: typography
+                label: 字体与字号
+                type: object
+                fields:
+                  - name: pack
+                    label: 字体组合
+                    type: select
+                    options:
+                      values:
+                        - developer
+                        - academic
+                        - editorial
+                        - geometric
+                        - humanist
+                        - modern
+                        - system
+                  - name: font
+                    label: 旧字体设置（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: size
+                    label: 旧字号设置（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: families
+                    label: 自定义字体（选填）
+                    type: object
+                    fields:
+                      - name: heading
+                        label: 标题字体
+                        type: string
+                        description: 留空使用字体组合；可填写 system-sans、system-serif 或字体名称。
+                      - name: body
+                        label: 正文字体
+                        type: string
+                        description: 留空使用字体组合；可填写 system-sans、system-serif 或字体名称。
+                      - name: nav
+                        label: 导航字体
+                        type: string
+                        description: 留空使用字体组合；可填写 system-sans、system-serif 或字体名称。
+                      - name: code
+                        label: 代码字体
+                        type: string
+                        description: 留空使用字体组合；可填写 system-sans、system-serif 或字体名称。
+                  - name: sizes
+                    label: 实际显示字号
+                    type: object
+                    fields:
+                      - name: base
+                        label: 正文基准字号
+                        type: select
+                        options:
+                          values:
+                            - name: ""
+                              label: 使用字体组合
+                            - name: 0.9375rem
+                              label: 较小（15 px）
+                            - name: 1rem
+                              label: 标准（16 px）
+                            - name: 1.0625rem
+                              label: 较大（17 px）
+                            - name: 1.125rem
+                              label: 大（18 px）
+                      - name: sm
+                        label: 小字号（选填）
+                        type: string
+                        pattern:
+                          regex: ^(|[0-9]+(.[0-9]+)?(rem|em|px))$
+                          message: 留空或填写 0.875rem、14px 这样的字号。
+                        description: 例如 0.875rem；留空使用字体组合。
+                      - name: lg
+                        label: 大字号（选填）
+                        type: string
+                        pattern:
+                          regex: ^(|[0-9]+(.[0-9]+)?(rem|em|px))$
+                          message: 留空或填写 1.125rem、18px 这样的字号。
+                        description: 例如 1.125rem；留空使用字体组合。
+              - name: layout
+                label: 全站布局
+                type: object
+                fields:
+                  - name: radius
+                    label: 圆角
+                    type: select
+                    options:
+                      values:
+                        - none
+                        - sm
+                        - md
+                        - lg
+                        - full
+                  - name: spacing
+                    label: 页面间距
+                    type: select
+                    options:
+                      values:
+                        - compact
+                        - comfortable
+                        - spacious
+                  - name: avatar_shape
+                    label: 全站头像形状
+                    type: select
+                    options:
+                      values:
+                        - circle
+                        - square
+                        - rounded
+                    description: 首页头像在“首页板块”中单独设置，会覆盖这里的默认值。
+              - name: header
+                label: 顶部导航栏
+                type: object
+                fields:
+                  - name: enable
+                    label: 显示导航栏
+                    type: boolean
+                  - name: style
+                    label: 导航样式
+                    type: string
+                    hidden: true
+                    readonly: true
+                    default: navbar
+                  - name: sticky
+                    label: 滚动时固定在顶部
+                    type: boolean
+                  - name: align
+                    label: 导航对齐方式
+                    type: select
+                    options:
+                      values:
+                        - name: left
+                          label: 左对齐
+                        - name: center
+                          label: 居中
+                        - name: right
+                          label: 右对齐
+                  - name: search
+                    label: 显示搜索按钮
+                    type: boolean
+                  - name: theme_toggle
+                    label: 允许访客切换明暗模式
+                    type: boolean
+                  - name: theme_picker
+                    label: 允许访客切换主题风格
+                    type: boolean
+                  - name: cta
+                    label: 导航栏按钮
+                    type: object
+                    fields:
+                      - name: enable
+                        label: 显示按钮
+                        type: boolean
+                      - name: text
+                        label: 按钮文字
+                        type: string
+                      - name: url
+                        label: 按钮链接
+                        type: string
+                        description: 开启按钮时，同时填写文字和链接。
+              - name: footer
+                label: 页脚
+                type: object
+                fields:
+                  - name: style
+                    label: 页脚样式
+                    type: string
+                    hidden: true
+                    readonly: true
+                    default: minimal
+                  - name: language_switcher
+                    label: 显示语言切换器
+                    type: boolean
+              - name: copyright
+                label: 版权文字
+                type: object
+                fields:
+                  - name: notice
+                    label: 页脚版权文字
+                    type: string
+                    description: 可使用 {year} 和 {name} 占位符，例如 © {year} {name}。
+              - name: content
+                label: 内容显示
+                type: object
+                fields:
+                  - name: math
+                    label: 数学公式
+                    type: object
+                    fields:
+                      - name: enable
+                        label: 支持数学公式
+                        type: boolean
+                  - name: toc
+                    label: 文章目录
+                    type: object
+                    fields:
+                      - name: enable
+                        label: 显示文章目录
+                        type: boolean
+                  - name: reading_time
+                    label: 阅读时间
+                    type: object
+                    fields:
+                      - name: enable
+                        label: 显示预计阅读时间
+                        type: boolean
+                  - name: citations
+                    label: 引用样式
+                    type: object
+                    fields:
+                      - name: style
+                        label: 默认引用样式
+                        type: string
+                        hidden: true
+                        readonly: true
+              - name: search
+                label: 站内搜索
+                type: object
+                fields:
+                  - name: enable
+                    label: 启用站内搜索
+                    type: boolean
+              - name: repository
+                label: 仓库入口
+                type: object
+                fields:
+                  - name: enable
+                    label: 显示仓库入口
+                    type: boolean
+      - name: homepage_sections
+        label: 首页板块与顺序
+        type: file
+        path: content/_index.md
+        format: yaml-frontmatter
+        operations:
+          create: false
+          rename: false
+          delete: false
+        fields:
+          - name: title
+            label: 首页标题（选填）
+            type: string
+            description: 当前为空；个人姓名与简介由个人资料控制。
+          - name: summary
+            label: 首页摘要（选填）
+            type: text
+          - name: date
+            label: 首页记录日期
+            type: date
+            readonly: true
+            hidden: true
+            options:
+              format: yyyy-MM-dd
+          - name: type
+            label: 页面类型
+            type: string
+            hidden: true
+            readonly: true
+            default: landing
+          - name: sections
+            label: 首页板块
+            type: block
+            blockKey: block
+            list:
+              min: 1
+              max: 12
+              collapsible:
+                collapsed: true
+                summary: "{index}. {content.title} {content.headings.about} ({id})"
+            description: 拖动调整首页顺序。点开板块修改标题与样式。导航菜单的顺序在“导航菜单”中单独设置。保留已有板块和锚点即可日常维护。
+            blocks:
+              - name: resume-biography-3
+                label: 个人简介
+                fields:
+                  - name: id
+                    label: 板块锚点
+                    type: string
+                    required: true
+                    pattern:
+                      regex: ^[a-z][a-z0-9-]*$
+                      message: 以小写字母开头，只使用小写字母、数字和连字符。
+                    description: 导航链接 /#about 等使用这个值。已有锚点建议保留；每个板块使用不同的值。
+                  - name: ce
+                    label: 编辑器标识（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: As
+                    label: 编辑器关联（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: content
+                    label: 显示内容
+                    type: object
+                    fields:
+                      - name: username
+                        label: 主页作者
+                        type: string
+                        hidden: true
+                        readonly: true
+                        default: me
+                      - name: text
+                        label: 补充简介文字
+                        type: text
+                        description: 留空使用个人资料中的简介；支持 Markdown 链接。
+                      - name: button
+                        label: 简介下方按钮
+                        type: object
+                        fields:
+                          - name: text
+                            label: 按钮文字
+                            type: string
+                          - name: url
+                            label: 按钮链接
+                            type: string
+                      - name: headings
+                        label: 栏目标题
+                        type: object
+                        fields:
+                          - name: about
+                            label: 简介标题
+                            type: string
+                          - name: education
+                            label: 教育经历标题
+                            type: string
+                          - name: interests
+                            label: 研究方向标题
+                            type: string
+                  - name: design
+                    label: 显示样式
+                    type: object
+                    fields:
+                      - name: background
+                        label: 背景
+                        type: object
+                        fields:
+                          - name: gradient_mesh
+                            label: 渐变网格
+                            type: object
+                            fields:
+                              - name: enable
+                                label: 显示渐变网格背景
+                                type: boolean
+                      - name: name
+                        label: 姓名显示
+                        type: object
+                        fields:
+                          - name: size
+                            label: 姓名字号
+                            type: select
+                            options:
+                              values:
+                                - name: xs
+                                  label: 最小
+                                - name: sm
+                                  label: 较小
+                                - name: md
+                                  label: 中等
+                                - name: lg
+                                  label: 较大
+                                - name: xl
+                                  label: 最大
+                      - name: avatar
+                        label: 首页头像
+                        type: object
+                        fields:
+                          - name: size
+                            label: 头像大小
+                            type: select
+                            options:
+                              values:
+                                - name: small
+                                  label: 小
+                                - name: medium
+                                  label: 中
+                                - name: large
+                                  label: 大
+                                - name: xl
+                                  label: 加大
+                                - name: xxl
+                                  label: 最大
+                          - name: shape
+                            label: 头像形状
+                            type: select
+                            options:
+                              values:
+                                - name: circle
+                                  label: 圆形
+                                - name: square
+                                  label: 方形
+                                - name: rounded
+                                  label: 圆角方形
+              - name: resume-experience
+                label: 教育与工作经历
+                fields:
+                  - name: id
+                    label: 板块锚点
+                    type: string
+                    required: true
+                    pattern:
+                      regex: ^[a-z][a-z0-9-]*$
+                      message: 以小写字母开头，只使用小写字母、数字和连字符。
+                    description: 导航链接 /#about 等使用这个值。已有锚点建议保留；每个板块使用不同的值。
+                  - name: ce
+                    label: 编辑器标识（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: As
+                    label: 编辑器关联（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: content
+                    label: 内容来源
+                    type: object
+                    fields:
+                      - name: username
+                        label: 主页作者
+                        type: string
+                        hidden: true
+                        readonly: true
+                        default: me
+                  - name: design
+                    label: 排列方式
+                    type: object
+                    fields:
+                      - name: is_education_first
+                        label: 教育经历排在工作经历之前
+                        type: boolean
+              - name: collection
+                label: 论文列表
+                fields:
+                  - name: id
+                    label: 板块锚点
+                    type: string
+                    required: true
+                    pattern:
+                      regex: ^[a-z][a-z0-9-]*$
+                      message: 以小写字母开头，只使用小写字母、数字和连字符。
+                    description: 导航链接 /#about 等使用这个值。已有锚点建议保留；每个板块使用不同的值。
+                  - name: ce
+                    label: 编辑器标识（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: As
+                    label: 编辑器关联（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: content
+                    label: 显示内容
+                    type: object
+                    fields:
+                      - name: title
+                        label: 板块标题
+                        type: string
+                      - name: text
+                        label: 板块说明
+                        type: text
+                      - name: filters
+                        label: 论文筛选
+                        type: object
+                        fields:
+                          - name: folders
+                            label: 内容目录
+                            type: string
+                            list: true
+                            description: 当前为 publications，包含手工维护和在线新增的论文；通常保留此值。
+                          - name: exclude_featured
+                            label: 排除重点论文
+                            type: boolean
+                            description: 关闭可让重点论文也出现在列表中。
+                      - name: sort_ascending
+                        label: 按日期从早到晚排列
+                        type: boolean
+                        description: 关闭为最近发表的论文在前。
+                  - name: design
+                    label: 列表样式
+                    type: object
+                    fields:
+                      - name: view
+                        label: 列表显示方式
+                        type: select
+                        options:
+                          values:
+                            - name: citation
+                              label: 当前论文引用列表
+              - name: resume-awards
+                label: 基金与奖励
+                fields:
+                  - name: id
+                    label: 板块锚点
+                    type: string
+                    required: true
+                    pattern:
+                      regex: ^[a-z][a-z0-9-]*$
+                      message: 以小写字母开头，只使用小写字母、数字和连字符。
+                    description: 导航链接 /#about 等使用这个值。已有锚点建议保留；每个板块使用不同的值。
+                  - name: ce
+                    label: 编辑器标识（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: As
+                    label: 编辑器关联（保留）
+                    type: string
+                    hidden: true
+                    readonly: true
+                  - name: content
+                    label: 显示内容
+                    type: object
+                    fields:
+                      - name: username
+                        label: 主页作者
+                        type: string
+                        hidden: true
+                        readonly: true
+                        default: me
+                      - name: title
+                        label: 板块标题
+                        type: string
+          - name: body
+            label: 首页正文（保留）
+            type: text
+            hidden: true
+            readonly: true
 settings:
   content:
     merge: true
   commit:
     identity: app
     templates:
-      create: "新增主页内容：{filename}"
-      update: "更新主页内容：{filename}"
-      delete: "删除主页内容：{filename}"
-      rename: "重命名主页内容：{oldFilename} -> {newFilename}"
+      create: 新增主页内容：{filename}
+      update: 更新主页内容：{filename}
+      delete: 删除主页内容：{filename}
+      rename: 重命名主页内容：{oldFilename} -> {newFilename}
