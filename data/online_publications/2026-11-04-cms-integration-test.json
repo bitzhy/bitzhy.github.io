@@ -1,6 +1,6 @@
 {
   "title": "CMS TEST - Temporary entry, not a publication",
-  "draft": true,
+  "draft": false,
   "bibtex": "@article{cmsintegrationtest, title={CMS TEST - Temporary entry, not a publication}, author={Tester, CMS and Duan, Chunhui}, journal={Temporary Integration Test}, year={2026}, month=nov, date={2026-11-03}, pages={1}}",
   "venueShort": "TEMPORARY CMS TEST",
   "pdfUrl": "/papers/online/mw0wsad8-e2kp6zah.pdf",
