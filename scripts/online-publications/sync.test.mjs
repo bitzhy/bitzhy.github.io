@@ -242,6 +242,33 @@ test('migrated papers preserve raw body, raw BibTeX, unknown metadata, zero stri
   assert.equal(await readFile(path.join(root, migration.originalPath), 'utf8'), archive);
 });
 
+test('opaque migration payload survives recursive CMS empty-value sanitization losslessly', async t => {
+  const { root, slug, submission, migration } = await migratedFixture(t);
+  const empty = value => value == null || value === '' || Array.isArray(value) && !value.length || value && typeof value === 'object' && !Object.keys(value).length;
+  const sanitize = value => {
+    if (Array.isArray(value)) return value.map(sanitize).filter(value => !empty(value));
+    if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, value]) => [key, sanitize(value)]).filter(([, value]) => !empty(value)));
+    return value;
+  };
+  const payload = JSON.stringify(migration);
+  const sanitized = sanitize({ ...submission, migration: { version: 1, payload } });
+  assert.equal(sanitized.migration.payload, payload);
+  // Demonstrate why the old nested-object form is unsafe in a live CMS save.
+  assert.deepEqual(sanitize(migration).frontmatter.author_notes, ['Corresponding author']);
+  await writeSource(root, slug, sanitized);
+  assert.equal((await syncPublications({ root })).published, 1);
+  const markdown = await readGenerated(root, slug);
+  assert.ok(markdown.endsWith(migration.body));
+  const front = parseGeneratedJson(markdown, migration.body);
+  assert.deepEqual(front, { ...migration.frontmatter, url: migration.originalUrl, draft: false });
+  assert.deepEqual(front.author_notes, ['', 'Corresponding author']);
+  assert.equal(await readGenerated(root, slug, 'cite.bib'), migration.bibtex);
+  for (const wrapper of [{ version: 1, payload: '' }, { version: 1, payload: '{broken' }, { version: 1, payload: 'x'.repeat(800_001) }]) {
+    await writeSource(root, slug, { ...submission, migration: wrapper });
+    await assert.rejects(syncPublications({ root }), /迁移保护载荷/);
+  }
+});
+
 test('migrated edits update metadata, references and bibliography while preserving abstract attribution', async t => {
   const { root, slug, submission, migration } = await migratedFixture(t);
   await syncPublications({ root });

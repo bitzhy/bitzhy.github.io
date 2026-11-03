@@ -50,6 +50,16 @@ export function isMigratedBackup(markdown) {
 }
 
 export function validateMigration(value, slug, owner = DEFAULT_OWNER) {
+  // CMS recursively removes empty values from objects and arrays on save.
+  // A JSON string keeps positional author-note blanks and all archived source
+  // bytes opaque to that sanitizer. Older unsaved object records still work.
+  if (object(value) && Object.hasOwn(value, 'payload')) {
+    if (value.version !== 1) fail('不支持的迁移包装版本。');
+    if (typeof value.payload !== 'string' || !value.payload.trim()) fail('迁移保护载荷必须是非空 JSON 文字。');
+    if (Buffer.byteLength(value.payload, 'utf8') > 800_000) fail('迁移保护载荷超过 800 KB。');
+    try { value = JSON.parse(value.payload); }
+    catch { fail('迁移保护载荷不是有效的 JSON。'); }
+  }
   if (!object(value) || value.version !== 1) fail('不支持的迁移版本。');
   if (value.originalPath !== `content/publications/${slug}/index.md` || value.originalUrl !== `/publications/${slug}/`) fail('原始目录和页面地址必须与记录文件名一致。');
   if (!object(value.frontmatter) || !object(value.baseline)) fail('缺少原始元数据或字段基线。');
