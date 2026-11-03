@@ -1,128 +1,135 @@
-schema: "hugoblox/author/v1"
-slug: "me"
+schema: hugoblox/author/v1
+slug: me
 is_owner: true
 name:
-  display: "Chunhui Duan"
-  given: "Chunhui"
-  family: "Duan"
-  alternate: "段春晖"
-  pronunciation: ""
-  pronouns: "she/her"
+  display: Chunhui Duan
+  given: Chunhui
+  family: Duan
+  alternate: 段春晖
+  pronouns: she/her
 postnominals:
-  - "PhD"
-  - "THU"
-role: "Associate Professor"
-bio: "I am Chunhui Duan (段春晖), currently an Associate Professor in [School of Computer Science and Technology, Beijing Institute of Technology](https://cs.bit.edu.cn/). Previously, I worked as a postdoc research fellow at Tsinghua University. I received the B.S. and Ph.D. degrees from the School of Software at Tsinghua University, in 2013 and 2018 respectively, supervised by [Prof. Yunhao Liu](https://people.gix.tsinghua.edu.cn/yunhao/index.html).  <br><br>My research interests center on intelligent Internet of Things, multimodal sensing and perception, wireless sensing and mobile computing, and wireless security and privacy.   <br><br>I plan to recruit one Ph.D. student and two M.S. students each year, and welcome outstanding undergraduate students to join the lab."
+  - PhD
+  - THU
+role: "Associate Professor "
+bio: I am Chunhui Duan (段春晖), currently an Associate Professor in [School of
+  Computer Science and Technology, Beijing Institute of
+  Technology](https://cs.bit.edu.cn/). Previously, I worked as a postdoc
+  research fellow at Tsinghua University. I received the B.S. and Ph.D. degrees
+  from the School of Software at Tsinghua University, in 2013 and 2018
+  respectively, supervised by [Prof. Yunhao
+  Liu](https://people.gix.tsinghua.edu.cn/yunhao/index.html).  <br><br>My
+  research interests center on intelligent Internet of Things, multimodal
+  sensing and perception, wireless sensing and mobile computing, and wireless
+  security and privacy.   <br><br>I plan to recruit one Ph.D. student and two
+  M.S. students each year, and welcome outstanding undergraduate students to
+  join the lab.
 affiliations:
-  - name: "School of Computer Science and Technology, Beijing Institute of Technology"
-    url: "https://cs.bit.edu.cn/"
+  - name: School of Computer Science and Technology, Beijing Institute of Technology
+    url: https://cs.bit.edu.cn/
 links:
-  - icon: "at-symbol"
-    url: "mailto:duanch@bit.edu.cn"
-    label: "E-mail Me"
-  - icon: "academicons/google-scholar"
-    url: "https://scholar.google.com/citations?user=sAY6y4gAAAAJ"
+  - icon: at-symbol
+    url: mailto:duanch@bit.edu.cn
+    label: E-mail Me
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=sAY6y4gAAAAJ
 interests:
-  - "Intelligent Internet of Things"
-  - "Multimodal Sensing and Perception"
-  - "Wireless Sensing and Mobile Computing"
-  - "Wireless Security and Privacy"
+  - Intelligent Internet of Things
+  - Multimodal Sensing and Perception
+  - Wireless Sensing and Mobile Computing
+  - Wireless Security and Privacy
 education:
-  - degree: "Ph.D. in Software Engineering"
-    institution: "School of Software, Tsinghua University"
-    start: "2013-08"
-    end: "2018-06"
-    summary: "I received the Ph.D. degree from the School of Software at Tsinghua University in 2018, supervised by [Prof. Yunhao Liu](https://tns.thss.tsinghua.edu.cn/~yunhao/)."
-  - degree: "B.S. in Computer Software"
-    institution: "School of Software, Tsinghua University"
-    start: "2009-08"
-    end: "2013-06"
-    summary: ""
+  - degree: Ph.D. in Software Engineering
+    institution: School of Software, Tsinghua University
+    start: 2013-08
+    end: 2018-06
+    summary: I received the Ph.D. degree from the School of Software at Tsinghua
+      University in 2018, supervised by [Prof. Yunhao
+      Liu](https://tns.thss.tsinghua.edu.cn/~yunhao/).
+  - degree: B.S. in Computer Software
+    institution: School of Software, Tsinghua University
+    start: 2009-08
+    end: 2013-06
 experience:
-  - role: "Associate Professor"
-    org: "School of Computer Science and Technology, Beijing Institute of Technology"
-    start: "2021-03"
-    end: ""
-    summary: ""
-  - role: "Postdoc Research Fellow"
-    org: "School of Software, Tsinghua University"
-    start: "2018-10"
-    end: "2021-02"
-    summary: "In collaboration with [Prof. Yunhao Liu](https://people.gix.tsinghua.edu.cn/yunhao/index.html)."
-  - role: "Research Assistant"
-    org: "Department of Computing, The Hong Kong Polytechnic University"
-    start: "2016-10"
-    end: "2017-10"
-    summary: "In collaboration with [Dr. Lei Yang](https://www4.comp.polyu.edu.hk/~csyanglei/)."
-  - role: "Reviewer for"
-    org: "IEEE INFOCOM, IEEE MASS, IEEE/ACM TON, IEEE TMC, etc."
-    start: "2013-06"
-    end: ""
-    summary: ""
-skills: []
-languages: []
+  - role: Associate Professor
+    org: School of Computer Science and Technology, Beijing Institute of Technology
+    start: 2021-03
+  - role: Postdoc Research Fellow
+    org: School of Software, Tsinghua University
+    start: 2018-10
+    end: 2021-02
+    summary: In collaboration with [Prof. Yunhao
+      Liu](https://people.gix.tsinghua.edu.cn/yunhao/index.html).
+  - role: Research Assistant
+    org: Department of Computing, The Hong Kong Polytechnic University
+    start: 2016-10
+    end: 2017-10
+    summary: In collaboration with [Dr. Lei
+      Yang](https://www4.comp.polyu.edu.hk/~csyanglei/).
+  - role: Reviewer for
+    org: IEEE INFOCOM, IEEE MASS, IEEE/ACM TON, IEEE TMC, etc.
+    start: 2013-06
 awards:
-  - title: "Research on Multi-Dimensional Security Authentication Technologies for RFID-Enabled Logistics Scenarios (面向物流场景的多维度RFID安全认证技术研究)"
-    title_en: "Research on Multi-Dimensional Security Authentication Technologies for RFID-Enabled Logistics Scenarios"
-    title_zh: "面向物流场景的多维度RFID安全认证技术研究"
-    category: "Fund"
-    awarder: "Beijing Natural Science Foundation (General Program)"
-    date: "Jan 2026 – Dec 2028"
-    sort_date: "2028-12-31"
+  - title: Research on Multi-Dimensional Security Authentication Technologies for
+      RFID-Enabled Logistics Scenarios (面向物流场景的多维度RFID安全认证技术研究)
+    title_en: Research on Multi-Dimensional Security Authentication Technologies for
+      RFID-Enabled Logistics Scenarios
+    title_zh: 面向物流场景的多维度RFID安全认证技术研究
+    category: Fund
+    awarder: Beijing Natural Science Foundation (General Program)
+    date: Jan 2026 – Dec 2028
+    sort_date: 2028-12-31
     summary: "**Principal Investigator**<br>RMB 200K"
-    icon: ""
-  - title: "Research on Theory and Methodology of Indoor Localization Through RFID and Computer Vision Technology (基于射频识别和计算机视觉技术的室内定位理论和方法研究)"
-    title_en: "Research on Theory and Methodology of Indoor Localization Through RFID and Computer Vision Technology"
-    title_zh: "基于射频识别和计算机视觉技术的室内定位理论和方法研究"
-    category: "Fund"
-    awarder: "National Natural Science Foundation of China"
-    date: "Jan 2020 – Dec 2022"
-    sort_date: "2022-12-31"
+  - title: Research on Theory and Methodology of Indoor Localization Through RFID
+      and Computer Vision Technology (基于射频识别和计算机视觉技术的室内定位理论和方法研究)
+    title_en: Research on Theory and Methodology of Indoor Localization Through RFID
+      and Computer Vision Technology
+    title_zh: 基于射频识别和计算机视觉技术的室内定位理论和方法研究
+    category: Fund
+    awarder: National Natural Science Foundation of China
+    date: Jan 2020 – Dec 2022
+    sort_date: 2022-12-31
     summary: "**Principal Investigator**<br>RMB 270K"
-    icon: ""
-  - title: "Indoor Object Tracking Based on the Fusion of RFID and Computer Vision Technology (融合射频识别和计算机视觉技术的目标追踪方法研究)"
-    title_en: "Indoor Object Tracking Based on the Fusion of RFID and Computer Vision Technology"
-    title_zh: "融合射频识别和计算机视觉技术的目标追踪方法研究"
-    category: "Fund"
-    awarder: "China Postdoctoral Science Foundation"
-    date: "May 2019 – Feb 2021"
-    sort_date: "2021-02-28"
+  - title: Indoor Object Tracking Based on the Fusion of RFID and Computer Vision
+      Technology (融合射频识别和计算机视觉技术的目标追踪方法研究)
+    title_en: Indoor Object Tracking Based on the Fusion of RFID and Computer Vision
+      Technology
+    title_zh: 融合射频识别和计算机视觉技术的目标追踪方法研究
+    category: Fund
+    awarder: China Postdoctoral Science Foundation
+    date: May 2019 – Feb 2021
+    sort_date: 2021-02-28
     summary: "**Principal Investigator**<br>RMB 80K"
-    icon: ""
-  - title: "面向智慧出行的城市群智感知验证系统"
-    title_en: "Crowdsensing Verification System for Smart Urban Mobility"
-    title_zh: "面向智慧出行的城市群智感知验证系统"
-    category: "Fund"
-    awarder: "National Key R&D Program of China"
-    date: "Dec 2019 – Dec 2022"
-    sort_date: "2022-12-31"
+  - title: 面向智慧出行的城市群智感知验证系统
+    title_en: Crowdsensing Verification System for Smart Urban Mobility
+    title_zh: 面向智慧出行的城市群智感知验证系统
+    category: Fund
+    awarder: National Key R&D Program of China
+    date: Dec 2019 – Dec 2022
+    sort_date: 2022-12-31
     summary: "**Backbone Participant**<br>RMB 1.61M"
-    icon: ""
-  - title: "面向工业生产环境的非传感器感知和多媒体信息自适应感知技术"
-    title_en: "Non-sensor Sensing and Adaptive Multimedia Information Sensing Technologies for Industrial Production Environments"
-    title_zh: "面向工业生产环境的非传感器感知和多媒体信息自适应感知技术"
-    category: "Fund"
-    awarder: "National Key R&D Program of China"
-    date: "Oct 2017 – Sep 2021"
-    sort_date: "2021-09-30"
+  - title: 面向工业生产环境的非传感器感知和多媒体信息自适应感知技术
+    title_en: Non-sensor Sensing and Adaptive Multimedia Information Sensing
+      Technologies for Industrial Production Environments
+    title_zh: 面向工业生产环境的非传感器感知和多媒体信息自适应感知技术
+    category: Fund
+    awarder: National Key R&D Program of China
+    date: Oct 2017 – Sep 2021
+    sort_date: 2021-09-30
     summary: "**Participant**"
-    icon: ""
-  - title: "Second Prize, Science and Technology Innovation Award, China Association for Promotion of Science and Technology Industrialization"
-    category: "Award"
-    awarder: "China Association for Promotion of Science and Technology Industrialization"
+  - title: Second Prize, Science and Technology Innovation Award, China Association
+      for Promotion of Science and Technology Industrialization
+    category: Award
+    awarder: China Association for Promotion of Science and Technology Industrialization
     date: "2025"
-    summary: "6/13"
-    icon: ""
-  - title: "Advisor of BIT Excellent Master's Thesis Award"
-    category: "Award"
-    awarder: "Beijing Institute of Technology"
+    summary: 6/13
+  - title: Advisor of BIT Excellent Master's Thesis Award
+    category: Award
+    awarder: Beijing Institute of Technology
     date: "2025"
-    summary: "Advisor of Jiawei Xue"
-    icon: ""
-  - title: "Graduate Students Under My Supervision Have Received Multiple Honors, Including National Scholarships and BIT Outstanding Graduate Awards"
-    category: "Award"
-    awarder: ""
-    summary: ""
-    icon: ""
+    summary: Advisor of Jiawei Xue
+  - title: Graduate Students Under My Supervision Have Received Multiple Honors,
+      Including National Scholarships and BIT Outstanding Graduate Awards
+    category: Award
 ids:
-  google_scholar: "sAY6y4gAAAAJ"
+  google_scholar: sAY6y4gAAAAJ
+avatar: /media/authors/me.png
