@@ -1,0 +1,30 @@
+{
+  "title": "2D Phase-Based RFID Localization for On-Site Landslide Monitoring",
+  "draft": true,
+  "date": "2022-07-26",
+  "type": "article-journal",
+  "authors": [
+    {
+      "name": "Arthur Charléty"
+    },
+    {
+      "name": "Mathieu Le Breton"
+    },
+    {
+      "name": "Eric Larose"
+    },
+    {
+      "name": "Laurent Baillet"
+    }
+  ],
+  "venue": "Remote Sensing",
+  "venueShort": "Remote Sensing",
+  "volume": "14",
+  "issue": "15",
+  "pages": "3577",
+  "doi": "10.3390/rs14153577",
+  "casRank": "中科院二区",
+  "rankingBasis": "中科院二区 · 2025 版大类 · Remote Sensing\nhttps://www.egi.cas.cn/yjsjy/pygl/zxjj/202509/P020250930713332295627.pdf",
+  "abstract": "Passive radio-frequency identification (RFID) was recently used to monitor landslide displacement at a high spatio-temporal resolution but only measured 1D displacement. This study demonstrates the tracking of 2D displacements, using an array of antennas connected to an RFID interrogator. Ten tags were deployed on a landslide for 12 months and 2D relative localization was performed using a phase-of-arrival approach. A period of landslide activity was monitored through RFID and displacements were confirmed by reference measurements. The tags showed displacements of up to 1.2 m over the monitored period. The centimeter-scale accuracy of the technique was confirmed experimentally and theoretically for horizontal localization by developing a measurement model that included antenna and tag positions, as well as multipath interference. This study confirms that 2D landslide displacement tracking with RFID is feasible at relatively low instrumental and maintenance cost.\n\n*Abstract from the [original publication](<https://doi.org/10.3390/rs14153577>) via Crossref, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Formatting adapted.*",
+  "externalPdfUrl": "https://www.mdpi.com/2072-4292/14/15/3577/pdf?version=1659576738"
+}
