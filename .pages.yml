@@ -41,6 +41,21 @@ content:
       create: true
       rename: false
       delete: true
+    actions:
+      - name: import-publication-by-title
+        label: 按标题添加
+        scope: collection
+        workflow: import-publication.yml
+        ref: current
+        confirm:
+          title: 按标题添加论文
+          message: 从 Crossref 查询论文并创建草稿。完成后在论文列表打开草稿，核对后再发布。
+          button: 查询并生成草稿
+        fields:
+          - name: title
+            label: 论文完整标题或 DOI
+            type: text
+            required: true
     view:
       primary: title
       fields:

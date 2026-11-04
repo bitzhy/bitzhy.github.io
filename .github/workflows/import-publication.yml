@@ -1,0 +1,48 @@
+name: Import publication by title
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS action payload
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check selected branch
+        run: |
+          if [[ "$GITHUB_REF" != 'refs/heads/main' ]]; then
+            echo '请在 main 分支运行论文导入。' >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Match paper and create draft
+        id: draft
+        run: node scripts/online-publications/import-by-title.mjs
+      - name: Save draft to the repository
+        env:
+          DRAFT_PATH: ${{ steps.draft.outputs.path }}
+        run: |
+          git add -- "$DRAFT_PATH"
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Create publication draft from Crossref'
+          if ! git push origin HEAD:refs/heads/main; then
+            echo '无法保存草稿。如果仓库刚有更新，请重新运行导入。' >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const { GITHUB_REPOSITORY, DRAFT_PATH } = process.env;
+          const editUrl = `https://app.pagescms.org/${GITHUB_REPOSITORY}/main/collection/online_publications/edit/${encodeURIComponent(DRAFT_PATH)}`;
+          console.log(`草稿已保存。[打开草稿](${editUrl})`);
+          NODE
