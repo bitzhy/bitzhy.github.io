@@ -192,11 +192,16 @@ content:
       - name: pdfUrl
         label: 论文 PDF
         type: file
+        description: 上传或选择站内 PDF。填写后优先使用这个文件。
         options:
           media: papers
           extensions:
             - pdf
           rename: random
+      - name: externalPdfUrl
+        label: 外部 PDF 链接
+        type: string
+        description: 按标题导入时会尝试填写公开 PDF 地址。没有站内 PDF 时，网站使用这个 HTTPS 链接。
       - name: slidesUrl
         label: 报告幻灯片
         type: file
@@ -219,6 +224,7 @@ content:
       - name: abstract
         label: 论文摘要
         type: text
+        description: 按标题导入时会尝试从公开来源填写摘要。发布前可以核对或补充。
       - name: citationEnglish
         label: 自定义英文引用（选填）
         type: text

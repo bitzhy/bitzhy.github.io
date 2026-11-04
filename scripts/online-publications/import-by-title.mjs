@@ -9,7 +9,7 @@ const crossrefWorks = 'https://api.crossref.org/works';
 const doiPattern = /^10\.\d{4,9}\/[^\s\u0000-\u001f\u007f]+$/i;
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const publicationTypes = new Map([['journal-article', 'article-journal'], ['proceedings-article', 'paper-conference']]);
-const metadataFields = ['DOI', 'title', 'author', 'type', 'container-title', 'short-container-title', 'published', 'published-print', 'published-online', 'issued', 'volume', 'issue', 'page', 'article-number', 'event'];
+const metadataFields = ['DOI', 'title', 'author', 'type', 'container-title', 'short-container-title', 'published', 'published-print', 'published-online', 'issued', 'volume', 'issue', 'page', 'article-number', 'event', 'abstract', 'license'];
 
 const clean = value => typeof value === 'string' ? value.replace(/\s+/gu, ' ').trim() : '';
 const normalizeDoi = value => clean(value).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '').replace(/^doi:\s*/i, '').toLowerCase();
@@ -17,6 +17,75 @@ const plainText = value => clean(clean(value).replace(/<\/?[A-Za-z][^<>]*>/g, ''
 const titleKey = value => plainText(value).normalize('NFKC').toLowerCase()
   .replace(/[’‘]/g, "'").replace(/[“”]/g, '"').replace(/[‐‑‒–—]/g, '-').replace(/\.$/, '');
 const duplicateTitleKey = value => titleKey(value).replace(/[^\p{L}\p{N}]/gu, '');
+const doiPath = doi => doi.split('/').map(encodeURIComponent).join('/');
+
+function abstractLicense(record) {
+  for (const entry of Array.isArray(record.license) ? record.license : []) {
+    const start = Date.parse(entry?.start?.['date-time']);
+    if (entry?.['content-version'] !== 'vor' || !Number.isFinite(start) || start > Date.now()) continue;
+    const license = /^https?:\/\/creativecommons\.org\/(?:licenses\/by\/(1\.0|2\.0|2\.5|3\.0|4\.0)|publicdomain\/zero\/1\.0)\/?$/i.exec(clean(entry.URL));
+    if (license) {
+      const version = license[1];
+      return version
+        ? { label: `CC BY ${version}`, url: `https://creativecommons.org/licenses/by/${version}/` }
+        : { label: 'CC0 1.0', url: 'https://creativecommons.org/publicdomain/zero/1.0/' };
+    }
+  }
+  return null;
+}
+
+function licensedAbstract(record, doi) {
+  if (typeof record.abstract !== 'string' || record.abstract.length > 50_000) return '';
+  const license = abstractLicense(record);
+  if (!license) return '';
+  const entities = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+  const markdownEntities = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '{': '&#123;', '}': '&#125;' };
+  const paragraphs = record.abstract
+    .replace(/<!--[\s\S]*?(?:-->|$)/g, '')
+    .replace(/<(?:script|style)\b[^>]*>[\s\S]*?<\/(?:script|style)\s*>/gi, '')
+    .replace(/<\/?(?:[\w.-]+:)?(?:p|sec|title|br|break|list-item)\b[^<>]*>/gi, '\n\n')
+    .replace(/<\/?[A-Za-z][^<>]*>/g, '')
+    .replace(/&(#x[0-9a-f]{1,6}|#\d{1,7}|amp|lt|gt|quot|apos|nbsp);/gi, (entity, key) => {
+      if (key[0] !== '#') return entities[key.toLowerCase()] ?? entity;
+      const hex = key[1].toLowerCase() === 'x';
+      const code = Number.parseInt(key.slice(hex ? 2 : 1), hex ? 16 : 10);
+      return code <= 0x10ffff && (code < 0xd800 || code > 0xdfff) ? String.fromCodePoint(code) : entity;
+    })
+    .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, '')
+    .split(/\r?\n\s*\r?\n/)
+    .map(clean).filter(Boolean)
+    .map(text => text.replace(/[\\`*_[\]#!|~$]/g, '\\$&')
+      .replace(/[&<>{}]/g, char => markdownEntities[char])
+      .replace(/^([+-])(?=\s|[+-])/g, '\\$1')
+      .replace(/^(\d+)([.)])(?=\s)/, '$1\\$2'));
+  if (!paragraphs.length) return '';
+  const abstract = `${paragraphs.join('\n\n')}\n\n*Abstract from the [original publication](<https://doi.org/${doiPath(doi)}>) via Crossref, [${license.label}](${license.url}). Formatting adapted.*`;
+  return abstract.length <= 200_000 ? abstract : '';
+}
+
+function openAccessPdf(location) {
+  const value = location?.pdf_url;
+  if (location?.is_oa !== true || typeof value !== 'string' || value.length > 2000 ||
+      !/^https:\/\//i.test(value) || /[\\\s\u0000-\u001f\u007f]/u.test(value)) return '';
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password ? url.href : '';
+  } catch { return ''; }
+}
+
+async function lookupOpenAccessPdf(doi, fetcher) {
+  const url = new URL(`https://api.openalex.org/works/https://doi.org/${doiPath(doi)}`);
+  url.searchParams.set('select', 'doi,best_oa_location,locations');
+  try {
+    const response = await fetcher(url, { signal: AbortSignal.timeout(6000) });
+    if (!response.ok) return '';
+    const work = await response.json();
+    if (normalizeDoi(work?.doi) !== doi) return '';
+    const best = openAccessPdf(work.best_oa_location);
+    if (best) return best;
+    return (Array.isArray(work.locations) ? work.locations : []).map(openAccessPdf).find(Boolean) || '';
+  } catch { return ''; }
+}
 
 function publicationDate(record) {
   let year = '';
@@ -35,7 +104,8 @@ function publicationDate(record) {
 async function lookupCrossref(title, doi, fetcher) {
   const url = new URL(doi ? `${crossrefWorks}/${encodeURIComponent(doi)}` : crossrefWorks);
   if (!doi) {
-    url.searchParams.set('query.bibliographic', title);
+    url.searchParams.set('query.title', title);
+    url.searchParams.set('filter', [...publicationTypes.keys()].map(type => `type:${type}`).join(','));
     url.searchParams.set('rows', '20');
     url.searchParams.set('select', metadataFields.join(','));
   }
@@ -154,6 +224,8 @@ export async function importPublicationDraft(inputs, { root = defaultRoot, fetch
     draft.authors = normalizePaper({ ...draft, slug }, owner).authors.map(({ name }) => ({ name }));
   }
   await rejectDuplicates(root, directory, draft, slug, Boolean(doi), owner);
+  draft.abstract = licensedAbstract(record, draft.doi);
+  draft.externalPdfUrl = await lookupOpenAccessPdf(draft.doi, fetcher);
   const filename = `${slug}.json`;
   const populated = Object.fromEntries(Object.entries(draft).filter(([key, value]) => key === 'date' || (Array.isArray(value) ? value.length : value !== '')));
   await writeFile(path.join(directory, filename), `${JSON.stringify(populated, null, 2)}\n`, { encoding: 'utf8', flag: 'wx' });

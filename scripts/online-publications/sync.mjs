@@ -100,6 +100,16 @@ function mergeSubmission(input, stem, owner) {
     if (!migration && (value == null || typeof value === 'string' && !value.trim() || Array.isArray(value) && !value.length)) continue;
     merged[key] = value;
   }
+  if (input.externalPdfUrl != null && typeof input.externalPdfUrl !== 'string') fail('外部 PDF 链接必须是文字。');
+  const externalPdfUrl = input.externalPdfUrl?.trim();
+  if (externalPdfUrl) {
+    const invalidExternalPdf = () => fail('外部 PDF 链接必须是完整的 HTTPS 地址，且不能包含登录信息。');
+    if (!/^https:\/\/[^/]/i.test(externalPdfUrl) || /[\s\\\u0000-\u001f\u007f]/u.test(externalPdfUrl)) invalidExternalPdf();
+    let url;
+    try { url = new URL(externalPdfUrl); } catch { invalidExternalPdf(); }
+    if (url.username || url.password) invalidExternalPdf();
+    if (merged.pdfUrl == null || (typeof merged.pdfUrl === 'string' && !merged.pdfUrl.trim())) merged.pdfUrl = externalPdfUrl;
+  }
   merged.type ||= imported.type || 'article-journal';
   merged.slug = stem;
   const paper = normalizePaper(merged, owner);

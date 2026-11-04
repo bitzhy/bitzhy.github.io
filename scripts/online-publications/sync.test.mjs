@@ -150,6 +150,30 @@ test('uploaded media links, owner alias and aligned author notes render without 
   assert.deepEqual(await readFile(path.join(root, 'static/papers/uploaded paper.pdf')), pdf);
 });
 
+test('external HTTPS PDF renders when no uploaded PDF is selected', async t => {
+  const root = await fixture(t);
+  const localPdf = '/papers/original.pdf';
+  const externalPdfUrl = 'https://example.org/download?id=42';
+  await mkdir(path.join(root, 'static/papers'), { recursive: true });
+  await writeFile(path.join(root, 'static', localPdf), '%PDF-1.4\nfixture\n%%EOF');
+  await writeSource(root, 'local-paper', paper({ pdfUrl: localPdf }));
+  await syncPublications({ root });
+  const original = await readGenerated(root, 'local-paper');
+  await writeSource(root, 'local-paper', paper({ pdfUrl: localPdf, externalPdfUrl }));
+  await syncPublications({ root });
+  assert.equal(await readGenerated(root, 'local-paper'), original);
+  await writeSource(root, 'local-paper', paper({ externalPdfUrl }));
+  const result = await syncPublications({ root });
+  const markdown = await readGenerated(root, 'local-paper');
+  assert.ok(markdown.includes(`type: pdf\n    url: "${externalPdfUrl}"`));
+  assert.ok(!result.warnings.some(warning => warning.includes('未提供 PDF')));
+  for (const invalid of ['http://example.org/file.pdf', 'https://user:secret@example.org/file.pdf', '/papers/original.pdf']) {
+    await writeSource(root, 'local-paper', paper({ externalPdfUrl: invalid }));
+    await assert.rejects(syncPublications({ root }), /外部 PDF 链接必须是完整的 HTTPS 地址/);
+    assert.equal(await readGenerated(root, 'local-paper'), markdown);
+  }
+});
+
 test('missing, mismatched and escaping local media fail before replacing prior generated output', async t => {
   const root = await fixture(t);
   await writeSource(root, 'valid-paper', paper());
