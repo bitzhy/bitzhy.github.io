@@ -1,0 +1,17 @@
+{
+  "title": "Distinctive Image Features from Scale-Invariant Keypoints",
+  "draft": true,
+  "date": "",
+  "type": "article-journal",
+  "authors": [
+    {
+      "name": "David G. Lowe"
+    }
+  ],
+  "venue": "International Journal of Computer Vision",
+  "venueShort": "International Journal of Computer Vision",
+  "volume": "60",
+  "issue": "2",
+  "pages": "91-110",
+  "doi": "10.1023/b:visi.0000029664.99615.94"
+}
