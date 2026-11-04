@@ -1,0 +1,25 @@
+{
+  "title": "WiFi based Multi-User Gesture Recognition",
+  "draft": true,
+  "date": "2021-03-01",
+  "type": "article-journal",
+  "authors": [
+    {
+      "name": "Raghav H. Venkatnarayan"
+    },
+    {
+      "name": "Shakir Mahmood"
+    },
+    {
+      "name": "Muhammad Shahzad"
+    }
+  ],
+  "venue": "IEEE Transactions on Mobile Computing",
+  "venueShort": "IEEE Trans. on Mobile Comput.",
+  "volume": "20",
+  "issue": "3",
+  "pages": "1242-1256",
+  "doi": "10.1109/tmc.2019.2954891",
+  "ccfRank": "CCF-A",
+  "rankingBasis": "CCF-A · CCF 第七版（2026） · IEEE Transactions on Mobile Computing\nhttps://www.ccf.org.cn/Academic_Evaluation/By_category/2026-03-31/870181.shtml"
+}
