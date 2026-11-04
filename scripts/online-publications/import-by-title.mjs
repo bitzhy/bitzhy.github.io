@@ -2,6 +2,8 @@ import { appendFile, lstat, readFile, readdir, realpath, writeFile } from 'node:
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { importBibtex, listPublications, makeSlug, normalizePaper, readOwner } from '../publication-manager/publication.mjs';
+import { lookupCasRank } from './cas-ranks.mjs';
+import { lookupCcfRank } from './ccf-ranks.mjs';
 
 const defaultRoot = fileURLToPath(new URL('../..', import.meta.url));
 const sourceDirectory = 'data/online_publications';
@@ -9,7 +11,7 @@ const crossrefWorks = 'https://api.crossref.org/works';
 const doiPattern = /^10\.\d{4,9}\/[^\s\u0000-\u001f\u007f]+$/i;
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const publicationTypes = new Map([['journal-article', 'article-journal'], ['proceedings-article', 'paper-conference']]);
-const metadataFields = ['DOI', 'title', 'author', 'type', 'container-title', 'short-container-title', 'published', 'published-print', 'published-online', 'issued', 'volume', 'issue', 'page', 'article-number', 'event', 'abstract', 'license'];
+const metadataFields = ['DOI', 'title', 'author', 'type', 'container-title', 'short-container-title', 'published', 'published-print', 'published-online', 'issued', 'volume', 'issue', 'page', 'article-number', 'event', 'abstract', 'license', 'ISSN', 'issn-type'];
 
 const clean = value => typeof value === 'string' ? value.replace(/\s+/gu, ' ').trim() : '';
 const normalizeDoi = value => clean(value).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '').replace(/^doi:\s*/i, '').toLowerCase();
@@ -224,8 +226,20 @@ export async function importPublicationDraft(inputs, { root = defaultRoot, fetch
     draft.authors = normalizePaper({ ...draft, slug }, owner).authors.map(({ name }) => ({ name }));
   }
   await rejectDuplicates(root, directory, draft, slug, Boolean(doi), owner);
+  const ccf = lookupCcfRank(record);
+  const [cas, externalPdfUrl] = await Promise.all([
+    lookupCasRank(root, record),
+    lookupOpenAccessPdf(draft.doi, fetcher),
+  ]);
+  draft.ccfRank = ccf?.rank || '';
+  draft.casRank = cas?.rank || '';
+  const conferenceNote = draft.type === 'paper-conference' ? '（发布前请确认该论文是主会场正式长文）' : '';
+  draft.rankingBasis = [
+    ccf && `${ccf.rank} · CCF 第七版（2026） · ${ccf.venue}${conferenceNote}\n${ccf.source}`,
+    cas && `${cas.rank} · 2025 版大类 · ${cas.venue}\n${cas.source}`,
+  ].filter(Boolean).join('\n\n');
   draft.abstract = licensedAbstract(record, draft.doi);
-  draft.externalPdfUrl = await lookupOpenAccessPdf(draft.doi, fetcher);
+  draft.externalPdfUrl = externalPdfUrl;
   const filename = `${slug}.json`;
   const populated = Object.fromEntries(Object.entries(draft).filter(([key, value]) => key === 'date' || (Array.isArray(value) ? value.length : value !== '')));
   await writeFile(path.join(directory, filename), `${JSON.stringify(populated, null, 2)}\n`, { encoding: 'utf8', flag: 'wx' });

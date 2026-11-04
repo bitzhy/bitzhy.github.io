@@ -1,0 +1,16 @@
+{
+  "journals": [
+    {
+      "title": "IEEE Transactions on Instrumentation and Measurement",
+      "issns": ["0018-9456", "1557-9662"],
+      "rank": "中科院二区",
+      "source": "https://ir.kmmu.edu.cn/Document/Detail/FF76476B9C63A6DD961599836CC066D9.html"
+    },
+    {
+      "title": "Remote Sensing",
+      "issns": ["2072-4292"],
+      "rank": "中科院二区",
+      "source": "https://www.egi.cas.cn/yjsjy/pygl/zxjj/202509/P020250930713332295627.pdf"
+    }
+  ]
+}

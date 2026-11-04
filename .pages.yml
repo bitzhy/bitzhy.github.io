@@ -162,7 +162,7 @@ content:
       - name: ccfRank
         label: CCF 等级
         type: select
-        description: 根据核实的信息选择，不自动推断。
+        description: 按标题导入时匹配 CCF 2026 年第七版。会议按主会场匹配，发布前请确认是正式长文。
         options:
           values:
             - name: ""
@@ -176,7 +176,7 @@ content:
       - name: casRank
         label: 中科院分区
         type: select
-        description: 根据核实的信息选择，不自动推断。
+        description: 按 ISSN 匹配已核实的 2025 版大类分区，只用于期刊。对照表可在网站设置中维护。
         options:
           values:
             - name: ""
@@ -189,6 +189,11 @@ content:
               label: 中科院三区
             - name: 中科院四区
               label: 中科院四区
+      - name: rankingBasis
+        label: 导入时的等级依据
+        type: text
+        readonly: true
+        description: 仅在后台供核对。上方两个等级可以手动修改或清空。
       - name: pdfUrl
         label: 论文 PDF
         type: file
@@ -543,6 +548,46 @@ content:
     label: 网站设置
     type: group
     items:
+      - name: cas_journal_ranks
+        label: 中科院期刊分区对照表
+        type: file
+        path: data/ranking/cas-journals.json
+        format: json
+        fields:
+          - name: journals
+            label: 2025 版大类分区
+            type: object
+            description: 只录入有出处的 2025 版大类分区。每种期刊只保留一条，可填印刷和电子 ISSN。
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{index}. {title}"
+            fields:
+              - name: title
+                label: 期刊全名
+                type: string
+                required: true
+              - name: issns
+                label: ISSN
+                type: string
+                list: true
+                required: true
+                description: 每项一个，例如 0018-9456。
+              - name: rank
+                label: 大类分区
+                type: select
+                required: true
+                options:
+                  values:
+                    - 中科院一区
+                    - 中科院二区
+                    - 中科院三区
+                    - 中科院四区
+              - name: source
+                label: 公开出处
+                type: string
+                required: true
+                description: 填写可核对分区年份和口径的 HTTPS 来源。
       - name: site_navigation
         label: 导航菜单
         type: file

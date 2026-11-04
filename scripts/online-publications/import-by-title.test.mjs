@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { importPublicationDraft } from './import-by-title.mjs';
+import { lookupCcfRank } from './ccf-ranks.mjs';
 
 const source = 'data/online_publications';
 const record = {
@@ -38,7 +39,8 @@ test('a unique title creates a filled draft without guessing the publication day
     if (url.hostname === 'api.openalex.org') return new Response(null, { status: 429 });
     assert.equal(url.searchParams.get('query.title'), 'c++ for wireless sensing');
     assert.equal(url.searchParams.get('filter'), 'type:journal-article,type:proceedings-article');
-    assert.match(url.searchParams.get('select'), /,abstract,license$/);
+    const fields = url.searchParams.get('select').split(',');
+    for (const field of ['abstract', 'license', 'ISSN']) assert(fields.includes(field));
     return reply({ items: [{ ...record, DOI: '10.1234/c', title: ['C for Wireless Sensing'] }, record] });
   } });
   assert.deepEqual(hosts, ['api.crossref.org', 'api.openalex.org']);
@@ -81,6 +83,42 @@ test('DOI lookup keeps exact dates and refuses duplicates across both content so
   assert.equal(JSON.parse(before).externalPdfUrl, undefined);
   await assert.rejects(importPublicationDraft(inputs, { root, fetcher }), /DOI 已经存在/);
   assert.equal(await readFile(filename, 'utf8'), before);
+});
+
+test('an imported journal receives the venue rank and an ISSN-matched CAS entry with their sources', async t => {
+  const root = await fixture(t);
+  const rankDir = path.join(root, 'data/ranking');
+  await mkdir(rankDir, { recursive: true });
+  const title = 'IEEE Transactions on Mobile Computing';
+  const sourceUrl = 'https://example.org/2025-major-category';
+  const journals = [{ title, issns: ['1536-1233'], rank: '中科院一区', source: sourceUrl }];
+  const rankFile = path.join(rankDir, 'cas-journals.json');
+  await writeFile(rankFile, JSON.stringify({ journals }));
+  const result = await importPublicationDraft({ title: record.title[0] }, {
+    root,
+    fetcher: async url => {
+      if (url.hostname !== 'api.crossref.org') return new Response('', { status: 404 });
+      assert(url.searchParams.get('select').split(',').includes('ISSN'));
+      return reply({ items: [{ ...record, type: 'journal-article', 'container-title': [title], ISSN: ['1536-1233'] }] });
+    },
+  });
+  const draft = JSON.parse(await readFile(path.join(root, result.path), 'utf8'));
+  assert.equal(draft.ccfRank, 'CCF-A');
+  assert.equal(draft.casRank, '中科院一区');
+  assert.match(draft.rankingBasis, /CCF 第七版（2026）/);
+  assert.match(draft.rankingBasis, /2025 版大类/);
+  assert(draft.rankingBasis.includes(sourceUrl));
+});
+
+test('a CCF main conference rank does not carry over to workshops or posters', () => {
+  const infoCom = {
+    type: 'proceedings-article',
+    'container-title': ['IEEE INFOCOM 2024 - IEEE Conference on Computer Communications'],
+    title: ['A regular conference article'],
+  };
+  assert.equal(lookupCcfRank(infoCom)?.rank, 'CCF-A');
+  assert.equal(lookupCcfRank({ ...infoCom, event: { name: 'IEEE INFOCOM 2024 Workshops' } }), null);
+  assert.equal(lookupCcfRank({ ...infoCom, title: ['Poster: A conference poster'] }), null);
 });
 
 const ccBy = {
